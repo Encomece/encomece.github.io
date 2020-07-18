@@ -208,8 +208,8 @@
                             </div>
                             <div class="col-lg-5 offset-lg-1 d-flex align-items-center">
                                 <div class="benefits-left-img mb-4">
-                                    <img src="http://demos.ui-lib.com/dexam-vue-html/assets/images/landing/service-3/service_3-1.svg"
-                                        data-aos="fade-left" data-aos-duration="1800" alt="">
+                                    <img src="./assets/images/landing/service-3/service_3-1.svg" data-aos="fade-left"
+                                        data-aos-duration="1800" alt="">
                                 </div>
                             </div>
                         </div>
@@ -224,10 +224,10 @@
                                 <p>Having a startup idea? Let's help you in setting it up.</p>
 
                             </div>
-                            <div class="col-md-5 mb-4 mb-lg-0">
-                                <img data-aos="fade-right" src="../assets/images/slider2.svg" alt="" class="aos-init">
+                            <div class="col-md-6 mb-4 mb-lg-0">
+                                <img data-aos="fade-right" src="./assets/images/slider2.svg" alt="" class="aos-init">
                             </div>
-                            <div class="col-md-6 offset-md-1">
+                            <div class="col-md-6 ">
 
                                 <div data-aos="fade-left"
                                     class="product-details-li__content d-flex flex-row align-items-start pl-5 mb-4 mt-4 aos-init">
@@ -386,14 +386,14 @@
 
                                     <div>
                                         <img alt="Card image cap" class="img-responsive w-100 mb-4"
-                                            src="http://demos.ui-lib.com/dexam-vue-html/assets/images/landing/svg/slider6.svg">
+                                            src="./assets/images/slider6.svg">
                                     </div>
                                     <div><img alt="Card image cap" class="img-responsive w-100 mb-4"
-                                            src="http://demos.ui-lib.com/dexam-vue-html/assets/images/landing/svg/slider9.svg">
+                                            src="./assets/images/slider9.svg">
                                     </div>
                                     <div>
                                         <img alt="Card image cap" class="img-responsive w-100 mb-4"
-                                            src="http://demos.ui-lib.com/dexam-vue-html/assets/images/landing/svg/slider8.svg">
+                                            src="./assets/images/slider8.svg">
                                     </div>
                                 </div>
                                 <div class="slick_control_wrap text-center">
@@ -412,7 +412,7 @@
                     </div>
                 </section>
                 <!-- start-services -->
-                <section id="work-wrap" class="light-gray work1Wrap">
+                <section id="work-wrap" class="light-gray">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 section-header mb-5">
@@ -724,7 +724,7 @@
                                         <label for="">
                                             <i class="eva eva-person-outline"></i>
                                         </label>
-                                        <input type="text" name="Name" id="" class="form-control"
+                                        <input type="text" name="name" id="fname" class="form-control"
                                             placeholder="Your Name" required>
 
                                     </div>
@@ -732,7 +732,7 @@
                                         <label for="">
                                             <i class="eva eva-email-outline"></i>
                                         </label>
-                                        <input type="email" required name="email" class="form-control"
+                                        <input type="email" required name="email" id="femail" class="form-control"
                                             placeholder="Your email" aria-describedby="helpId">
 
                                     </div>
@@ -740,18 +740,18 @@
                                         <label for="">
                                             <i class="eva eva-edit-2-outline"></i>
                                         </label>
-                                        <input type="text" required name="subject" class="form-control"
+                                        <input type="text" required name="subject" id="fsubject" class="form-control"
                                             placeholder="Your subject here" aria-describedby="helpId">
                                     </div>
                                     <div class="form-group mb-4 col-md-12">
                                         <label for="">
                                             <i class="eva eva-edit-outline"></i>
                                         </label>
-                                        <textarea class="form-control" placeholder="Your message here" required
-                                            name="message" rows="5"></textarea>
+                                        <textarea class="form-control" id="fmsg" placeholder="Your message here"
+                                            required name="message" rows="5"></textarea>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <button type="submit"
+                                        <button onclick="ajcall()"
                                             class="btn btn-block half-button form-submit-button btn-large btn-gradient">Send
                                             message
                                         </button>
@@ -760,8 +760,8 @@
                             </div>
                             <div data-aos="fade-left" class="col-md-6 align-items-center">
                                 <div class="right-contact-wrap ml-5">
-                                    <img src="http://demos.ui-lib.com/dexam-vue-html/assets/images/landing/svg/contact2.svg"
-                                        class="img-responsive zoom-fade" alt="Image">
+                                    <img src="./assets/images/contact2.svg" class="img-responsive zoom-fade"
+                                        alt="Image">
                                     <!-- <div class="address-wrap mb-4">-->
                                 </div>
                             </div>
@@ -773,7 +773,7 @@
                 <!-- Footer Start -->
                 <div class="flex-grow-1"></div>
 
-                <section class="footer_wrap" id="footer-wrap">
+                <section class="footer_wrap light-gray" id="footer-wrap">
                     <div class="container">
                         <div class="row">
 
@@ -797,7 +797,7 @@
                                 </div>
                             </div>
                             <!-- end of col -->
-                            <div data-aos="fade-up" class="col-md-3 mb-lg-0 mb-md-0 offset-6">
+                            <div data-aos="fade-up" class="col-md-4 mb-lg-0 mb-md-0 offset-5">
                                 <div class="o-hidden text-left">
 
                                     <div class="">
@@ -813,7 +813,8 @@
                                         <div class="address-wrap mb-3">
 
                                             <ul class="list-group list-unstyled">
-                                                <li class=""><i class="eva eva-email-outline mr-2"></i>test@yahoo.com
+                                                <li class=""><i
+                                                        class="eva eva-email-outline mr-2"></i>contact@encomece.com
                                                 </li>
 
                                             </ul>
@@ -834,15 +835,21 @@
 
                                             <div class="social-btns-wrap">
 
-                                                <a class="social-btn text-30 facebook ml-0" href="#"><i
+                                                <a class="social-btn text-30 facebook ml-0"
+                                                    href="https://www.facebook.com/encomece/" target="_blank"><i
                                                         class="eva eva-facebook"></i></a>
 
-                                                <a class="social-btn text-30 twitter" href="#"><i
+                                                <a class="social-btn text-30 twitter"
+                                                    href="https://twitter.com/encomece" target="_blank"><i
                                                         class="eva eva-twitter"></i></a>
 
-                                                <a class="social-btn text-30 google" href="#"><i
-                                                        class="eva eva-google"></i></a>
+                                                <a class="social-btn text-30 linkedin"
+                                                    href="https://www.linkedin.com/company/encomece" target="_blank"><i
+                                                        class="eva eva-linkedin"></i></a>
 
+                                                <a class="social-btn text-30 insta"
+                                                    href="https://www.instagram.com/en_comece/" target="_blank"><i
+                                                        class="fab fa-instagram"></i></a>
                                             </div>
                                         </section>
                                     </div>
@@ -879,6 +886,18 @@
     <script src="./assets/js/vendor/aos.js"></script>
     <script src="./assets/js/es5/script.min.js"></script>
 
+    <script>
+        function ajcall() {
+            $.ajax({
+                method: "GET",
+                url: "https://omega.pythonanywhere.com/contactus/",
+                data: { name: $("#fname"), email: $("#femail"), subject: $("#fsubject"), message: $("#fmsg"), }
+            })
+                .done(function (msg) {
+                    console.log("success")
+                });
+        }
+    </script>
 </body>
 
 

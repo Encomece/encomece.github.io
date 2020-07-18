@@ -9,3 +9,23 @@
 .ico-white{
     color: white;
 }
+
+.footer_wrap .social-wrap .social-btns-wrap .linkedin i {
+    color: rgb(40,103,178);
+    -webkit-text-fill-color: rgb(40,103,178)!important;
+}
+
+.footer_wrap .social-wrap .social-btns-wrap .social-btn.linkedin:before {
+    background-color: rgb(40,103,178);
+}
+
+.footer_wrap .social-wrap .social-btns-wrap .insta i {
+    color: black;
+    font-weight: 700;
+    -webkit-text-fill-color: black;
+}
+
+.footer_wrap .social-wrap .social-btns-wrap .social-btn.insta:before {
+    /* background-color: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); */
+    background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
