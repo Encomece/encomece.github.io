@@ -36,7 +36,7 @@
     <!-- Pre Loader end  -->
 
     <div class="app-landing-wrap landing_wrap ">
-        <div id="landing_wrap" class="landing-gradient-red-sunset">
+        <div id="landing_wrap" class="landing-gradient-cristal-clear">
 
 
 
@@ -751,10 +751,10 @@
                                             required name="message" rows="5"></textarea>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <button onclick="ajcall()"
-                                            class="btn btn-block half-button form-submit-button btn-large btn-gradient">Send
+                                        <!-- <button id="fsubmit" class="btn btn-block btn-large btn-gradient">Send
                                             message
-                                        </button>
+                                        </button> -->
+                                        <a id="fsubmit" class="btn">Send</a>
                                     </div>
                                 </form>
                             </div>
@@ -887,16 +887,18 @@
     <script src="./assets/js/es5/script.min.js"></script>
 
     <script>
-        function ajcall() {
-            $.ajax({
-                method: "GET",
-                url: "https://omega.pythonanywhere.com/contactus/",
-                data: { name: $("#fname"), email: $("#femail"), subject: $("#fsubject"), message: $("#fmsg"), }
-            })
-                .done(function (msg) {
-                    console.log("success")
-                });
-        }
+        $('#fsubmit').click(
+            function () {
+                $.ajax({
+                    method: "GET",
+                    url: "https://omega.pythonanywhere.com/contactus/",
+                    data: { name: $("#fname").val(), email: $("#femail").val(), subject: $("#fsubject").val(), message: $("#fmsg").val(), }
+                })
+                    .done(function (msg) {
+                        console.log("success")
+                    });
+            }
+        )
     </script>
 </body>
 
