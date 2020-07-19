@@ -29,3 +29,11 @@
     /* background-color: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); */
     background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
 }
+
+.intro-wrap:after {
+    content: "";
+    display: block;
+    background: url(./assets/images/landing/Bg/Bg_03.png) bottom no-repeat;
+    background-size: cover;
+    bottom: -8px;
+}
