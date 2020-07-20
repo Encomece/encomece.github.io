@@ -866,7 +866,7 @@
             function () {
                 $.ajax({
                     method: "GET",
-                    url: "https://omega.pythonanywhere.com/contactus/",
+                    url: "http://localhost:8000/contactus/",
                     data: { name: $("#fname").val(), email: $("#femail").val(), subject: $("#fsubject").val(), message: $("#fmsg").val(), }
                 })
                     .done(function (msg) {
