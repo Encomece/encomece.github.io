@@ -26,6 +26,7 @@
         </div>
     </div>
     <!-- Pre Loader end  -->
+
     <div class="app-landing-wrap landing_wrap ">
         <div id="landing_wrap" class="landing-gradient-cristal-clear">
             <!--=============== Header start ================-->
@@ -646,17 +647,18 @@
                                     <p></p>
 
                                 </div>
-                                <div *ngif="success" class="alert alert-success alert-dismissible fade show"
+                                <div id="falert" *ngif="success" class="alert alert-success alert-dismissible fade show"
                                     role="alert"
-                                    [@animate]="{value:'*',params:{y:'-120px',opacity:'0',delay:'100ms', duration: '400ms'}}">
-                                    <button type="button" class="close" (click)="success=false">
+                                    [@animate]="{value:'*',params:{y:'-120px',opacity:'0',delay:'100ms', duration: '400ms'}}"
+                                    style="display: none;">
+                                    <!-- <button type="button" class="close" (click)="success=false">
                                         <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <strong>Your Message Sent succefully</strong>
+                                    </button> -->
+                                    <strong id="fmsg">Your Message Sent succefully</strong>
                                 </div>
 
 
-                                <form class="row form" role="form">
+                                <form class="row form" role="form" id="fform">
                                     <div class="form-group mb-4 col-md-6">
                                         <label for="">
                                             <i class="eva eva-person-outline"></i>
@@ -833,18 +835,27 @@
         $('#fsubmit').click(
             function () {
                 $.ajax({
-                        method: "GET",
-                        url: "https://omega.pythonanywhere.com/contactus/",
-                        data: {
-                            name: $("#fname").val(),
-                            email: $("#femail").val(),
-                            subject: $("#fsubject").val(),
-                            message: $("#fmsg").val(),
-                        }
-                    })
-                    .done(function (msg) {
-                        console.log("success")
-                    });
+                    method: "GET",
+                    url: "http://localhost:8000/contactus/",
+                    data: {
+                        name: $("#fname").val(),
+                        email: $("#femail").val(),
+                        subject: $("#fsubject").val(),
+                        message: $("#fmsg").val(),
+                    },
+                    success: (function (msg) {
+                        console.log(msg)
+                        // document.getElementById("falert").hidden = false;
+                        $("#fmsg").text(msg)
+                        $("#falert").show()
+                        $("#fform").remove()
+                    }),
+                    error: function (msg) {
+                        $("#fmsg").text(msg)
+                        $("#falert").show()
+                        $("#fform").remove()
+                    }
+                })
             }
         )
     </script>
