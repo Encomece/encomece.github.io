@@ -663,8 +663,8 @@
                                         <label for="">
                                             <i class="eva eva-person-outline"></i>
                                         </label>
-                                        <input type="text" name="name" id="fname" class="form-control"
-                                            placeholder="Your Name" required>
+                                        <input type="text" name="name" id="fname" class="form-control" minlength="1"
+                                            oninvalid="alert('enter a valid name')" placeholder="Your Name" required>
 
                                     </div>
                                     <div class="form-group mb-4 col-md-6">
@@ -672,6 +672,7 @@
                                             <i class="eva eva-email-outline"></i>
                                         </label>
                                         <input type="email" required name="email" id="femail" class="form-control"
+                                            minlength="1" oninvalid="alert('enter a valid email')"
                                             placeholder="Your email" aria-describedby="helpId">
 
                                     </div>
@@ -680,6 +681,7 @@
                                             <i class="eva eva-edit-2-outline"></i>
                                         </label>
                                         <input type="text" required name="subject" id="fsubject" class="form-control"
+                                            oninvalid="alert('enter a valid subject')" minlength="1"
                                             placeholder="Your subject here" aria-describedby="helpId">
                                     </div>
                                     <div class="form-group mb-4 col-md-12">
@@ -834,28 +836,35 @@
     <script>
         $('#fsubmit').click(
             function () {
-                $.ajax({
-                    method: "GET",
-                    url: "http://localhost:8000/contactus/",
-                    data: {
-                        name: $("#fname").val(),
-                        email: $("#femail").val(),
-                        subject: $("#fsubject").val(),
-                        message: $("#fmsg").val(),
-                    },
-                    success: (function (msg) {
-                        console.log(msg)
-                        // document.getElementById("falert").hidden = false;
-                        $("#fmsg").text(msg)
-                        $("#falert").show()
-                        $("#fform").remove()
-                    }),
-                    error: function (msg) {
-                        $("#fmsg").text(msg)
-                        $("#falert").show()
-                        $("#fform").remove()
-                    }
-                })
+                var name = $("#fname").val().trim()
+                var email = $("#femail").val().trim()
+                var subject = $("#fsubject").val().trim()
+                var message = $("#fmsg").val()
+
+                if (document.getElementById("fform").checkValidity()) {
+                    $.ajax({
+                        method: "GET",
+                        url: "https://omega.pythonanywhere.com/contactus/",
+                        data: {
+                            name: name,
+                            email: email,
+                            subject: subject,
+                            message: message,
+                        },
+                        success: (function (msg) {
+                            console.log(msg)
+                            // document.getElementById("falert").hidden = false;
+                            $("#fmsg").text(msg)
+                            $("#falert").show()
+                            $("#fform").remove()
+                        }),
+                        error: function (msg) {
+                            $("#fmsg").text(msg)
+                            $("#falert").show()
+                            $("#fform").remove()
+                        }
+                    })
+                }
             }
         )
     </script>
