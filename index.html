@@ -17,52 +17,31 @@
     <link rel="stylesheet" href="./assets/styles/css/themes/lite-purple.min.css">
     <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="./assets/styles/css/custom_css.css">
-
-
-
-
 </head>
 
 <body class="text-left">
     <!-- Pre Loader Strat  -->
     <div class="loadscreen" id="preloader">
-
         <div class="loader spinner-bubble spinner-bubble-primary">
-
-
-
         </div>
     </div>
     <!-- Pre Loader end  -->
-
     <div class="app-landing-wrap landing_wrap ">
         <div id="landing_wrap" class="landing-gradient-cristal-clear">
-
-
-
-
-
-
             <!--=============== Header start ================-->
             <div class="main-header header-fixed-default" id="home-header">
                 <nav class="navbar container w-100 navbar-expand-lg navbar-transparent bg-transparent">
-
-
                     <div class="logo">
                         <img src="./assets/images/logo_white.png" alt="">
                     </div>
-
                     <div class="menu-toggle navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
-
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
                         <div style="margin: auto"></div>
-
                         <div class="header-part-right">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
@@ -82,22 +61,11 @@
                                     <a class="scroll-to nav-link m-2" href="#contacts-wrap">Contact Us</a>
                                 </li>
                             </ul>
-
-
-
                         </div>
                     </div>
                 </nav>
-
             </div>
-
             <!--=============== Header End ================-->
-
-
-
-
-
-
 
 
             <!-- ============ Main content start ============= -->
@@ -307,7 +275,7 @@
                                         <div class="left_icon float-left w-20 p-3 text-center">
                                             <i class="fas fa-user-tie"></i>
                                         </div>
-                                        <div class="right_content w-70 float-left p-3">
+                                        <div class="right_content w-70 float-left p-3" style="margin-left: 20px;">
                                             <h4 class="card-title font-weight-bold">Hire Virtual Employee</h4>
                                             <p class="card-text">Hire our employees to get your work done. Our task
                                                 experts will work as a virtual employee for you to drive your
@@ -326,7 +294,7 @@
                                         <div class="left_icon float-left w-20 p-3 text-center">
                                             <i class="fas fa-tasks"></i>
                                         </div>
-                                        <div class="right_content w-70 float-left p-3">
+                                        <div class="right_content w-70 float-left p-3" style="margin-left: 20px;">
                                             <h4 class="card-title font-weight-bold">Micro tasks</h4>
                                             <p class="card-text">List your tasks and we assign you our task experts. We
                                                 take the responsibility for all your micro tasks so that you can
@@ -343,9 +311,9 @@
 
                                     <div class="card-body">
                                         <div class="left_icon float-left w-20 p-3 text-center">
-                                            <i class="fas fa-money-bill-alt"></i>
+                                            <i class="fas fa-coins"></i>
                                         </div>
-                                        <div class="right_content w-70 float-left p-3">
+                                        <div class="right_content w-70 float-left p-3" style="margin-left: 20px;">
                                             <h4 class="card-title font-weight-bold">Pay per task</h4>
                                             <p class="card-text">Paying full salary but having limited work? We at
                                                 Encomece take care of your micro tasks, get the work done and pay for
@@ -364,7 +332,7 @@
                                         <div class="left_icon float-left w-20 p-3 text-center">
                                             <i class="fas fa-check-circle"></i>
                                         </div>
-                                        <div class="right_content w-70 float-left p-3">
+                                        <div class="right_content w-70 float-left p-3" style="margin-left: 20px;">
                                             <h4 class="card-title font-weight-bold">Assurance</h4>
                                             <p class="card-text">We assure you quality work with efficiency and the best
                                                 results possible. Encomece ensures good relations with our
@@ -865,10 +833,15 @@
         $('#fsubmit').click(
             function () {
                 $.ajax({
-                    method: "GET",
-                    url: "https://omega.pythonanywhere.com/contactus/",
-                    data: { name: $("#fname").val(), email: $("#femail").val(), subject: $("#fsubject").val(), message: $("#fmsg").val(), }
-                })
+                        method: "GET",
+                        url: "https://omega.pythonanywhere.com/contactus/",
+                        data: {
+                            name: $("#fname").val(),
+                            email: $("#femail").val(),
+                            subject: $("#fsubject").val(),
+                            message: $("#fmsg").val(),
+                        }
+                    })
                     .done(function (msg) {
                         console.log("success")
                     });
