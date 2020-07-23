@@ -21179,11 +21179,11 @@ select.form-control {
 }
 
 .main-header .logo {
+    padding-left: 20px;
     width: 200px
 }
 
 .main-header .logo img {
-    padding-left: 20px;
     margin: 0 auto;
     display: block
 }
