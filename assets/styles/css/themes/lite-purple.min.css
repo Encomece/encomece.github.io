@@ -21460,7 +21460,8 @@ span.navbar-toggler-icon .eva {
     }
 
     .main-header .logo {
-        width: 60px
+        padding-left: 20px;
+        width: 180px;
     }
 
     .main-header .search-bar {
