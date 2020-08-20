@@ -1,4 +1,4 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="">
 
 
@@ -17,19 +17,31 @@ s<!DOCTYPE html>
     <link rel="stylesheet" href="./assets/styles/css/themes/lite-purple.min.css">
     <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="./assets/styles/css/custom_css.css">
-    <link rel="stylesheet" href="FlexC.css">
-	<style>
-
-.vl {
-  border-left: 2px solid blue;
-  height: 600px;
-  position: absolute;
-  left: 42%;
-  margin-left: -3px;
-  top: 115px;
-  margin-top: -38px;
-}
-	</style>	
+    <link rel="stylesheet" href="./assets/styles/css/timeline_ve.css">
+	<style> 
+        .vertical { 
+            border-left: 3px solid #1976D2;
+			height: 775px;
+			position: absolute;
+			left: 50%;
+        }
+		.dot {
+	height: 12px;
+	width: 12px;
+	background-color: #1976D2;
+	border-radius: 50%;
+	display: inline-block;
+	}
+	@media only screen and (max-width: 700px) 
+	{
+		.Heading
+		{
+			position: relative;
+			left: 299px;
+			top: 200px;
+		}
+	}
+    </style>
 </head>
 
 <body class="text-left">
@@ -40,10 +52,10 @@ s<!DOCTYPE html>
     </div>
     <!-- Pre Loader end  -->
 
-    <div >
+    <div class="app-landing-wrap landing_wrap ">
         <div id="landing_wrap" class="landing-gradient-cristal-clear">
             <!--=============== Header start ================-->
-            <div class="main-header header-fixed-default" id="home-header">
+            <div class="main-header header-fixed-default header-fixed" id="home-header">
                 <nav class="navbar container w-100 navbar-expand-lg navbar-transparent bg-transparent">
                     <div class="logo">
                         <img src="./assets/images/logo_white700.png" alt="">
@@ -59,313 +71,192 @@ s<!DOCTYPE html>
                         <div class="header-part-right">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="scroll-to nav-link m-2" style="font-size: 22px;padding-right: 4.5rem;" href="#features-wrap">Home</a>
+                                    <a class="scroll-to nav-link m-2" href="#features-wrap">Our features</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="scroll-to nav-link m-2" style="font-size: 22px;padding-right: 4.5rem;" href="#product-details-left-image-wrap">About Us</a>
+                                    <a class="scroll-to nav-link m-2" href="#product-details-left-image-wrap">What we
+                                        Provide</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="scroll-to nav-link m-2" style="font-size: 22px;padding-right: 4.5rem;" href="#services-wrap">Contact Us</a>
+                                    <a class="scroll-to nav-link m-2" href="#services-wrap">Our Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="scroll-to nav-link m-2" href="#teams-wrap">Our Team</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="scroll-to nav-link m-2" href="#contacts-wrap">Contact Us</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
             </div>
-            <!--=============== Header End ================-->
+        </div>
+        <!--=============== Header End ================-->
 
 
-            <!-- ============ Main content start ============= -->
-            <div class="main-content-wrap">
+        <!-- ============ Main content start ============= -->
 
-                <!-- intro-section -->
+        <!-- end::intro-section -->
 
-                
-                <!-- end::intro-section -->
+        <!-- start-features -->
 
-                <!-- start-features -->
-                
-                <!-- end::left-img -->
-
-
-                <!-- start::right-img -->
-                
-                <!-- end-services -->
-
-                <!-- start::team -->
-                <!-- <section id="teams-wrap" class="team-wrap p-t-b-80">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 section-header mb-5">
-                                <h2 class="font-weight-bold">Meet our Team</h2>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat ea quam
-                                    laborum,
-                                    ducimus, laboriosam sint dolorum aspernatur libero.</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div data-aos="fade-right" class="col-md-6 col-lg-3 col-sm-6 mb-lg-0 mb-4">
-                                <div class="card card-profile-1 gradient-black-gray text-white">
-                                    <div class="card-body text-center">
-                                        <div class="avatar box-shadow-2 mb-3">
-                                            <img src="./assets/images/landing/faces/15.jpg" alt="">
-                                        </div>
-                                        <h5 class="font-weight-medium card-title m-0 text-white">Jhon Doe</h5>
-                                        <p class="mt-0">UI/UX Designer</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                        <button class="btn half-button btn-gradient">Contact
-                                            Jhon</button>
-                                        <div class="card-socials-simple mt-4">
-
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-twitter twitter"></i>
-                                            </a>
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-google google"></i>
-                                            </a>
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-facebook facebook"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-aos="fade-up" class=" col-md-6 col-lg-3 col-sm-6 mb-lg-0 mb-4">
-                                <div class="card card-profile-1 gradient-black-gray text-white">
-                                    <div class="card-body text-center">
-                                        <div class="avatar box-shadow-2 mb-3">
-                                            <img src="./assets/images/landing/faces/15.jpg" alt="">
-                                        </div>
-                                        <h5 class="font-weight-medium card-title m-0 text-white">Jhon Doe</h5>
-                                        <p class="mt-0">UI/UX Designer</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                        <button class="btn half-button btn-gradient">Contact
-                                            Jhon</button>
-                                        <div class="card-socials-simple mt-4">
-
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-twitter twitter"></i>
-                                            </a>
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-google google"></i>
-                                            </a>
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-facebook facebook"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-aos="fade-up" class="col-md-6 col-lg-3 col-sm-6 mb-lg-0 mb-4">
-                                <div class="card card-profile-1 gradient-black-gray text-white">
-                                    <div class="card-body text-center">
-                                        <div class="avatar box-shadow-2 mb-3">
-                                            <img src="./assets/images/landing/faces/15.jpg" alt="">
-                                        </div>
-                                        <h5 class="font-weight-medium card-title m-0 text-white">Jhon Doe</h5>
-                                        <p class="mt-0">UI/UX Designer</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                        <button class="btn half-button btn-gradient">Contact
-                                            Jhon</button>
-                                        <div class="card-socials-simple mt-4">
-
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-twitter twitter"></i>
-                                            </a>
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-google google"></i>
-                                            </a>
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-facebook facebook"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-aos="fade-left" class="col-md-6 col-lg-3 col-sm-6 mb-lg-0 mb-4">
-                                <div class="card card-profile-1 gradient-black-gray text-white">
-                                    <div class="card-body text-center">
-                                        <div class="avatar box-shadow-2 mb-3">
-                                            <img src="./assets/images/landing/faces/15.jpg" alt="">
-                                        </div>
-                                        <h5 class="font-weight-medium card-title m-0 text-white">Jhon Doe</h5>
-                                        <p class="mt-0">UI/UX Designer</p>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                        <button class="btn half-button btn-gradient">Contact
-                                            Jhon</button>
-                                        <div class="card-socials-simple mt-4">
-
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-twitter twitter"></i>
-                                            </a>
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-google google"></i>
-                                            </a>
-                                            <a href="#" class="text-20 mr-2">
-                                                <i class="eva eva-facebook facebook"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
-                <!-- end::team -->
-
-
-                <!-- start::testimonial -->
-                <!-- end::testimonial -->
-
-                <!-- start::contact-form -->
-                <section style="zoom: 123%;margin-top: 96px;" id="contacts-wrap" class="contact-form-wrap light-gray p-t-b-80">
-                    <div class="container">
-                        <div class="row" style="margin-left: 145px;">
-                            <div data-aos="fade-right" >
-      
-<div style="width: 50%; display: block;margin-left: -118px;">
-<h2 style="margin-left: -2px;">Advertising  Services</h2>
-<p>Minim est exercitation dolore nisi excepteur laborum ut esse aliquip incididunt eiusmod ullamco Lorem. 
-Exercitation qui do ex ipsum fugiat offcia esse.Encomece helps you to make your startup idea successful. 
-Start your dreamstartup with the best consultancy services
-because we will suggest you the best possible things to start with.</p>
-</div>
-<h4 style="margin-left: 420px; margin-top: 75px;">Amazon Product Ads</h4>
-<h4 style="margin-left: 136px;margin-top: 54px;">Creative Advertising</h4>
-<h4 style="margin-left: 420px; margin-top: 52px;">Facebook Ads</h4>
-<h4 style="margin-left: 186px;margin-top: 52px;">Instagram Ads</h4>
-<h4 style="margin-left: 420px;  margin-top: 52px;">Google Adwords</h4>
-<h4 style="margin-left: 212px;margin-top: 52px;">Media Buys</h4>
-<h4 style="margin-left: 420px;margin-top: 53px;">Other Ad Platforms</h4>
-<h4 style="margin-left: 202px; margin-top: 50px;">Youtube Ads</h4>
-<div class="vl" style="display:grid;margin-top: 140px;" >
-	
-	<img src="bing advertisement.svg" width="10px" style="margin-top: 11px;width: 100px;height: 56px;border-radius: 84%;border: solid; margin-left: -31px;background-color: white;border-color: darkorange;"/>
-	<img src="bing advertisement.svg" style="margin-top: 11px;width: 100px;height: 56px;border-radius: 84%;border: solid; margin-left: -31px;background-color: white;border-color: darkorange;"/>
-	<img src="facebook advertising.svg" style="margin-top: 11px;width: 100px;height: 56px;border-radius: 84%;border: solid; margin-left: -31px;background-color: white;border-color: darkorange;"/>
-	<img src="instagram advertising.svg" style="margin-top: 11px;width: 100px;height: 56px;border-radius: 84%;border: solid; margin-left: -31px;background-color: white;border-color: darkorange;"/>
-	<img src="google adwords.svg" style="margin-top: 11px;width: 100px;height: 56px;border-radius: 84%;border: solid; margin-left: -31px;background-color: white;border-color: darkorange;"/>
-	<img src="bing advertisement.svg" style="margin-top: 11px;width: 100px;height: 56px;border-radius: 84%;border: solid; margin-left: -31px;background-color: white;border-color: darkorange;"/>
-	<img src="bing advertisement.svg" style="margin-top: 11px;width: 100px;height: 56px;border-radius: 84%;border: solid; margin-left: -31px;background-color: white;border-color: darkorange;"/>
-	<img src="Youtube Advertising.svg" style="margin-top: 11px;width: 100px;height: 56px;border-radius: 84%;border: solid; margin-left: -31px;background-color: white;border-color: darkorange;"/>
-</div>
-  </div>
-  </div>
-  </div>
-                            
-                </section>
-				
-                <!-- end::contact-form -->
-
-                <!-- Footer Start -->
-                <div class="flex-grow-1"></div>
-
-                <section class="footer_wrap gradient-cristal-clear text-white" id="footer-wrap">
-                    <div class="container">
-                        <div class="row">
-
-
-                            <div data-aos="fade-up" class="col-md-4 mb-4">
-                                <div class="o-hidden text-left">
-
-
-
-                                    <div class="">
-                                        <h4 class="card-title font-weight-bold text-white">Encomece</h4>
-                                        <p class="">Provide you with the best consultation on your startup plan.
-                                            <br>We lend you our best employees who work as a virtual employee for you to
-                                            drive your business and take up ownership of
-                                            your results.
-
-                                        </p>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                            <!-- end of col -->
-                            <div data-aos="fade-up" class="col-md-4" style="padding-bottom: 35px;">
-                                <div class="o-hidden text-left">
-                                    <h4 class="card-title font-weight-bold text-white">Follow Us</h4>
-                                    <br>
-                                    <section class="social-wrap">
-
-                                        <div class="social-btns-wrap">
-
-                                            <a class="social-btn text-30 facebook ml-0"
-                                                href="https://www.facebook.com/encomece/" target="_blank"><i
-                                                    class="eva eva-facebook"></i></a>
-
-                                            <a class="social-btn text-30 twitter" href="https://twitter.com/encomece"
-                                                target="_blank"><i class="eva eva-twitter"></i></a>
-
-                                            <a class="social-btn text-30 linkedin"
-                                                href="https://www.linkedin.com/company/encomece" target="_blank"><i
-                                                    class="eva eva-linkedin"></i></a>
-
-                                            <a class="social-btn text-30 insta"
-                                                href="https://www.instagram.com/en_comece/" target="_blank"><i
-                                                    class="fab fa-instagram"></i></a>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                            <div data-aos="fade-up" class="col-md-4">
-                                <div class="o-hidden text-left">
-
-                                    <div class="">
-                                        <h4 class="card-title font-weight-bold text-white">Contact Info</h4>
-                                        <div class="address-wrap mb-3">
-
-                                            <ul class="list-group list-unstyled">
-                                                <li class=""> <i class="text-white fas fa-map-marker-alt mr-2"></i>
-                                                    India
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                        <div class="address-wrap mb-3">
-
-                                            <ul class="list-group list-unstyled">
-                                                <li class=""><i class="text-white fas fa-envelope mr-2"></i>
-                                                    contact@encomece.com
-                                                </li>
-
-                                            </ul>
-                                        </div>
-
-                                        <div class="address-wrap mb-3">
-
-                                            <ul class="list-group list-unstyled">
-                                                <li class=""><i class="text-white fas fa-phone-alt mr-2"></i>
-                                                    +91 9755497568
-                                                </li>
-
-                                            </ul>
-                                        </div>
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end of col -->
-                        </div>
-                    </div>
-                </section>
-                <!-- end footer -->
-
-                <!-- customizer start -->
-                <!-- Deleted customizer -->
-                <!-- end of customizer -->
+        <section id=""  style="position: relative; top: 67px;right: 174px;">
+            <div class="Heading">
+                <div >
+                    <strong><h2 style="font-size: 4em;position: relative;left: 194px;color: #1976D2;font-weight:900">
+						Advertising Services
+                    </h2></strong>
+                    <p style="padding: 0 10%;width:74%;position:relative;left:6%">
+                       Minim est exercitation dolore nisi excepteur laborum ut esse aliquip incididunt eiusmod ullamco Lorem. Exercitation qui do ex ipsum fugiat offcia esse.Encomece helps you to make your startup idea successful. Start your dreamstartup with the best consultancy services because we will suggest you the best possible things to start with.
+                    </p>
+                </div>
 
             </div>
-            <!-- ============ Main content End ============= -->
+        </section>
+        <!-- end-features -->
+
+        <!-- end::left-img -->
+
+        <section  style="padding: 5%;position: relative;bottom: 194px;">
+            <div class="container-fluid blue-bg">
+                <div class="container">
+				<h4 style="position: relative; top: 19.5pc;left: 37pc;color: #1976D2;font-weight: revert;">Amazon Product Ads</h4>
+					 <h4 style="position: relative;top: 25.6pc;left: 19pc;color: #1976D2;font-weight: revert;">Creative Advertising</h4>
+					 <h4 style="position: relative;top: 31.1pc;left: 37pc;color: #1976D2;font-weight: revert;">Facebook Ads</h4>
+					 <h4 style="position: relative;top: 36.4pc;left: 22pc;color: #1976D2;font-weight: revert;">Instagram Ads</h4>
+					 <h4 style="position: relative;top: 42.1pc;left: 37pc;color: #1976D2;font-weight: revert;">Google Adwords</h4>
+					 <h4 style="position: relative;top: 47.4pc;left: 24pc;color: #1976D2;font-weight: revert;">Media Buys</h4>
+					 <h4 style="position: relative;top: 53.1pc;left: 37pc;color: #1976D2;font-weight: revert;">Other Ad Platforms</h4>
+					 <h4 style="position: relative;top: 58.7pc;left: 23pc;color: #1976D2;font-weight: revert;">Youtube Ads</h4>
+					<span class="dot" style="position: relative;left: 535px;top: 7px;"></span>
+					<span class="dot" style="position: relative;left: 519.3px;top: 978px;"></span>
+					 <div class = "vertical" style="display:grid;zoom:124%">
+					 <div style="display: inherit;position: relative;top: 16px;right:30px">
+					 <img src="bing advertisement.svg" style="background-color:white;width: 12%;border: solid;border-radius: 50%;"/>
+					 <img src="bing advertisement.svg" style="background-color:white;width: 12%;border: solid;border-radius: 50%;"/>
+					 <img src="facebook advertising.svg" style="background-color:white;width:12%;border: solid;border-radius: 50%;"/>
+					 <img src="instagram advertising.svg" style="background-color:white;width:12%;border: solid;border-radius: 50%;"/>
+					 <img src="google adwords.svg" style="background-color:white;width:12%;border: solid;border-radius: 50%;"/>
+					 <img src="Youtube Advertising.svg" style="background-color:white;width:12%;border: solid;border-radius: 50%;"/>
+					 <img src="instagram advertising.svg" style="background-color:white;width:12%;border: solid;border-radius: 50%;"/>
+					 <img src="Youtube Advertising.svg" style="background-color:white;width:12%;border: solid;border-radius: 50%;"/>
+					 </div>        
+					 </div>
+                </div>
+            </div>
+        </section>
+		
+		
+		
+		
+		<section class="footer_wrap gradient-cristal-clear text-white" id="footer-wrap" style="margin-top: 800px;">
+            <div class="container">
+                <div class="row">
+
+
+                    <div data-aos="fade-up" class="col-md-4 mb-4">
+                        <div class="o-hidden text-left">
+
+
+
+                            <div class="">
+                                <h4 class="card-title font-weight-bold text-white">Encomece</h4>
+                                <p class="">Provide you with the best consultation on your startup plan.
+                                    <br>We lend you our best employees who work as a virtual employee for you to
+                                    drive your business and take up ownership of
+                                    your results.
+
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <!-- end of col -->
+                    <div data-aos="fade-up" class="col-md-4" style="padding-bottom: 35px;">
+                        <div class="o-hidden text-left">
+                            <h4 class="card-title font-weight-bold text-white">Follow Us</h4>
+                            <br>
+                            <section class="social-wrap">
+
+                                <div class="social-btns-wrap">
+
+                                    <a class="social-btn text-30 facebook ml-0"
+                                        href="https://www.facebook.com/encomece/" target="_blank"><i
+                                            class="eva eva-facebook"></i></a>
+
+                                    <a class="social-btn text-30 twitter" href="https://twitter.com/encomece"
+                                        target="_blank"><i class="eva eva-twitter"></i></a>
+
+                                    <a class="social-btn text-30 linkedin"
+                                        href="https://www.linkedin.com/company/encomece" target="_blank"><i
+                                            class="eva eva-linkedin"></i></a>
+
+                                    <a class="social-btn text-30 insta" href="https://www.instagram.com/en_comece/"
+                                        target="_blank"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" class="col-md-4">
+                        <div class="o-hidden text-left">
+
+                            <div class="">
+                                <h4 class="card-title font-weight-bold text-white">Contact Info</h4>
+                                <div class="address-wrap mb-3">
+
+                                    <ul class="list-group list-unstyled">
+                                        <li class=""> <i class="text-white fas fa-map-marker-alt mr-2"></i>
+                                            India
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="address-wrap mb-3">
+
+                                    <ul class="list-group list-unstyled">
+                                        <li class=""><i class="text-white fas fa-envelope mr-2"></i>
+                                            contact@encomece.com
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+                                <div class="address-wrap mb-3">
+
+                                    <ul class="list-group list-unstyled">
+                                        <li class=""><i class="text-white fas fa-phone-alt mr-2"></i>
+                                            +91 9755497568
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of col -->
+                </div>
+            </div>
+        </section>
+
+        
+        <!-- end footer -->
+
+        <!-- customizer start -->
+        <!-- Deleted customizer -->
+        <!-- end of customizer -->
+
+    </div>
+    <!-- ============ Main content End ============= -->
 
 
 
 
-        </div>
+    </div>
     </div>
     <!--=============== End app-Landing-wrap ================-->
 
@@ -375,7 +266,7 @@ because we will suggest you the best possible things to start with.</p>
     <script src="./assets/js/vendor/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/vendor/perfect-scrollbar.min.js"></script>
     <script src="./assets/js/vendor/slick.min.js"></script>
-    <script src="./assets/js/es5/scroll.min.js"></script>
+    <!-- <script src="./assets/js/es5/scroll.min.js"></script> -->
     <script src="./assets/js/es5/slick.script.min.js"></script>
     <script src="./assets/js/vendor/aos.js"></script>
     <script src="./assets/js/es5/script.min.js"></script>
