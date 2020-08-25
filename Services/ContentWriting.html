@@ -18,29 +18,55 @@
     <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="./assets/styles/css/custom_css.css">
     <link rel="stylesheet" href="./assets/styles/css/timeline_ve.css">
-	<style> 
-        .vertical { 
-            border-left: 3px solid #1976D2;
-			height: 686px;
-			position: absolute;
-			left: 50%;
+    <style>
+        .wrapper {
+            width: 100%;
         }
-		.dot {
-	height: 12px;
-	width: 12px;
-	background-color: #1976D2;
-	border-radius: 50%;
-	display: inline-block;
-	}
-	@media only screen and (max-width: 700px) 
-	{
-		.Heading
-		{
-			position: relative;
-			left: 299px;
-			top: 200px;
-		}
-	}
+
+        .info {
+            width: 70%;
+            left: 0ch;
+            right: 10ch;
+        }
+
+        .info h2 {
+            padding: 70px 10px 20px;
+            font-family: 'Franklin Gothic Medium';
+            font-size: 40px;
+            color: #1976D2;
+            line-height: 44px;
+        }
+
+        .info p {
+            padding: 0px 10px 20px;
+            font-family: 'arial';
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+
+        .vertical {
+            border-left: 3px solid #1976D2;
+            height: 775px;
+            position: absolute;
+            left: 50%;
+        }
+
+        .dot {
+            height: 12px;
+            width: 12px;
+            background-color: #1976D2;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .Heading {
+                position: relative;
+                left: 299px;
+                top: 200px;
+            }
+        }
     </style>
 </head>
 
@@ -100,55 +126,74 @@
         <!-- end::intro-section -->
 
         <!-- start-features -->
+        <div class="wrapper">
+            <article class="info">
+                <h2>
+                    ContentWriting Services
+                </h2>
 
-        <section id=""  style="position: relative; top: 67px;right: 174px;">
-            <div class="Heading">
-                <div >
-                    <strong><h2 style="font-size: 4em;position: relative;left: 194px;color: #1976D2;font-weight:900">
-						ContentWriting Services
-                    </h2></strong>
-                    <p style="padding: 0 10%;width:74%;position:relative;left:6%">
-                       Minim est exercitation dolore nisi excepteur laborum ut esse aliquip incididunt eiusmod ullamco Lorem. Exercitation qui do ex ipsum fugiat offcia esse.Encomece helps you to make your startup idea successful. Start your dreamstartup with the best consultancy services because we will suggest you the best possible things to start with.
-                    </p>
-                </div>
+                <p>
+                    Minim est exercitation dolore nisi excepteur laborum ut esse aliquip incididunt eiusmod ullamco
+                    Lorem.
+                    Exercitation qui do ex ipsum fugiat offcia esse.Encomece helps you to make your startup
+                    idea successful.
+                    Start your dreamstartup with the best consultancy services because we will
+                    suggest you the best possible things to start with.
+                </p>
+            </article>
+        </div>
 
-            </div>
-        </section>
+
+
         <!-- end-features -->
 
         <!-- end::left-img -->
 
-        <section  style="padding: 5%;position: relative;bottom: 97px;">
+        <section style="padding: 5%;position: relative;bottom: 97px;">
             <div class="container-fluid blue-bg">
                 <div class="container">
-				<h4 style="position: relative; top: 18pc;left: 37pc;color: #1976D2;font-weight: revert;">Blogging</h4>
-					 <h4 style="position: relative;top: 23.5pc;left: 23.7pc;color: #1976D2;font-weight: revert;">CopyWriting</h4>
-					 <h4 style="position: relative;top: 29.2pc;left: 37pc;color: #1976D2;font-weight: revert;">Creative Writing</h4>
-					 <h4 style="position: relative;top: 35.1pc;left: 19pc;color: #1976D2;font-weight: revert;">Editing Proofreading</h4>
-					 <h4 style="position: relative;top: 40.6pc;left: 37pc;color: #1976D2;font-weight: revert;">Web Content Writing</h4>
-					 <h4 style="position: relative;top: 46.4pc;left: 21pc;color: #1976D2;font-weight: revert;">Technical Writing</h4>
-					 <h4 style="position: relative;top: 52.1pc;left: 37pc;color: #1976D2;font-weight: revert;">Ghost Writing</h4>
-					<span class="dot" style="position: relative;left: 535px;top: 7px;"></span>
-					<span class="dot" style="position: relative;left: 519.3px;top: 868px;"></span>
-					 <div class = "vertical" style="display:grid;zoom:124%">
-					 <div style="display: inherit;position: relative;top: 16px;right:30px">
-					 <img src="./assets/images/Services/blogging.svg" style="background-color:white;width: 12%;border: solid;border-radius: 50%;"/>
-					 <img src="./assets/images/Services/ebook writing.svg" style="background-color:white;width: 12%;border: solid;border-radius: 50%;"/>
-					 <img src="./assets/images/Services/creative writing.svg" style="background-color:white;width: 12%;border: solid;border-radius: 50%;"/>
-					 <img src="./assets/images/Services/editing.svg" style="background-color:white;width: 12%;border: solid;border-radius: 50%;"/>
-					 <img src="./assets/images/Services/web content writing.svg" style="background-color:white;width: 12%;border: solid;border-radius: 50%;"/>
-					 <img src="./assets/images/Services/technical writing.svg" style="background-color:white;width: 12%;border: solid;border-radius: 50%;"/>
-					 <img src="./assets/images/Services/web content writing alt.svg" style="background-color:white;width: 12%;border: solid;border-radius: 50%;"/>
-					 </div>
-					 </div>
+                    <h4 style="position: relative; top: 18pc;left: 37pc;color: #1976D2;font-weight: revert;">Blogging
+                    </h4>
+                    <h4 style="position: relative;top: 23.5pc;left: 23.7pc;color: #1976D2;font-weight: revert;">
+                        CopyWriting</h4>
+                    <h4 style="position: relative;top: 29.2pc;left: 37pc;color: #1976D2;font-weight: revert;">Creative
+                        Writing</h4>
+                    <h4 style="position: relative;top: 35.1pc;left: 19pc;color: #1976D2;font-weight: revert;">Editing
+                        Proofreading</h4>
+                    <h4 style="position: relative;top: 40.6pc;left: 37pc;color: #1976D2;font-weight: revert;">Web
+                        Content Writing</h4>
+                    <h4 style="position: relative;top: 46.4pc;left: 21pc;color: #1976D2;font-weight: revert;">Technical
+                        Writing</h4>
+                    <h4 style="position: relative;top: 52.1pc;left: 37pc;color: #1976D2;font-weight: revert;">Ghost
+                        Writing</h4>
+                    <span class="dot" style="position: relative;left: 535px;top: 7px;"></span>
+                    <span class="dot" style="position: relative;left: 519.3px;top: 868px;"></span>
+                    <div class="vertical" style="display:grid;zoom:124%">
+                        <div style="display: inherit;position: relative;top: 16px;right:30px">
+                            <img src="./assets/images/Services/blogging.svg"
+                                style="background-color:white;width: 12%;border: solid;border-radius: 50%;" />
+                            <img src="./assets/images/Services/ebook writing.svg"
+                                style="background-color:white;width: 12%;border: solid;border-radius: 50%;" />
+                            <img src="./assets/images/Services/creative writing.svg"
+                                style="background-color:white;width: 12%;border: solid;border-radius: 50%;" />
+                            <img src="./assets/images/Services/editing.svg"
+                                style="background-color:white;width: 12%;border: solid;border-radius: 50%;" />
+                            <img src="./assets/images/Services/web content writing.svg"
+                                style="background-color:white;width: 12%;border: solid;border-radius: 50%;" />
+                            <img src="./assets/images/Services/technical writing.svg"
+                                style="background-color:white;width: 12%;border: solid;border-radius: 50%;" />
+                            <img src="./assets/images/Services/web content writing alt.svg"
+                                style="background-color:white;width: 12%;border: solid;border-radius: 50%;" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-		
-		
-		
-		
-		<section class="footer_wrap gradient-cristal-clear text-white" id="footer-wrap" style="margin-top: 800px;">
+
+
+
+
+        <section class="footer_wrap gradient-cristal-clear text-white" id="footer-wrap" style="margin-top: 800px;">
             <div class="container">
                 <div class="row">
 
@@ -241,7 +286,7 @@
             </div>
         </section>
 
-        
+
         <!-- end footer -->
 
         <!-- customizer start -->
