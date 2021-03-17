@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/admin_panel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <title>Admin Panel</title>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav1");
+            var y = document.getElementById("myTopnav2");
+            if (x.className === "hidden") {
+                x.className += "_responsive";
+            } else {
+                x.className = "hidden";
+            }
+
+            if (y.className === "hidden2") {
+                y.className += "_responsive2";
+            } else {
+                y.className = "hidden2";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="topnav">
+        <div class="topnav_item">
+            <div>
+                <img src="./Images/Admin_img/logo_white700.png" alt="">
+            </div>
+            <div class="hidden" id="myTopnav1">
+                <input type="text" class="no-outline" placeholder="search">
+            </div>
+            <div class="hidden2" id="myTopnav2">
+                <i class='fas fa-bell' style="font-size:16px;color: white;"></i>
+                &nbsp;
+                <button>LOGOUT</button>
+            </div>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div class="table">
+        <table align="center">
+            <caption>Admin Panel</caption>
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Client Name</th>
+                    <th scope="col">Client Email</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Total active task</th>
+                    <th scope="col">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="center" data-label=""><img src="./Images/Admin_img/Image 6.png" class="img" alt=""></td>
+                    <td data-label="Client Name -">Lorem Ispum</td>
+                    <td data-label="Client Email-">abcxd@2gmail.com</td>
+                    <td data-label="Status-">Active</td>
+                    <td data-label="Total active task-">2</td>
+                    <td data-label="Details-">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
+                </tr>
+                <tr>
+                    <td class="center" data-label=""><img src="./Images/Admin_img/Image 6.png" class="img" alt=""></td>
+                    <td data-label="Client Name">Lorem Ispum</td>
+                    <td data-label="Client Email">abcxd@2gmail.com</td>
+                    <td data-label="Status">Active</td>
+                    <td data-label="Total active task">2</td>
+                    <td data-label="Details">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
+                </tr>
+                <tr>
+                    <td class="center" data-label=""><img src="./Images/Admin_img/Image 6.png" class="img" alt=""></td>
+                    <td data-label="Client Name">Lorem Ispum</td>
+                    <td data-label="Client Email">abcxd@2gmail.com</td>
+                    <td data-label="Status">Active</td>
+                    <td data-label="Total active task">2</td>
+                    <td data-label="Details">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
+                </tr>
+                <tr>
+                    <td class="center" data-label=""><img src="./Images/Admin_img/Image 6.png" class="img" alt=""></td>
+                    <td data-label="Client Name">Lorem Ispum</td>
+                    <td data-label="Client Email">abcxd@2gmail.com</td>
+                    <td data-label="Status">Active</td>
+                    <td data-label="Total active task">2</td>
+                    <td data-label="Details">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
+                </tr>
+                <tr>
+                    <td class="center" data-label=""><img src="./Images/Admin_img/Image 6.png" class="img" alt=""></td>
+                    <td data-label="Client Name">Lorem Ispum</td>
+                    <td data-label="Client Email">abcxd@2gmail.com</td>
+                    <td data-label="Status">Active</td>
+                    <td data-label="Total active task">2</td>
+                    <td data-label="Details">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
+                </tr>
+                <tr>
+                    <td class="center" data-label=""><img src="./Images/Admin_img/Image 6.png" class="img" alt=""></td>
+                    <td data-label="Client Name">Lorem Ispum</td>
+                    <td data-label="Client Email">abcxd@2gmail.com</td>
+                    <td data-label="Status">Active</td>
+                    <td data-label="Total active task">2</td>
+                    <td data-label="Details">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
+                </tr>
+                <tr>
+                    <td class="center" data-label=""><img src="./Images/Admin_img/Image 6.png" class="img" alt=""></td>
+                    <td data-label="Client Name">Lorem Ispum</td>
+                    <td data-label="Client Email">abcxd@2gmail.com</td>
+                    <td data-label="Status">Active</td>
+                    <td data-label="Total active task">2</td>
+                    <td data-label="Details">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

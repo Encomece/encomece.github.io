@@ -1,0 +1,219 @@
+@media screen and (max-width: 600px)
+{
+    .hidden,.hidden2
+    {
+        display: none;
+    }
+    .topnav a.icon
+    {
+        float: right;
+        display: block;
+    }
+}
+    
+@media screen and (max-width: 600px)
+{
+    .hidden_responsive,.hidden2_responsive2
+    {
+        margin-top: 23px;
+        margin-left: 23px;
+        display: block;
+    }
+    .topnav_item
+    {
+        flex-direction: column;
+        align-self: center;
+    }
+    .topnav_item a
+    {
+        position: relative;
+        top: 0;
+        bottom: 0;
+    }
+}
+body 
+{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+.topnav 
+{
+    overflow: hidden;
+    background-color: rgb(17, 29, 91);
+    padding-top: 28px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.topnav_item
+{
+    width: 100%;
+    display: flex;
+    place-content: space-between;
+    padding-right: 23px;
+}
+.topnav a 
+{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.topnav .icon 
+{
+    display: none;
+}
+.topnav img
+{
+    width: 66%;
+    max-width: 140px;
+    padding-left: 21px;
+}  
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom: 1.8px solid #f8f8ff;
+    background-color: rgb(17, 29, 91);
+    width: 250px;
+    color: #f8f8ff;
+    font-size: 13px;
+    font-weight: 500;
+  }
+button
+{
+    background-image: linear-gradient(315deg, #2a2a72 0%, #4169E1 74%);
+    border: none;
+    outline: none;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: whitesmoke;
+    padding-left: 17px;
+    font-size: 8px;
+    padding-right: 17px;
+    border-radius: 23px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    position: relative;
+    bottom: 4px;
+}
+.no-outline:focus {
+    outline: none;
+  }
+::-webkit-input-placeholder
+{ 
+    color: white;
+}
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.25;
+  }
+  .table
+  {
+    text-align: -webkit-center;
+    padding-bottom: 30px;
+  }
+  table {
+    border: 1px solid white;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 14%);
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    table-layout: fixed;
+    font-weight: 500;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    border: 1px solid  #ddd;
+    padding: .35em;
+    font-weight: 500;
+  }
+  .center
+  {
+    text-align: center;
+  }
+  
+  table th,
+  table td {
+    text-align: center; 
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 14px;
+  }
+  @media screen and (min-width: 799px) 
+  {
+    .img
+    {
+      width: 35%;
+      border-radius: 8px;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    table {
+      border: 0;
+    }
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+    .img
+    {
+      width: 20%;
+      border-radius: 8px;
+    }
+  }
+  
