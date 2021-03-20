@@ -2,15 +2,30 @@ import React, { useContext, Fragment, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { AuthContext } from "../../context/authContext";
+import { useHttpClient } from "../../customHooks/http-hook";
 
 //Callback --login with google
 const GoogleLogin = () => {
   const auth = useContext(AuthContext);
-
-  let { token } = useParams();
+  const { sendRequest } = useHttpClient();
+  const { token } = useParams();
   useEffect(() => {
     if (token) {
-      auth.googleLogin(token);
+      console.log(token);
+      sendRequest(process.env.REACT_APP_BASE_URL + "/google/" + token)
+        .then((response) => {
+          console.log(response);
+          auth.login(
+            response.userType,
+            response.userName,
+            response.userEmail,
+            token,
+            response.token
+          );
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }, []);
 

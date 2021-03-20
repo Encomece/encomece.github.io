@@ -10,7 +10,6 @@ import {
   warningColor,
   dangerColor,
   whiteColor,
-  grayColor,
   blackColor,
   hexToRgb,
 } from "../../customStyle.js";
@@ -30,7 +29,7 @@ const sidebarStyle = (theme) => ({
       position: "fixed",
       height: "100%",
     },
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       width: drawerWidth,
       ...boxShadow,
       position: "fixed",
@@ -159,8 +158,9 @@ const sidebarStyle = (theme) => ({
     ...defaultFont,
     margin: "0",
     lineHeight: "30px",
-    fontSize: "14px",
+    fontSize: "16px",
     color: whiteColor,
+    fontFamily: "Playfair Display",
   },
   whiteFont: {
     color: whiteColor,

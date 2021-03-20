@@ -34,7 +34,7 @@ const dashboardRoutes = [
   {
     path: "/:id",
     name: "",
-    icon: ".",
+    icon: "",
     component: TaskDetail,
     layout: "/dash",
   },

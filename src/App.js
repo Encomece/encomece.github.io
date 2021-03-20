@@ -105,10 +105,10 @@ const App = () => {
           <Route path="/auth/reset/:resetToken" exact>
             <ResetPswd />
           </Route>
-          <Route path="/:token" exact>
+          <Route path="/auth/:token" exact>
             <GoogleLogin />
           </Route>
-          <Route path="/confirm/:id" exact>
+          <Route path="/auth/confirm/:id" exact>
             <ConfirmEmail />
           </Route>
           <Route path="/admin" exact>

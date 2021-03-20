@@ -1,6 +1,6 @@
 import React from "react";
 import dashHeaderImg from "../../assets/img/dashHeaderImg.png";
-import MyTask from "./Components/MyTask";
+import MyTask from "../Workspace/Components/MyTask/MyTask";
 import ReviewCard from "./Components/ReviewCard";
 import "./Dashboard.css";
 

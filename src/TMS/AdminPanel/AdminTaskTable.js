@@ -50,9 +50,11 @@ const AdminTaskTable = () => {
   }, []);
 
   const sendTaskDetails = async () => {
+    console.log(select[0]);
     const getTaskDetails = tasks.filter((task) => {
-      return select.rowIds[0] == task.id;
+      return select[0] == task.id;
     });
+
     const data = {
       ...assignedValue,
       ...getTaskDetails[0],
@@ -111,8 +113,11 @@ const AdminTaskTable = () => {
           pageSize={5}
           checkboxSelection
           hideFooterPagination
-          onSelectionChange={(newSelection) => {
-            setSelection(newSelection);
+          hideFooterRowCount
+          hideFooterSelectedRowCount
+          onSelectionModelChange={(newSelection) => {
+            console.log(newSelection.selectionModel);
+            setSelection(newSelection.selectionModel);
           }}
         />
       </div>

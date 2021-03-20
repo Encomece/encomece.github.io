@@ -7,17 +7,21 @@ const appStyle = (theme) => ({
     justifyContent: "space-between",
   },
   mainPanel: {
-    position: "relative",
+    position: "absolute",
     float: "right",
     ...transition,
     maxHeight: "100%",
-    width: "70%",
-    marginLeft: drawerWidth,
+    width: "60%",
+    left: drawerWidth,
+    [theme.breakpoints.down("md")]: {
+      left: "0",
+      width: "70%",
+    },
   },
   content: {
-    marginTop: "70px",
+    marginTop: "30px",
     padding: "30px 15px",
-    minHeight: "calc(100vh - 123px)",
+    minHeight: "calc(100vh - 177px)",
   },
   container,
   map: {

@@ -30,6 +30,7 @@ const ConfirmEmail = () => {
         const response = await sendRequest(
           `${process.env.REACT_APP_BASE_URL}/email/confirm/${params.id}`
         );
+        console.log(response);
         if (response.ok) {
           setSuccessMessage(response.message);
           notify.show(response.message, "success");

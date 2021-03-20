@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "../../css/style.css";
 
+import ProjectIcon from "../../../../assets/img/projectIcon.png";
+
 //Context
 import { AuthContext } from "../../../../../context/authContext";
 import { TaskContext } from "../../../../../context/taskContext";
@@ -25,11 +27,12 @@ const MyTask = () => {
   //Fetching all tasks from mongodb using a custom-hook
   useEffect(() => {
     let mounted = true;
-    sendRequest(
+    var reqLink =
       process.env.REACT_APP_BASE_URL +
-        "/dashboard/workspace/allTasks/" +
-        auth.userId
-    )
+      "/dashboard/workspace/" +
+      (auth.userType === "client" ? "allTasks/" : "VE/task/") +
+      auth.userId;
+    sendRequest(reqLink)
       .then((response) => {
         if (mounted) {
           setTasksList(response);
@@ -43,13 +46,16 @@ const MyTask = () => {
     histoty.push(`/dash/${id}`);
   };
 
+  console.log(auth.userType);
   return (
     <div className="dash-tasklist-container">
       <div className="dash-tasklist-heading">
         <span>MY PROJECTS</span>
       </div>
-      {taskList && taskList.length == 0 ? (
-        <div className="dash-tasklist-task-container">No Task</div>
+      {taskList.message ? (
+        <div className="dash-tasklist-task-container-no-task">
+          <span>{taskList.message}</span>
+        </div>
       ) : (
         <div className="dash-tasklist-task-container">
           {taskList.map &&
@@ -60,6 +66,11 @@ const MyTask = () => {
                     className="dash-tasklist-task last"
                     onClick={() => onClickHandler(index)}
                   >
+                    <img
+                      src={ProjectIcon}
+                      alt="project-icon"
+                      className="dash-myTasks-task-container-img"
+                    />
                     <span>PROJECT {index + 1}</span>
                   </div>
                 );
@@ -69,6 +80,11 @@ const MyTask = () => {
                     className="dash-tasklist-task"
                     onClick={() => onClickHandler(index)}
                   >
+                    <img
+                      src={ProjectIcon}
+                      alt="project-icon"
+                      className="dash-myTasks-task-container-img"
+                    />
                     <span>PROJECT {index + 1}</span>
                   </div>
                 );

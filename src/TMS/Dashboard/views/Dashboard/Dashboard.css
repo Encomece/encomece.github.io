@@ -10,7 +10,7 @@
   justify-content: space-between;
   width: 90%;
   padding: 3%;
-  background-color: rgb(2, 51, 97);
+  background-color: #15124f;
   border-radius: 10px;
   height: 200px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -78,7 +78,7 @@
   border-right: none;
 }
 .dash-dashboard-review-img {
-  width: 40%;
+  width: 60%;
 }
 .dash-dashboard-review-img img {
   width: 100%;
@@ -109,4 +109,47 @@
   margin-top: 2%;
   font-family: Quicksand;
   font-weight: bold;
+  font-size: 1rem;
 }
+
+@media (max-width: 1024px) {
+  .dash-dashboard-heading {
+    font-size: 2rem;
+  }
+  .dash-dashboard-message {
+    font-size: 1rem;
+  }
+  .dash-dashboard-headerImg {
+    width: 280px;
+  }
+  .dash-dashboard-reviewCard-heading span {
+    font-size: 1.3rem;
+  }
+  .dash-dashboard-review-name {
+    font-size: 1rem;
+  }
+  .dash-dashboard-review-message {
+    font-size: 0.8rem;
+  }
+}
+
+/* @media (max-width: 768px) {
+  .dash-dashboard-heading {
+    font-size: 1.7rem;
+  }
+  .dash-dashboard-message {
+    font-size: 0.85rem;
+  }
+  .dash-dashboard-headerImg {
+    width: 250px;
+  }
+  .dash-dashboard-reviewCard-heading span {
+    font-size: 1.1rem;
+  }
+  .dash-dashboard-review-name {
+    font-size: 0.9rem;
+  }
+  .dash-dashboard-review-message {
+    font-size: 0.8rem;
+  }
+} */

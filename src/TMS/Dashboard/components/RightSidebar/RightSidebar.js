@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import PerosnImg from "../../assets/img/PersonImg.png";
 import "./RightSidebar.css";
 
@@ -9,8 +10,20 @@ import { AuthContext } from "../../../context/authContext";
 
 const LeftSidebar = () => {
   const auth = useContext(AuthContext);
+  const history = useHistory();
+
+  const logoutHandler = () => {
+    auth.logout();
+    history.push("/auth");
+  };
+
   return (
     <div className="dash-leftSidebar">
+      <div className="dash-loginBtn">
+        <button className="dash-logout-btn" onClick={logoutHandler}>
+          Logout
+        </button>
+      </div>
       <div className="dash-avatarImg">
         <img src={PerosnImg} alt="person-img" />
       </div>

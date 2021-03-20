@@ -6,19 +6,9 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { TextField } from "formik-material-ui";
 //Material-UI
-import {
-  Button,
-  Box,
-  Typography,
-  Grid,
-  Paper,
-  Avatar,
-  LinearProgress,
-} from "@material-ui/core";
-import DateFnsUtils from "@date-io/date-fns";
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { Button, LinearProgress } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
+import "../Styles/Authentication.css";
 
 //custom-hook
 import { useHttpClient } from "../../customHooks/http-hook";
@@ -78,76 +68,74 @@ const ResetPswd = () => {
   });
 
   return (
-    <Fragment>
-      <Grid>
-        <Paper elevation={15} className="login_container">
-          <Grid align="center">
-            <Avatar style={{ backgroundColor: "green" }}>
-              <LockOutlinedIcon />
-            </Avatar>
-          </Grid>
-          <Box margin={2}>
-            <h2 style={{ fontFamily: "Ubuntu" }}>Forgot your password ?</h2>
-            <Typography style={{ margin: "20px auto" }}>
-              Please Enter your new Password
-            </Typography>
-          </Box>
+    <>
+      <div className="auth-forgot-pswd-container">
+        <h2 style={{ fontFamily: "Ubuntu" }}>Forgot your password ?</h2>
+        <div className="auth-forgot-password-text">
+          Please Enter your new Password
+        </div>
+        <div className="auth-forgot-pswd-form">
           <Formik
             initialValues={{ password: "", confirmPassword: "" }}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
           >
             {({ submitForm, isSubmitting }) => (
-              <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                <Form>
-                  <Box margin={1}>
-                    <Field
-                      component={TextField}
-                      name="password"
-                      type="password"
-                      label="New Password"
-                      helperText="Please Enter New Password"
-                      fullWidth
-                    />
-                  </Box>
-                  <Box margin={1}>
-                    <Field
-                      component={TextField}
-                      name="confirmPassword"
-                      type="password"
-                      label="Confirm Password"
-                      helperText="Please Re-enter Password"
-                      fullWidth
-                    />
-                  </Box>
-                  {isLoading && <LinearProgress />}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    disabled={isSubmitting}
-                    onClick={submitForm}
+              <Form>
+                <div className="auth-feild">
+                  <Field
+                    component={TextField}
+                    name="password"
+                    type="password"
+                    label="New Password"
+                    helperText="Please Enter New Password"
                     fullWidth
-                    style={{ margin: "20px 0 0 0" }}
-                  >
-                    Submit
-                  </Button>
-                  {!!successMessage && (
-                    <Alert severity="success" style={{ margin: "20px 0 0 0" }}>
-                      {successMessage}
-                    </Alert>
-                  )}
-                  {!!errorMessage && (
-                    <Alert severity="error" style={{ margin: "20px 0 0 0" }}>
-                      {errorMessage}
-                    </Alert>
-                  )}
-                </Form>
-              </MuiPickersUtilsProvider>
+                  />
+                </div>
+                <div className="auth-feild">
+                  <Field
+                    component={TextField}
+                    name="confirmPassword"
+                    type="password"
+                    label="Confirm Password"
+                    helperText="Please Re-enter Password"
+                    fullWidth
+                  />
+                </div>
+                {isLoading && (
+                  <div>
+                    <br />
+                    <LinearProgress />
+                    <br />
+                  </div>
+                )}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  disabled={isSubmitting}
+                  onClick={submitForm}
+                  fullWidth
+                  style={{ margin: "20px 0 10px 0" }}
+                >
+                  Change Password
+                </Button>
+                <br />
+                {!!successMessage && (
+                  <Alert severity="success" style={{ margin: "20px 0 0 0" }}>
+                    {successMessage}
+                  </Alert>
+                )}
+                {!!errorMessage && (
+                  <Alert severity="error" style={{ margin: "20px 0 0 0" }}>
+                    {errorMessage}
+                  </Alert>
+                )}
+              </Form>
             )}
           </Formik>
-        </Paper>
-      </Grid>
-    </Fragment>
+        </div>
+      </div>
+    </>
   );
 };
 

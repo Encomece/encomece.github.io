@@ -24,7 +24,7 @@ const hexToRgb = (input) => {
   );
 };
 
-const drawerWidth = (13.6 * window.innerWidth) / 100;
+const drawerWidth = 266;
 const leftSideBarwidth = (15 * window.innerWidth) / 100;
 
 const transition = {

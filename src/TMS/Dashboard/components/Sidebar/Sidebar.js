@@ -10,6 +10,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/Icon";
+import Hidden from "@material-ui/core/Hidden";
 
 import Brand_logo from "../../../assets/img/logo.png";
 
@@ -21,11 +22,14 @@ export default function Sidebar(props) {
   const classes = useStyles();
 
   //Getting props from routes file .
-  const { color, logo, image, logoText, routes } = props;
+  const { color, routes } = props;
 
   // verifies if routeName is the one active (in browser input)
   const location = useLocation();
   function activeRoute(routeName) {
+    if (routeName === "/dash/:id") {
+      return false;
+    }
     return location.pathname === routeName;
   }
 
@@ -85,24 +89,52 @@ export default function Sidebar(props) {
   //Sidebar
   return (
     <div>
-      <Drawer
-        anchor="left"
-        variant="permanent"
-        open
-        classes={{
-          paper: classNames(classes.drawerPaper),
-        }}
-      >
-        {brand}
-        <div className={classes.sidebarWrapper}>{links}</div>
-        <div
-          className={classes.background}
-          style={{
-            backgroundColor: "#2234ae",
-            backgroundImage: "linear-gradient(315deg, #2234ae 0%, #191714 74%)",
+      <Hidden mdUp implementation="css">
+        <Drawer
+          variant="temporary"
+          anchor="right"
+          open={props.open}
+          classes={{
+            paper: classNames(classes.drawerPaper),
           }}
-        />
-      </Drawer>
+          onClose={props.handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+        >
+          {brand}
+          <div className={classes.sidebarWrapper}>{links}</div>
+          <div
+            className={classes.background}
+            style={{
+              backgroundColor: "#2234ae",
+              backgroundImage:
+                "linear-gradient(315deg, #2234ae 0%, #191714 74%)",
+            }}
+          />
+        </Drawer>
+      </Hidden>
+      <Hidden smDown implementation="css">
+        <Drawer
+          anchor="left"
+          variant="permanent"
+          open
+          classes={{
+            paper: classNames(classes.drawerPaper),
+          }}
+        >
+          {brand}
+          <div className={classes.sidebarWrapper}>{links}</div>
+          <div
+            className={classes.background}
+            style={{
+              backgroundColor: "#2234ae",
+              backgroundImage:
+                "linear-gradient(315deg, #2234ae 0%, #191714 74%)",
+            }}
+          />
+        </Drawer>
+      </Hidden>
     </div>
   );
 }

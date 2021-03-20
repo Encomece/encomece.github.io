@@ -3,10 +3,8 @@ import { notify } from "react-notify-toast"; //For pop-up notification
 import { Formik, Form, Field } from "formik"; //Using Formik
 import * as Yup from "yup";
 //Material-UI
-import { Button, Box, Typography, LinearProgress } from "@material-ui/core";
+import { Button, LinearProgress } from "@material-ui/core";
 import { TextField } from "formik-material-ui";
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
 import { Alert } from "@material-ui/lab";
 
 //Http-custom-Hook
@@ -55,7 +53,7 @@ const ResetPswd = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <div className="auth-forgot-pswd-container">
         <h2 style={{ fontFamily: "Ubuntu" }}>Forgot your password ?</h2>
         <div className="auth-forgot-password-text">
@@ -113,7 +111,7 @@ const ResetPswd = () => {
           )}
         </Formik>
       </div>
-    </Fragment>
+    </>
   );
 };
 

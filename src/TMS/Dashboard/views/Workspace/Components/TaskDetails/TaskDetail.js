@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { Formik, Form, Field } from "formik"; //Using Formik
 import { TextField } from "formik-material-ui";
 //Material-ui-core components
 import { LinearProgress, Box, Button } from "@material-ui/core";
+
+import BackLogo from "../../../../../assets/img/backLogo.svg";
 
 //Context
 import { AuthContext } from "../../../../../context/authContext";
@@ -12,18 +14,14 @@ import { TaskContext } from "../../../../../context/taskContext";
 //Custom Hooks
 import { useHttpClient } from "../../../../../customHooks/http-hook";
 
-const TaskDetail = () => {
-  const taskcomments = [
-    {
-      user: "Modassir",
-      comment: "Okay",
-      time: "Febuary 3,2021",
-    },
-  ];
+//css
+import "../../css/style.css";
 
+const TaskDetail = () => {
   //Using context for state update
   const auth = useContext(AuthContext);
   const taskContext = useContext(TaskContext);
+  const history = useHistory();
 
   //States
   const [taskList, setTasksList] = useState([]);
@@ -42,11 +40,12 @@ const TaskDetail = () => {
 
   useEffect(() => {
     let mounted = true;
-    sendRequest(
+    var reqLink =
       process.env.REACT_APP_BASE_URL +
-        "/dashboard/workspace/allTasks/" +
-        auth.userId
-    )
+      "/dashboard/workspace/" +
+      (auth.userType === "client" ? "allTasks/" : "VE/task/") +
+      auth.userId;
+    sendRequest(reqLink)
       .then((response) => {
         if (mounted) {
           setTasksList(response);
@@ -65,14 +64,27 @@ const TaskDetail = () => {
       var data = JSON.parse(formData);
       data = {
         ...data,
+        userId: auth.userId,
+        person: auth.userName,
         taskId: taskList[id].taskId,
         userId: auth.userId,
-        assigned_VE_Id: taskList[id].assigned_VE_Id,
-        person: auth.userName,
-        type: "client",
       };
-      data = JSON.stringify(data);
+      if (auth.userId == "client") {
+        data = {
+          ...data,
+          assigned_VE_Id: taskList[id].assigned_VE_Id,
+          type: "client",
+        };
+      } else {
+        data = {
+          ...data,
+          assignUserId: taskList[id].assignUserId,
+          type: "ve",
+        };
+      }
 
+      data = JSON.stringify(data);
+      console.log(data);
       sendRequest(
         process.env.REACT_APP_BASE_URL + "/dashboard/workspace/task/comments",
         "POST",
@@ -86,20 +98,29 @@ const TaskDetail = () => {
     }, 500);
   };
 
+  const goBackHandler = () => {
+    history.push("/dash/workspace");
+  };
+
   return (
     <div className="dash-taskdetail-container">
       {taskList[id] && (
         <>
           <div className="dash-taskdetail-heading">
-            <span>PROJECT {id}</span>
+            <span>
+              <img src={BackLogo} alt="back" onClick={goBackHandler} />
+            </span>
+            <span>PROJECT {parseInt(id) + 1}</span>
           </div>
           <div className="dash-taskdetail-tasks-container">
             <div className="dash-taskdetail-tablehead">
               <span>Task Name</span>
               <span>Description</span>
               <span className="dash-taskdetail-tablehead-col3">Status</span>
-              <span>Due Date</span>
-              <span>Assigned To</span>
+              <span style={{ textAlign: "center" }}>Due Date</span>
+              <span style={{ textAlign: "center" }}>
+                Assigned {auth.userType === "client" ? "To" : "By"}
+              </span>
             </div>
             <div className="dash-taskdetail-task-container">
               <div className="dash-taskdetail-task-container-contents">
@@ -109,15 +130,23 @@ const TaskDetail = () => {
                 <div className="dash-taskdetail-task-container-col col2">
                   {taskList[id].taskDescription}
                 </div>
-                <div className="dash-taskdetail-task-container-col col3 active">
+                <div
+                  className={`dash-taskdetail-task-container-col col3 ${
+                    taskList[id].status ? "active" : "not-active"
+                  }`}
+                >
                   {taskList[id].status ? "Active" : "Not Active"}
                 </div>
                 <div className="dash-taskdetail-task-container-col col4">
                   {dateHandler(taskList[id].dueDate)}
                 </div>
                 <div className="dash-taskdetail-task-container-col col5">
-                  {taskList[id].assigned_VE_Email
-                    ? taskList[id].assigned_VE_Email
+                  {auth.userType === "client"
+                    ? taskList[id].assigned_VE_Name
+                      ? taskList[id].assigned_VE_Name
+                      : "Not Assigned"
+                    : taskList[id].assignUserName
+                    ? taskList[id].assignUserName
                     : "Not Assigned"}
                 </div>
               </div>
@@ -131,7 +160,7 @@ const TaskDetail = () => {
               <div className="dash-taskcomment-table-head">
                 <span>User</span>
                 <span>Comment</span>
-                <span>Time</span>
+                <span style={{ textAlign: "center" }}>Time</span>
               </div>
               <div className="dash-taskcomment-table-body">
                 {taskList[id].taskComments.map((comments, index) => {
@@ -155,20 +184,15 @@ const TaskDetail = () => {
                   {({ submitForm, isSubmitting }) => (
                     <Form>
                       <div className="formContainer">
-                        <Box margin={1}>
+                        <div className="dash-addComment">
                           <Field
                             component={TextField}
                             name="comment"
                             type="text"
                             fullWidth
                             label="Add a comment"
-                            style={{
-                              backgroundColor: "#dee4f7",
-                              borderRadius: "5px",
-                              paddingBottom: "8px",
-                            }}
                           />
-                        </Box>
+                        </div>
                         {isLoading && <LinearProgress color="secondary" />}
                         <Box margin={1}>
                           <Button

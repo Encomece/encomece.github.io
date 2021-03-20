@@ -58,7 +58,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className={classes.col2}>
+          <div className={classes.col2} style={{ padding: "0 1.5% 0 1.5%" }}>
             <br />
             <br />
             <h1>About Us</h1>
@@ -108,18 +108,20 @@ const Home = () => {
             </div>
             <div className={classes.content}>
               <center>
-                <h2 style={{ fontFamily: "fangsong" }}>
+                <h2 style={{ marginTop: "19px", fontFamily: "fangsong" }}>
                   VIRTUAL EMPLOYEE PROGRAM
                 </h2>
               </center>
-              <p>
+              <p style={{ marginTop: "25px" }}>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
                 illum, quisquam, tempora earum saepe cum aperiam amet, pariatur
                 nisi non repudiandae molestiae eligendi porro obcaecati.
               </p>
               <center>
                 <button className={classes.button}>
-                  <NavLink to="/ve_program">Learn More &nbsp;</NavLink>
+                  <NavLink to="/ve_program" className={classes.link}>
+                    Learn More &nbsp;
+                  </NavLink>
                   <span style={{ fontSize: "16px", fontFamily: "fantasy" }}>
                     &#8594;
                   </span>
@@ -144,7 +146,9 @@ const Home = () => {
               </p>
               <center>
                 <button className={classes.button}>
-                  <NavLink to="/startup_program">Learn More &nbsp;</NavLink>
+                  <NavLink to="/startup_program" className={classes.link}>
+                    Learn More &nbsp;
+                  </NavLink>
                   <span style={{ fontSize: "16px", fontFamily: "fantasy" }}>
                     &#8594;
                   </span>

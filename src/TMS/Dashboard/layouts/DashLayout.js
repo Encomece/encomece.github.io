@@ -12,8 +12,6 @@ import Sidebar from "../components/Sidebar/Sidebar.js";
 import routes from "../routes.js";
 
 import styles from "../assets/jss/material-dashboard-react/layouts/dashLayoutStyle.js";
-import { EmailOutlined } from "@material-ui/icons";
-import { Button } from "@material-ui/core";
 import RightSidebar from "../components/RightSidebar/RightSidebar";
 
 const switchRoutes = (
@@ -46,6 +44,15 @@ export default function DashLayout({ ...rest }) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  const resizeFunction = () => {
+    if (window.innerWidth >= 960) {
+      setMobileOpen(false);
+    }
+  };
+  React.useEffect(() => {
+    window.addEventListener("resize", resizeFunction);
+    return window.removeEventListener("resize", resizeFunction);
+  }, [window]);
 
   return (
     <div className={classes.wrapper}>
@@ -57,7 +64,7 @@ export default function DashLayout({ ...rest }) {
         {...rest}
       />
       <div className={classes.mainPanel}>
-        <Navbar />
+        <Navbar handleDrawerToggle={handleDrawerToggle} />
         <div className={classes.content}>
           <div className={classes.container}>{switchRoutes}</div>
         </div>
