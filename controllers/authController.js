@@ -234,3 +234,23 @@ module.exports.resetPassword = async (req, res, next) => {
     return next(errors);
   }
 };
+
+//get user_details_by_id
+module.exports.getUser = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(id);
+  const user = await UserModel.User.findById(id);
+  if (user) {
+    const jwttoken = createToken(id);
+    const data = {
+      userType: user.local.userType,
+      userName: user.local.name,
+      userEmail: user.local.email,
+      userId: id,
+      token: jwttoken,
+    };
+    res.json(data);
+  } else {
+    res.json({ message: "User Not found", ok: false });
+  }
+};

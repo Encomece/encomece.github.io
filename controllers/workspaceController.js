@@ -384,7 +384,7 @@ module.exports.post_issue_admin = async (req, res, next) => {
   const { task, issueDescription, email } = req.body;
   try {
     await sendEmail(
-      process.env.MAIL_USER,
+      "alimodassir@gmail.com",
       emailTemplates.sendIssue(task, issueDescription, email)
     );
     res.json({ message: "Successfully send", ok: true });
