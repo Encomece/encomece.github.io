@@ -31,7 +31,7 @@ const Header = (props) => {
   }, [location]);
 
   if (NavbarHeading.length == 1) {
-    setNavBarHeading("WORKSHOP");
+    setNavBarHeading("PROJECT DETAILS");
   }
 
   return (

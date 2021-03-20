@@ -14,6 +14,9 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import { TaskContext } from "../context/taskContext";
+import "./AdminPanel.css";
+
+import BrandLogo from "../assets/img/logo.png";
 
 const AdminPanel = () => {
   const { allUsers, setAllUsersHandler } = useContext(TaskContext);
@@ -67,61 +70,63 @@ const AdminPanel = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Admin Panel
+            <img src={BrandLogo} alt="brand-logo" width="150" />
           </Typography>
         </Toolbar>
       </AppBar>
       <br />
       <br />
-      <TableContainer>
-        <Table className={classes.table} aria-label="customized table">
-          <TableHead>
-            <StyledTableRow>
-              <StyledTableCell>
-                <Typography>Sl.No</Typography>
-              </StyledTableCell>
-              <StyledTableCell align="center">
-                <Typography>User Name</Typography>
-              </StyledTableCell>
-              <StyledTableCell align="center">
-                <Typography>User Email</Typography>
-              </StyledTableCell>
-              <StyledTableCell align="center">
-                <Typography>Total Active Task</Typography>
-              </StyledTableCell>
-              <StyledTableCell align="center">
-                <Typography>Details</Typography>
-              </StyledTableCell>
-            </StyledTableRow>
-          </TableHead>
-          <TableBody>
-            {allUsers.map((user, index) => (
-              <StyledTableRow key={user.userId}>
-                <StyledTableCell component="th" scope="row">
-                  {index + 1}
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  {user.userName}
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  {user.userEmail}
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  {user.tasks.length}
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <div
-                    onClick={() => detailsHandler(user.userId)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    Click to get Details
-                  </div>
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <div className="adminPanel">
+        <div className="adminPanel-comp-container">
+          <div className="adminpanel-heading">Admin Panel</div>
+          <div className="dash-myTask-container">
+            <div className="dash-myTask-heading">
+              <div className="dash-myTask-container-heading">
+                <span>Client Details</span>
+              </div>
+            </div>
+            <div className="dash-myTask-tasks-container">
+              <div className="dash-myTask-tablehead">
+                <span>Client Name</span>
+                <span className="dash-myTask-tablehead-col3">Client Email</span>
+                <span style={{ textAlign: "center" }}>Total Active Task</span>
+                <span style={{ textAlign: "center" }}>Details</span>
+              </div>
+              <div className="dash-myTasks-task-container">
+                {allUsers.map((user, index) => {
+                  return (
+                    <div className="dash-myTasks-task-container-contents">
+                      <div className="dash-myTasks-task-container-col col1">
+                        {user.userName}
+                      </div>
+                      <div className="dash-myTasks-task-container-col col3">
+                        {user.userEmail}
+                      </div>
+                      <div
+                        className="dash-myTasks-task-container-col col2"
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        {user.tasks.length}
+                      </div>
+                      <div
+                        className="dash-myTasks-task-container-col col4"
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <div
+                          onClick={() => detailsHandler(user.userId)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          Click to get Details
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
