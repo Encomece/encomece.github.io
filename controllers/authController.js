@@ -238,7 +238,6 @@ module.exports.resetPassword = async (req, res, next) => {
 //get user_details_by_id
 module.exports.getUser = async (req, res, next) => {
   const { id } = req.params;
-  console.log(id);
   const user = await UserModel.User.findById(id);
   if (user) {
     const jwttoken = createToken(id);
