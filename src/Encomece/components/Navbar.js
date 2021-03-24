@@ -1,66 +1,89 @@
-import React, { useState } from "react";
+import React from "react";
+import $ from "jquery";
 import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
-import cx from "classnames";
+import "./Navbar.scss";
 
-import classes from "../assets/css/index_layout.module.css";
+(function ($) {
+  // Begin jQuery
+  $(function () {
+    // DOM ready
+    // If a link has a dropdown, add sub menu toggle.
+    $("nav ul li a:not(:only-child)").click(function (e) {
+      $(this).siblings(".nav-dropdown").toggle();
+      // Close one dropdown when selecting another
+      $(".nav-dropdown").not($(this).siblings()).hide();
+      e.stopPropagation();
+    });
+    // Clicking away from dropdown will remove the dropdown class
+    $("html").click(function () {
+      $(".nav-dropdown").hide();
+    });
+    // Toggle open and close nav styles on click
+    $("#nav-toggle").click(function () {
+      $("nav ul").slideToggle();
+    });
+    // Hamburger to X toggle
+    $("#nav-toggle").on("click", function () {
+      this.classList.toggle("active");
+    });
+  }); // end DOM ready
+})($); // end jQuery
 
-const Navbar = () => {
-  //Moblie-view toggle-menu
-  const [responsive, setResponsive] = useState(false);
-  const onClickHandler = () => {
-    console.log("clicked");
-    setResponsive(!responsive);
-  };
-
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const dropdownShow = () => {
-    setShowDropdown(true);
-  };
-
-  const dropdownHide = () => {
-    setShowDropdown(false);
-  };
-
+const Navbar1 = () => {
   return (
-    <>
-      <div
-        className={
-          responsive ? cx(classes.topnav, classes.responsive) : classes.topnav
-        }
-        id={classes.myTopnav}
-      >
-        <img src={BrandLogo} alt="brandLogo" />
-        <a href="/auth">Sign In</a>
-        <a href="">Team</a>
-        <a href="">Services +</a>
-        <a
-          href=""
-          className={classes.dropdown}
-          onMouseEnter={dropdownShow}
-          onMouseLeave={dropdownHide}
-        >
-          Program +
-        </a>
-        <a href="">Projects</a>
-        <a href="">Home</a>
-        <a
-          href="javascript:void(0);"
-          className={classes.icon}
-          onClick={onClickHandler}
-        >
-          <i className="fa fa-bars"></i>
-        </a>
+    <section className="navigation">
+      <div className="nav-container">
+        <div className="brand">
+          <a href="/">
+            <img src={BrandLogo} alt="logo" width="160" />
+          </a>
+        </div>
+        <nav>
+          <div className="nav-mobile">
+            <a id="nav-toggle" href="#!">
+              <span></span>
+            </a>
+          </div>
+          <ul className="nav-list">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#!">About</a>
+            </li>
+            <li>
+              <a href="#!">Programs</a>
+              <ul className="nav-dropdown">
+                <li>
+                  <a href="/startup_program">Startup Program</a>
+                </li>
+                <li>
+                  <a href="/ve_program">Virtual Employee Program</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#!">Services</a>
+              <ul className="nav-dropdown">
+                <li>
+                  <a href="#!">Marketing</a>
+                </li>
+                <li>
+                  <a href="#!">Content Writing</a>
+                </li>
+                <li>
+                  <a href="#!">Advertisement</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/auth">Sign In</a>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div
-        className={classes.dropdownContent}
-        style={{ display: `${showDropdown ? "flex" : "none"}` }}
-      >
-        <a href="">Projects</a>
-        <a href="">Home</a>
-      </div>
-    </>
+    </section>
   );
 };
 
-export default Navbar;
+export default Navbar1;

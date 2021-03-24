@@ -217,7 +217,10 @@ const AuthForm = () => {
                 )}
                 {!!errorMessage && (
                   <Alert severity="error" style={{ margin: "20px 0 0 0" }}>
-                    {errorMessage}
+                    {errorMessage &&
+                      (errorMessage.length > 200
+                        ? "Signup Attempt Failed"
+                        : errorMessage)}
                   </Alert>
                 )}
               </div>

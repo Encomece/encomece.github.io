@@ -104,7 +104,10 @@ const ResetPswd = () => {
               )}
               {!!errorMessage && (
                 <Alert severity="error" style={{ margin: "20px 0 10px 0" }}>
-                  {errorMessage}
+                  {errorMessage &&
+                    (errorMessage.length > 200
+                      ? "Signup Attempt Failed"
+                      : errorMessage)}
                 </Alert>
               )}
             </Form>

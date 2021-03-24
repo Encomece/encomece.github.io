@@ -69,7 +69,7 @@ const TaskDetail = () => {
         taskId: taskList[id].taskId,
         userId: auth.userId,
       };
-      if (auth.userId == "client") {
+      if (auth.userType == "client") {
         data = {
           ...data,
           assigned_VE_Id: taskList[id].assigned_VE_Id,

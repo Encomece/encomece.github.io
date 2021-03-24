@@ -41,12 +41,12 @@
 .dash-createTask-feild {
   width: 90%;
   background-color: #eff2fc;
-  border: 2px solid #4791db;
+  border: 2px solid #9ac2eb;
   border-radius: 10px;
-  padding: 1%;
+  padding: 0.5% 0 1% 1%;
   margin: 1%;
   font-size: 1rem;
-  color: #4791db;
+  color: #9ac2eb;
 }
 .dash-createTask-button {
   margin: 1%;

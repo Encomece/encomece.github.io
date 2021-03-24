@@ -69,7 +69,7 @@ const ResetPswd = () => {
 
   return (
     <>
-      <div className="auth-forgot-pswd-container">
+      <div className="auth-change-pswd-container">
         <h2 style={{ fontFamily: "Ubuntu" }}>Forgot your password ?</h2>
         <div className="auth-forgot-password-text">
           Please Enter your new Password
@@ -127,7 +127,10 @@ const ResetPswd = () => {
                 )}
                 {!!errorMessage && (
                   <Alert severity="error" style={{ margin: "20px 0 0 0" }}>
-                    {errorMessage}
+                    {errorMessage &&
+                      (errorMessage.length > 200
+                        ? "Signup Attempt Failed"
+                        : errorMessage)}
                   </Alert>
                 )}
               </Form>

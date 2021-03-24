@@ -1,26 +1,18 @@
-import React, { useState, useEffect, useContext, useCallback } from "react";
-import { Link, useHistory } from "react-router-dom";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  withStyles,
-  makeStyles,
-} from "@material-ui/core";
+import React, { useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { TaskContext } from "../context/taskContext";
+import { AuthContext } from "../context/authContext";
+
 import "./AdminPanel.css";
+
+import DummyImage from "../assets/img/Image 6.png";
 
 import BrandLogo from "../assets/img/logo.png";
 
 const AdminPanel = () => {
   const { allUsers, setAllUsersHandler } = useContext(TaskContext);
   const history = useHistory();
+  const auth = useContext(AuthContext);
 
   useEffect(() => {
     const cb = async () => {
@@ -37,43 +29,19 @@ const AdminPanel = () => {
     history.push("/admin/" + id);
   };
 
-  const StyledTableCell = withStyles((theme) => ({
-    head: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-    body: {
-      fontSize: 18,
-    },
-  }))(TableCell);
-
-  const StyledTableRow = withStyles((theme) => ({
-    root: {
-      "&:nth-of-type(odd)": {
-        backgroundColor: theme.palette.action.hover,
-      },
-    },
-  }))(TableRow);
-  const useStyles = makeStyles({
-    table: {
-      minWidth: 500,
-    },
-    tableHeader: {
-      fontSize: "30px",
-    },
-  });
-
-  const classes = useStyles();
+  const logoutHandler = () => {
+    auth.logout();
+    history.push("/");
+  };
 
   return (
     <>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            <img src={BrandLogo} alt="brand-logo" width="150" />
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <div className="adminPanel-navbar">
+        <img src={BrandLogo} alt="brand-logo" width="150" />
+        <button className="logout-btn" onClick={logoutHandler}>
+          LOGOUT
+        </button>
+      </div>
       <br />
       <br />
       <div className="adminPanel">
@@ -87,8 +55,14 @@ const AdminPanel = () => {
             </div>
             <div className="dash-myTask-tasks-container">
               <div className="dash-myTask-tablehead">
+                <span> </span>
                 <span>Client Name</span>
-                <span className="dash-myTask-tablehead-col3">Client Email</span>
+                <span
+                  className="dash-myTask-tablehead-col3"
+                  style={{ width: "30%" }}
+                >
+                  Client Email
+                </span>
                 <span style={{ textAlign: "center" }}>Total Active Task</span>
                 <span style={{ textAlign: "center" }}>Details</span>
               </div>
@@ -96,10 +70,24 @@ const AdminPanel = () => {
                 {allUsers.map((user, index) => {
                   return (
                     <div className="dash-myTasks-task-container-contents">
+                      <div
+                        classname="dash-myTasks-task-container-col col0"
+                        style={{ width: "20%" }}
+                      >
+                        <img
+                          src={DummyImage}
+                          alt="dummyImage"
+                          width="80"
+                          style={{ borderRadius: "10px" }}
+                        />
+                      </div>
                       <div className="dash-myTasks-task-container-col col1">
                         {user.userName}
                       </div>
-                      <div className="dash-myTasks-task-container-col col3">
+                      <div
+                        className="dash-myTasks-task-container-col col3"
+                        style={{ width: "30%" }}
+                      >
                         {user.userEmail}
                       </div>
                       <div

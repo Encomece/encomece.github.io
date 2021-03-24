@@ -11,7 +11,7 @@ body {
   letter-spacing: 1px;
 }
 .tsec2 {
-  z-index: -1;
+  z-index: 0;
 }
 .startup_c {
   z-index: -1;
@@ -29,7 +29,7 @@ body {
   z-index: -1;
 }
 .tsec1 {
-  z-index: -1;
+  z-index: 0;
 }
 @media screen and (min-width: 1058px) {
   #MS {

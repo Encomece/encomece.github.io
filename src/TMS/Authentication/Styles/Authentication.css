@@ -74,13 +74,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
+  padding: 40px 0px 40px 0px;
+  border-radius: 5px;
+  background-color: #eff2fc;
+}
+.auth-change-pswd-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
   margin: 130px auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding: 40px 0px 40px 0px;
   border-radius: 5px;
   background-color: #eff2fc;
 }
+
 .auth-forgot-password-text {
   text-align: center;
   font-family: "Ubuntu";
