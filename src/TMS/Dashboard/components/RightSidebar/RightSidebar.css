@@ -4,7 +4,7 @@
   align-items: center;
   padding: 15px 20px 50px 30px;
   background-color: rgb(221, 217, 217);
-  width: 17.5%;
+  width: 320px;
   height: 100%;
   margin-right: 0;
   position: fixed;
@@ -98,7 +98,7 @@
 
 @media (max-width: 1024px) {
   .dash-leftSidebar {
-    width: 220px;
+    width: 245px;
   }
   .dash-avatarImg {
     width: 110px;

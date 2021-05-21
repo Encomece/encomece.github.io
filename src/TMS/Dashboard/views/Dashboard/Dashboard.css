@@ -8,11 +8,11 @@
 .dash-dashboard-header {
   display: flex;
   justify-content: space-between;
-  width: 90%;
-  padding: 3%;
+  width: 95%;
+  padding: 2% 0 0 3%;
   background-color: #15124f;
   border-radius: 10px;
-  height: 200px;
+  height: 250px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .dash-dashboard-welcome {
@@ -55,7 +55,7 @@
   display: flex;
   background-color: #fff7e4;
   padding: 1%;
-  width: 98%;
+  width: 100%;
   border-radius: 10px 10px 0 0;
 }
 .dash-dashboard-reviewCard-heading span {
@@ -130,6 +130,12 @@
   }
   .dash-dashboard-review-message {
     font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 770px) {
+  .dash-dashboard-header {
+    height: 280px;
   }
 }
 

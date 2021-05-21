@@ -13,6 +13,10 @@
   text-decoration: none;
 }
 
+.carousel {
+  z-index: -5 !important;
+}
+
 @media screen and (max-width: 985px) {
   .topnav a:not(:first-child) {
     display: none;
@@ -94,7 +98,7 @@
     width: 60%;
   }
   .col2 {
-    width: 36%;
+    width: 500px;
     margin-left: 75px;
     margin-top: 20px;
     margin-right: 75px;
@@ -112,7 +116,7 @@
     width: 30%;
   }
   .sec41 {
-    width: 40%;
+    width: 50%;
   }
   .sec42 {
     width: 50%;
@@ -174,7 +178,7 @@
     flex-direction: column;
   }
   .sec41 {
-    width: 90%;
+    width: 100%;
   }
   .sec42 {
     width: 100%;
@@ -183,7 +187,7 @@
   }
   .t_rcards {
     flex-direction: column;
-    margin-top: 160px;
+    margin-top: 20px;
   }
   .dev,
   .des,
@@ -197,6 +201,9 @@
   .blog_s1,
   .blog_s2 {
     width: 100%;
+  }
+  .toolsandR {
+    text-align: center;
   }
 }
 @media screen and (max-width: 670px) {
@@ -365,7 +372,7 @@ body {
 .col2 p {
   word-spacing: 1px;
   line-height: 1.9em;
-  padding: 36px;
+  padding: 27px;
   opacity: 0.6;
 }
 .col2 h1 {
@@ -531,6 +538,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   place-content: center;
+  margin-bottom: 20px;
 }
 .dev {
   border: 1px solid white;

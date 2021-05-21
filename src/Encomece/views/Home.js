@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import Carousel from "react-bootstrap/Carousel";
+
 //Components
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import CarouselMain from "../components/CarouselMain";
 
 //css
 import classes from "../assets/css/index_layout.module.css";
+import "../assets/css/index_layout.module.css";
 import "../assets/css/all.min.css";
 
 //Images
@@ -37,7 +41,10 @@ const Home = () => {
           <div className={classes.col1}>
             <div className={classes.collayout}>
               <div className={classes.logo}>
-                <i className="fas fa-4x fa-users"></i>
+                <i
+                  className="fas fa-users fa-5x"
+                  style={{ color: "green" }}
+                ></i>
                 <h4>Dedicated Teams</h4>
                 <br />
                 <p>
@@ -48,7 +55,10 @@ const Home = () => {
             </div>
             <div className={classes.collayout}>
               <div className={classes.logo}>
-                <i className="fas fa-4x fa-users"></i>
+                <i
+                  className="fas fa-users fa-5x"
+                  style={{ color: "violet" }}
+                ></i>
                 <h4>Best Consulation</h4>
                 <br />
                 <p>
@@ -76,7 +86,7 @@ const Home = () => {
           <div className={classes.col1}>
             <div className={classes.collayout}>
               <div className={classes.logo}>
-                <i className="fas fa-4x fa-users"></i>
+                <i className="fas fa-users fa-5x" style={{ color: "red" }}></i>
                 <h4>Trained Experts</h4>
                 <br />
                 <p>
@@ -87,7 +97,10 @@ const Home = () => {
             </div>
             <div className={classes.collayout}>
               <div className={classes.logo}>
-                <i className="fas fa-4x fa-users"></i>
+                <i
+                  className="fas fa-users fa-5x"
+                  style={{ color: "orange" }}
+                ></i>
                 <h4>Assurance</h4>
                 <br />
                 <p>
@@ -173,76 +186,109 @@ const Home = () => {
       </div>
       <div className={classes.toolsandR}>
         <h1>Tools And Resources</h1>
-        <h2>
+        {/* <h2>
           Browse all
           <i
             style={{ paddingLeft: "12px" }}
             className="fas fa-greater-than"
           ></i>
-        </h2>
-        <div className={classes.t_rcards}>
-          <div className={classes.dev}>
-            <div className={classes.dimg}>
-              <h3>Development</h3>
-            </div>
-            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.....
-              <a className={classes.link} href="">
-                Read More
-              </a>
-            </p>
-          </div>
-          <div className={classes.des}>
-            <div className={classes.deimg}>
-              <h3>Designing</h3>
-            </div>
-            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.....
-              <a className={classes.link} href="">
-                Read More
-              </a>
-            </p>
-          </div>
-          <div className={classes.man}>
-            <div className={classes.mimg}>
-              <h3>Management</h3>
-            </div>
-            <h4>Lorem ipsum dolor sit amet consectetur.</h4>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.....
-              <a className={classes.link} href="">
-                Read More
-              </a>
-            </p>
-            <br />
-          </div>
+        </h2> */}
+        <div>
+          <Carousel fade indicators={false}>
+            <Carousel.Item interval={10000}>
+              <div className={classes.t_rcards}>
+                <div className={classes.dev}>
+                  <div className={classes.dimg}>
+                    <h3>Development</h3>
+                  </div>
+                  <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing
+                    elit.....
+                    <a className={classes.link} href="">
+                      Read More
+                    </a>
+                  </p>
+                </div>
+                <div className={classes.des}>
+                  <div className={classes.deimg}>
+                    <h3>Designing</h3>
+                  </div>
+                  <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing
+                    elit.....
+                    <a className={classes.link} href="">
+                      Read More
+                    </a>
+                  </p>
+                </div>
+                <div className={classes.man}>
+                  <div className={classes.mimg}>
+                    <h3>Management</h3>
+                  </div>
+                  <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing
+                    elit.....
+                    <a className={classes.link} href="">
+                      Read More
+                    </a>
+                  </p>
+                  <br />
+                </div>
+              </div>
+            </Carousel.Item>
+            <Carousel.Item interval={10000}>
+              <div className={classes.t_rcards}>
+                <div className={classes.dev}>
+                  <div className={classes.dimg}>
+                    <h3>Marketing</h3>
+                  </div>
+                  <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing
+                    elit.....
+                    <a className={classes.link} href="">
+                      Read More
+                    </a>
+                  </p>
+                </div>
+                <div className={classes.des}>
+                  <div className={classes.deimg}>
+                    <h3>Content Writing</h3>
+                  </div>
+                  <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing
+                    elit.....
+                    <a className={classes.link} href="">
+                      Read More
+                    </a>
+                  </p>
+                </div>
+                <div className={classes.man}>
+                  <div className={classes.mimg}>
+                    <h3>Advertising</h3>
+                  </div>
+                  <h4>Lorem ipsum dolor sit amet consectetur.</h4>
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing
+                    elit.....
+                    <a className={classes.link} href="">
+                      Read More
+                    </a>
+                  </p>
+                  <br />
+                </div>
+              </div>
+            </Carousel.Item>
+          </Carousel>
         </div>
       </div>
-      <div className={classes.layout6}>
-        <div className={classes.layout_content}>
-          <div>
-            <span className={classes.dot} id={classes.active} onclick=""></span>
-            <span className={classes.dot} onclick=""></span>
-            <span className={classes.dot} onclick=""></span>
-            <span className={classes.dot} onclick=""></span>
-            <span className={classes.dot} onclick=""></span>
-            <span className={classes.dot} onclick=""></span>
-            <span className={classes.dot} onclick=""></span>
-          </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam
-            commodi quis magnam expedita perspiciatis. Ipsum saepe nisi deserunt
-            impedit eos iure magnam delectus quas quos nobis voluptatem odit
-            ducimus magni, deleniti nesciunt, repudiandae molestias? Consequatur
-            illo perspiciatis dignissimos facere non quo, at, ipsum deserunt
-            placeat odio sit reiciendis saepe, eligendi fuga officia vitae atque
-            corporis velit laboriosam! Nemo atque vitae vel labore reiciendis
-            harum ullam eius, similique voluptatibus dolor optio.
-          </p>
-        </div>
-      </div>
+
+      {/* Caraousal Part */}
+      <CarouselMain />
       <div className={classes.blog}>
         <div className={classes.b_heading}>
           <h1>Blog</h1>

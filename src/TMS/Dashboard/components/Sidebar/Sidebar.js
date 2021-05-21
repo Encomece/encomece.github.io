@@ -12,7 +12,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Icon from "@material-ui/core/Icon";
 import Hidden from "@material-ui/core/Hidden";
 
-import Brand_logo from "../../../assets/img/logo.png";
+import Brand_logo from "../../assets/img/logo.png";
 
 import styles from "../../assets/jss/material-dashboard-react/components/sidebarStyle.js";
 

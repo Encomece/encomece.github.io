@@ -46,7 +46,6 @@ const MyTask = () => {
     histoty.push(`/dash/${id}`);
   };
 
-  console.log(auth.userType);
   return (
     <div className="dash-tasklist-container">
       <div className="dash-tasklist-heading">

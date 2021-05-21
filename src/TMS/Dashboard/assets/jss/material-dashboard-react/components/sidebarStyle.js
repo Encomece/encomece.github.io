@@ -129,9 +129,12 @@ const sidebarStyle = (theme) => ({
     textDecoration: "none",
     "&:hover,&:focus,&:visited,&": {
       color: whiteColor,
+      textDecoration: "none",
     },
+    textDecoration: "none",
   },
   itemLink: {
+    textDecoration: "none",
     width: "auto",
     transition: "all 300ms linear",
     margin: "10px 15px 0",

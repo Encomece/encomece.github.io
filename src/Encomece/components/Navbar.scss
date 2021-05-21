@@ -10,8 +10,19 @@ $link-hover-color: #163f7f;
 .navigation {
   height: $nav-height;
   background: $nav-background;
-  position: fixed;
   width: 100%;
+  position: fixed;
+  top: 0px;
+  transition: top 0.3s ease-in-out;
+  z-index: 100;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hide {
+  top: -100px;
 }
 
 // Logo and branding
@@ -19,12 +30,12 @@ $link-hover-color: #163f7f;
   position: absolute;
   padding-left: 20px;
   float: left;
-  line-height: 80px;
+  line-height: 60px;
   font-size: 1.4em;
   a,
   a:visited {
     color: $nav-font-color;
-    text-decoration: none;
+    text-decoration: none !important;
   }
 }
 
@@ -51,7 +62,10 @@ nav {
         line-height: $nav-height;
         background: $nav-background;
         color: $nav-font-color;
-        text-decoration: none;
+        text-decoration: none !important;
+        font-family: "Ubuntu";
+        font-weight: bold;
+
         &:hover {
           background: $link-hover-color;
           color: $nav-font-color;
@@ -123,6 +137,7 @@ nav {
     display: block !important;
   }
 }
+
 #nav-toggle {
   position: absolute;
   left: 18px;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import $ from "jquery";
 import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
 import "./Navbar.scss";
@@ -30,8 +30,21 @@ import "./Navbar.scss";
 })($); // end jQuery
 
 const Navbar1 = () => {
+  const [active, setActive] = useState(true);
+  const handleScroll = () => {
+    if (window.pageYOffset > 2500) {
+      setActive(false);
+    } else {
+      setActive(true);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
   return (
-    <section className="navigation">
+    <section className={`navigation ${!active ? "hide" : ""}`}>
       <div className="nav-container">
         <div className="brand">
           <a href="/">
