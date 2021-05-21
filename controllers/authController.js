@@ -208,6 +208,7 @@ module.exports.resetPassword = async (req, res, next) => {
       {
         $set: {
           "local.password": hashPswd,
+          "local.confirmed": true,
           "local.resetPasswordToken": undefined,
           "local.resetPasswordExpires": undefined,
         },

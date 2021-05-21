@@ -371,7 +371,7 @@ module.exports.get_All_VE_tasks = async (req, res, next) => {
     if (user) {
       res.json(user.tasks);
     } else {
-      res.json({ message: "User not found", ok: false });
+      res.json({ message: "No Task Assigned", ok: false });
     }
   } catch (err) {
     console.log(err);
