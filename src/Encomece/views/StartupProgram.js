@@ -7,17 +7,17 @@ import Footer from "../components/Footer";
 import classes from "../assets/css/layout.module.css";
 
 //Images
-import Image1 from "../assets/Images/SP_img/Group 270.png";
-import Image2 from "../assets/Images/SP_img/Group 272.png";
-import Image3 from "../assets/Images/SP_img/Group 273.png";
-import Image4 from "../assets/Images/SP_img/Group 274.png";
-import Image5 from "../assets/Images/SP_img/Group 275.png";
-import Image6 from "../assets/Images/SP_img/Group 276.png";
-import Image7 from "../assets/Images/SP_img/Mask Group 10.png";
-import Image8 from "../assets/Images/SP_img/Group 271.png";
-import Image9 from "../assets/Images/SP_img/document.png";
-import Image10 from "../assets/Images/SP_img/cogwheels.png";
-import Image11 from "../assets/Images/SP_img/website.png";
+import Image1 from "../assets/Images/SP_img/Group 270.webp";
+import Image2 from "../assets/Images/SP_img/Group 272.webp";
+import Image3 from "../assets/Images/SP_img/Group 273.webp";
+import Image4 from "../assets/Images/SP_img/Group 274.webp";
+import Image5 from "../assets/Images/SP_img/Group 275.webp";
+import Image6 from "../assets/Images/SP_img/Group 276.webp";
+import Image7 from "../assets/Images/SP_img/Mask Group 10.webp";
+import Image8 from "../assets/Images/SP_img/Group 271.webp";
+import Image9 from "../assets/Images/SP_img/document.webp";
+import Image10 from "../assets/Images/SP_img/cogwheels.webp";
+import Image11 from "../assets/Images/SP_img/website.webp";
 
 const StartupProgram = () => {
   return (

@@ -8,9 +8,9 @@ import Footer from "../components/Footer";
 import classes from "../assets/css/layout.module.css";
 
 //Images
-import Image1 from "../assets/Images/VE_img/Group 268.png";
-import Image2 from "../assets/Images/VE_img/Mask Group 21.png";
-import Image3 from "../assets/Images/VE_img/avatar-circle-human-male-4-512 (1).png";
+import Image1 from "../assets/Images/VE_img/Group 268.webp";
+import Image2 from "../assets/Images/VE_img/Mask Group 21.webp";
+import Image3 from "../assets/Images/VE_img/avatar-circle-human-male-4-512 .webp";
 
 const VEProgram = () => {
   return (

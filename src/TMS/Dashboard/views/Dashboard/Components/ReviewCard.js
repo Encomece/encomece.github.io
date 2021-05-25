@@ -1,6 +1,6 @@
 import React from "react";
 import "../Dashboard.css";
-import PersonalImg from "../../../assets/img/PersonImg.png";
+import PersonalImg from "../../../assets/img/PersonImg.webp";
 import StarIcon from "@material-ui/icons/Star";
 
 const ReviewCard = () => {

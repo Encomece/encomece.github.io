@@ -10,12 +10,16 @@ import CarouselMain from "../components/CarouselMain";
 
 //css
 import classes from "../assets/css/index_layout.module.css";
-import "../assets/css/index_layout.module.css";
-import "../assets/css/all.min.css";
+
+//icons
+import SupervisorAccountTwoToneIcon from "@material-ui/icons/SupervisorAccountTwoTone";
+import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
+import HowToRegIcon from "@material-ui/icons/HowToReg";
+import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 
 //Images
-import Image1 from "../assets/Images/Index_img/digital-marketing-illustration_1893-2527-removebg-preview.png";
-import Image2 from "../assets/Images/Index_img/flat-illustration-blog-content-blogging-commercial-blog-posting-internet-blogging-service_126608-84-removebg-preview.png";
+import Image1 from "../assets/Images/Index_img/digital-marketing-illustration_1893-2527-removebg-preview.webp";
+import Image2 from "../assets/Images/Index_img/flat-illustration-blog-content-blogging-commercial-blog-posting-internet-blogging-service_126608-84-removebg-preview.webp";
 
 const Home = () => {
   return (
@@ -41,10 +45,9 @@ const Home = () => {
           <div className={classes.col1}>
             <div className={classes.collayout}>
               <div className={classes.logo}>
-                <i
-                  className="fas fa-users fa-5x"
-                  style={{ color: "green" }}
-                ></i>
+                <SupervisorAccountTwoToneIcon
+                  style={{ fontSize: "100px", color: "orange" }}
+                />
                 <h4>Dedicated Teams</h4>
                 <br />
                 <p>
@@ -55,10 +58,9 @@ const Home = () => {
             </div>
             <div className={classes.collayout}>
               <div className={classes.logo}>
-                <i
-                  className="fas fa-users fa-5x"
-                  style={{ color: "violet" }}
-                ></i>
+                <QuestionAnswerIcon
+                  style={{ fontSize: "100px", color: "blue" }}
+                />
                 <h4>Best Consulation</h4>
                 <br />
                 <p>
@@ -86,7 +88,7 @@ const Home = () => {
           <div className={classes.col1}>
             <div className={classes.collayout}>
               <div className={classes.logo}>
-                <i className="fas fa-users fa-5x" style={{ color: "red" }}></i>
+                <HowToRegIcon style={{ fontSize: "100px", color: "red" }} />
                 <h4>Trained Experts</h4>
                 <br />
                 <p>
@@ -97,10 +99,9 @@ const Home = () => {
             </div>
             <div className={classes.collayout}>
               <div className={classes.logo}>
-                <i
-                  className="fas fa-users fa-5x"
-                  style={{ color: "orange" }}
-                ></i>
+                <VerifiedUserIcon
+                  style={{ fontSize: "100px", color: "green" }}
+                />
                 <h4>Assurance</h4>
                 <br />
                 <p>
@@ -186,13 +187,6 @@ const Home = () => {
       </div>
       <div className={classes.toolsandR}>
         <h1>Tools And Resources</h1>
-        {/* <h2>
-          Browse all
-          <i
-            style={{ paddingLeft: "12px" }}
-            className="fas fa-greater-than"
-          ></i>
-        </h2> */}
         <div>
           <Carousel fade indicators={false}>
             <Carousel.Item interval={10000}>

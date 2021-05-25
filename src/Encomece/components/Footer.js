@@ -1,6 +1,17 @@
 import React from "react";
 import classes from "../assets/css/index_layout.module.css";
 
+//Icons
+import {
+  LinkedIn,
+  Facebook,
+  Instagram,
+  Twitter,
+  LocationOn,
+  Mail,
+  Phone,
+} from "@material-ui/icons";
+
 const Footer = () => {
   return (
     <div className={classes.footer}>
@@ -14,36 +25,27 @@ const Footer = () => {
       </div>
       <div className={classes.f_sec2}>
         <h3 style={{ marginBottom: "27px" }}>Follow Us</h3>
-        <i
-          style={{ fontSize: "26px", color: "royalblue" }}
-          className="fab fa-facebook-f"
-        ></i>
-        &nbsp;&nbsp;
-        <i
-          style={{ fontSize: "26px", color: "#0e76a8" }}
-          className="fab fa-linkedin"
-        ></i>
-        &nbsp;&nbsp;
-        <i
-          style={{ fontSize: "26px", color: "#00acee" }}
-          className="fab fa-twitter"
-        ></i>
-        &nbsp;&nbsp;
-        <i
-          style={{ fontSize: "26px", color: "saddlebrown" }}
-          className="fab fa-instagram"
-        ></i>
-        &nbsp;&nbsp;
+        <Facebook style={{ fontSize: "30px", color: "royalblue" }} />
+        &nbsp;
+        <LinkedIn style={{ fontSize: "30px", color: "#0e76a8" }} />
+        &nbsp;
+        <Twitter style={{ fontSize: "30px", color: "#00acee" }} />
+        &nbsp;
+        <Instagram style={{ fontSize: "30px", color: "saddlebrown" }} />
+        &nbsp;
       </div>
       <div className={classes.f_sec3}>
         <h3>Contact Us</h3>
-        <i className="fas  fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+        <LocationOn fontSize="small" />
+        &nbsp;&nbsp;&nbsp;
         <label for=""> India </label>
         <br />
-        <i className="fas fa-envelope"></i> &nbsp;&nbsp;{" "}
+        <Mail fontSize="small" />
+        &nbsp;&nbsp;&nbsp;
         <label for=""> contact@encomece.com </label>
         <br />
-        <i className="fas fa-phone-alt"></i> &nbsp;
+        <Phone fontSize="small" />
+        &nbsp;&nbsp;
         <label for=""> +91 9755497568 </label>
       </div>
     </div>

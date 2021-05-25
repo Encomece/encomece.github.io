@@ -103,7 +103,7 @@
     margin-top: 20px;
     margin-right: 75px;
     text-align: center;
-    background-image: url("../Images/Index_img/Group 84.png");
+    background-image: url("../Images/Index_img/Group 84.webp");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -159,7 +159,7 @@
     margin-top: 20px;
     margin-right: 15px;
     text-align: center;
-    background-image: url("../Images/Index_img/Group 84.png");
+    background-image: url("../Images/Index_img/Group 84.webp");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -252,7 +252,7 @@ body {
   letter-spacing: 1px;
 }
 .bgImg {
-  background-image: url("../Images/Index_img/Mask Group 20.png");
+  background-image: url("../Images/Index_img/Mask Group 20.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -329,7 +329,7 @@ body {
 }
 .aboutus {
   margin-top: 42px;
-  background-image: url("../Images/Index_img/Group\ 155.png");
+  background-image: url("../Images/Index_img/Group\ 155.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -342,7 +342,7 @@ body {
 }
 .col1 {
   display: inline-block;
-  height: 586px;
+  height: 620px;
   width: 267px;
 }
 .collayout {
@@ -478,13 +478,13 @@ body {
 }
 .sec41 {
   padding: 5% 5%;
-  background-image: url("../Images/Index_img/Group\ 160.png");
+  background-image: url("../Images/Index_img/Group\ 160.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .sec42 {
-  background-image: url("../Images/Index_img/Mask\ Group\ 21.png");
+  background-image: url("../Images/Index_img/Mask\ Group\ 21.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -559,7 +559,7 @@ body {
   border-radius: 13px;
 }
 .dimg {
-  background-image: url("../Images/Index_img/Group\ 163.png");
+  background-image: url("../Images/Index_img/Group\ 163.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -567,7 +567,7 @@ body {
   border-top-right-radius: 13px;
 }
 .deimg {
-  background-image: url("../Images/Index_img/Group\ 161.png");
+  background-image: url("../Images/Index_img/Group\ 161.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -575,7 +575,7 @@ body {
   border-top-right-radius: 13px;
 }
 .mimg {
-  background-image: url("../Images/Index_img/Group\ 162.png");
+  background-image: url("../Images/Index_img/Group\ 162.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -611,7 +611,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   place-content: center;
-  background-image: url("../Images/Index_img/Mask Group 25.png");
+  background-image: url("../Images/Index_img/Mask Group 25.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -670,7 +670,7 @@ body {
 }
 .Mg26 {
   width: 307px;
-  background-image: url("../Images/Index_img/Mask Group 27.png");
+  background-image: url("../Images/Index_img/Mask Group 27.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -678,7 +678,7 @@ body {
 }
 .Mg27 {
   width: 307px;
-  background-image: url("../Images/Index_img/Mask Group 26.png");
+  background-image: url("../Images/Index_img/Mask Group 26.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

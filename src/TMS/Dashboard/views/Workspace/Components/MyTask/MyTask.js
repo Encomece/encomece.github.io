@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import "../../css/style.css";
 
-import ProjectIcon from "../../../../assets/img/projectIcon.png";
+import ProjectIcon from "../../../../assets/img/projectIcon.webp";
 
 //Context
 import { AuthContext } from "../../../../../context/authContext";

@@ -5,7 +5,7 @@ import { AuthContext } from "../context/authContext";
 
 import "./AdminPanel.css";
 
-import DummyImage from "../assets/img/Image 6.png";
+import DummyImage from "../assets/img/Image 6.webp";
 
 import BrandLogo from "../assets/img/logo.png";
 

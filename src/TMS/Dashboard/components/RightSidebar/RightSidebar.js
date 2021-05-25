@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import PerosnImg from "../../assets/img/PersonImg.png";
+import PerosnImg from "../../assets/img/PersonImg.webp";
 import "./RightSidebar.css";
 
 import { EmailOutlined } from "@material-ui/icons";

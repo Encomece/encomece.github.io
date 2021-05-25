@@ -1,5 +1,5 @@
 import React from "react";
-import dashHeaderImg from "../../assets/img/dashHeaderImg.png";
+import dashHeaderImg from "../../assets/img/dashHeaderImg.webp";
 import MyTask from "../Workspace/Components/MyTask/MyTask";
 import ReviewCard from "./Components/ReviewCard";
 import "./Dashboard.css";
