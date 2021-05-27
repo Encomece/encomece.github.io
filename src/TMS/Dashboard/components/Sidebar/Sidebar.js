@@ -46,7 +46,7 @@ export default function Sidebar(props) {
         });
         return (
           <NavLink
-            to={prop.layout + prop.path}
+            to={prop.layout === undefined ? prop.path : prop.layout + prop.path}
             className={activePro + classes.item}
             activeStyle={{ color: color }}
             key={key}
