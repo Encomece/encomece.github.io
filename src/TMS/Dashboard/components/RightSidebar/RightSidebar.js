@@ -14,7 +14,7 @@ const LeftSidebar = () => {
 
   const logoutHandler = () => {
     auth.logout();
-    history.push("/auth");
+    history.push("/");
   };
 
   return (
