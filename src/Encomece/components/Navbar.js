@@ -1,36 +1,15 @@
 import React, { useEffect, useState } from "react";
-import $ from "jquery";
 import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
 import "./Navbar.scss";
 
-(function ($) {
-  // Begin jQuery
-  $(function () {
-    // DOM ready
-    // If a link has a dropdown, add sub menu toggle.
-    $("nav ul li a:not(:only-child)").click(function (e) {
-      $(this).siblings(".nav-dropdown").toggle();
-      // Close one dropdown when selecting another
-      $(".nav-dropdown").not($(this).siblings()).hide();
-      e.stopPropagation();
-    });
-    // Clicking away from dropdown will remove the dropdown class
-    $("html").click(function () {
-      $(".nav-dropdown").hide();
-    });
-    // Toggle open and close nav styles on click
-    $("#nav-toggle").click(function () {
-      $("nav ul").slideToggle();
-    });
-    // Hamburger to X toggle
-    $("#nav-toggle").on("click", function () {
-      this.classList.toggle("active");
-    });
-  }); // end DOM ready
-})($); // end jQuery
-
 const Navbar1 = () => {
+  //States
   const [active, setActive] = useState(true);
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const [openDropDown_Program, setOpenDropDown_Program] = useState(false);
+  const [openDropDown_Services, setOpenDropDown_Services] = useState(false);
+
+  //Animation for Hiding the navbar on scroll down
   const handleScroll = () => {
     if (window.pageYOffset > 2500) {
       setActive(false);
@@ -43,6 +22,20 @@ const Navbar1 = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
+  //Mobile-Menu-toggler
+  const mobileMenuHandler = () => setOpenMobileMenu((prev) => !prev);
+
+  //DropDown-toggler
+  const dropDownOpenHandler = (type) => {
+    if (type === "services") {
+      setOpenDropDown_Program(false);
+      setOpenDropDown_Services((prev) => !prev);
+    } else {
+      setOpenDropDown_Program((prev) => !prev);
+      setOpenDropDown_Services(false);
+    }
+  };
+
   return (
     <section className={`navigation ${!active ? "hide" : ""}`}>
       <div className="nav-container">
@@ -53,11 +46,19 @@ const Navbar1 = () => {
         </div>
         <nav>
           <div className="nav-mobile">
-            <a id="nav-toggle" href="#!">
+            <a
+              id="nav-toggle"
+              href="#"
+              onClick={mobileMenuHandler}
+              className={openMobileMenu && "active"}
+            >
               <span></span>
             </a>
           </div>
-          <ul className="nav-list">
+          <ul
+            className="nav-list"
+            style={{ display: openMobileMenu ? "block" : "none" }}
+          >
             <li>
               <a href="/">Home</a>
             </li>
@@ -65,8 +66,13 @@ const Navbar1 = () => {
               <a href="#!">About</a>
             </li>
             <li>
-              <a href="#!">Programs</a>
-              <ul className="nav-dropdown">
+              <a href="#!" onClick={() => dropDownOpenHandler("programs")}>
+                Programs
+              </a>
+              <ul
+                className="nav-dropdown"
+                style={{ display: openDropDown_Program ? "block" : "none" }}
+              >
                 <li>
                   <a href="/startup_program">Startup Program</a>
                 </li>
@@ -76,8 +82,13 @@ const Navbar1 = () => {
               </ul>
             </li>
             <li>
-              <a href="#!">Services</a>
-              <ul className="nav-dropdown">
+              <a href="#!" onClick={() => dropDownOpenHandler("services")}>
+                Services
+              </a>
+              <ul
+                className="nav-dropdown"
+                style={{ display: openDropDown_Services ? "block" : "none" }}
+              >
                 <li>
                   <a href="#!">Marketing</a>
                 </li>
