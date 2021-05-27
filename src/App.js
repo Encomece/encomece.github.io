@@ -18,28 +18,8 @@ import { TaskContext } from "./TMS/context/taskContext";
 import { useAuth } from "./TMS/customHooks/auth-hook";
 import { useTaskHook } from "./TMS/customHooks/task-hook";
 
-//TMS Views -----------------------------------------------------------------------------------------
-
-//Authentication--------------------------------------------------
-import Authentication from "./TMS/Authentication/Pages/Authentication";
-import GoogleLogin from "./TMS/Authentication/Pages/GoogleLogin";
-import ConfirmEmail from "./TMS/Authentication/Pages/ConfirmEmail";
-import ResetPswd from "./TMS/Authentication/Pages/ResetPswd";
-
-//Dashboard------------------------------------------------
-import DashLayout from "./TMS/Dashboard/layouts/DashLayout";
-import VE_Workspace from "./TMS/Dashboard/views/Workspace/VE_Workspace";
-
-//AdminPanel---------------------------------------
-import AdminPanel from "./TMS/AdminPanel/AdminPanel";
-import AdminTaskTable from "./TMS/AdminPanel/AdminTaskTable";
-
-//-------------------------------------------------------------------------------------------------
-
-//Encomecs views----------------------------------------------------------
-import Home from "./Encomece/views/Home";
-import StartupProgram from "./Encomece/views/StartupProgram";
-import VEProgram from "./Encomece/views/VEProgram";
+//routes
+import { global_routes, secure_routes } from "./routes";
 
 const App = () => {
   //Context
@@ -63,69 +43,22 @@ const App = () => {
     VE_details,
   } = useTaskHook();
 
-  //Checks if user as token then it will render particular routes
+  //Routes
+  let routes = !!token
+    ? secure_routes.map((prop) => {
+        if (prop.path == "/") {
+          return <Route path={prop.path} component={prop.component} exact />;
+        }
+        return <Route path={prop.path} component={prop.component} />;
+      })
+    : global_routes.map((prop) => {
+        if (prop.path == "/") {
+          return <Route path={prop.path} component={prop.component} exact />;
+        }
+        return <Route path={prop.path} component={prop.component} />;
+      });
 
-  let routes;
-  if (token) {
-    routes = (
-      <Router>
-        <Switch>
-          <Route path="/VE/dash/:id">
-            <VE_Workspace />
-          </Route>
-          <Route path="/dash">
-            <DashLayout />
-          </Route>
-          <Route path="/admin/:userId" exact>
-            <AdminTaskTable />
-          </Route>
-          <Route path="/admin" exact>
-            <AdminPanel />
-          </Route>
-          <Redirect to="/dash" exact />
-        </Switch>
-      </Router>
-    );
-  } else {
-    routes = (
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/ve_program" exact>
-            <VEProgram />
-          </Route>
-          <Route path="/startup_program" exact>
-            <StartupProgram />
-          </Route>
-          <Route path="/auth" exact>
-            <Authentication />
-          </Route>
-          <Route path="/auth/reset/:resetToken" exact>
-            <ResetPswd />
-          </Route>
-          <Route path="/auth/:token" exact>
-            <GoogleLogin />
-          </Route>
-          <Route path="/auth/confirm/:id" exact>
-            <ConfirmEmail />
-          </Route>
-          <Route path="/admin" exact>
-            <AdminPanel />
-          </Route>
-          <Route path="/VE/dash/:id">
-            <VE_Workspace />
-          </Route>
-          <Route path="/admin/:userId" exact>
-            <AdminTaskTable />
-          </Route>
-          <Redirect to="/" exact />
-        </Switch>
-      </Router>
-    );
-  }
-
+  //Render
   return (
     <>
       <Notifications />
@@ -153,7 +86,11 @@ const App = () => {
             setAllUsersHandler,
           }}
         >
-          <main>{routes}</main>
+          <main>
+            <Router>
+              <Switch>{routes}</Switch>
+            </Router>
+          </main>
         </TaskContext.Provider>
       </AuthContext.Provider>
     </>
