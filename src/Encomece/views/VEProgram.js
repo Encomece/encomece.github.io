@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 //Components
 import Navbar from "../components/Navbar";
@@ -13,6 +14,7 @@ import Image2 from "../assets/Images/VE_img/Mask Group 21.webp";
 import Image3 from "../assets/Images/VE_img/avatar-circle-human-male-4-512 .webp";
 
 const VEProgram = () => {
+  const history = useHistory();
   return (
     <>
       <div className={classes.vp_Sec1}>
@@ -23,19 +25,25 @@ const VEProgram = () => {
               Virtual <span id={classes.emp}> Employee </span> Program
             </h1>
             <h2>Are You a New Startup?</h2>
-            <p>
+            <li>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
               nesciunt ex reiciendis quos doloremque, beatae excepturi omnis
               eveniet quasi corrupti id! Labore quisquam porro possimus.
-            </p>
-            <button id={classes.button}>Register</button>
+            </li>
+
+            <button id={classes.button} onClick={()=>{
+              console.log("CLICKED!");
+              history.push('/auth');
+            }
+            }>Register</button>
           </div>
           <div className={classes.header_sec2}>
             <img src={Image1} width="100%" alt="Image1" />
           </div>
         </div>
       </div>
-      <div className={classes.vp_Sec2}>
+
+      <div className={classes.vp_Sec2} >
         <div className={classes.vp_sec2p1}>
           <img src={Image2} alt="Image2" />
         </div>
@@ -68,7 +76,8 @@ const VEProgram = () => {
           </p>
         </div>
       </div>
-      <div className={classes.vp_Sec3}>
+
+      {/* <div className={classes.vp_Sec3}>
         <div className={classes.vp_Sec3p1}>
           <h1>Over View</h1>
           <button>
@@ -133,10 +142,17 @@ const VEProgram = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <br />
       <br />
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br /> 
       <br />
       <br />
       <Footer />
