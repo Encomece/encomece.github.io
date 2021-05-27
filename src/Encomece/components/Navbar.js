@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router";
 import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
 import "./Navbar.scss";
+import { AuthContext } from "../../TMS/context/authContext";
 
 const Navbar1 = () => {
-  //States
+  //states
   const [active, setActive] = useState(true);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [openDropDown_Program, setOpenDropDown_Program] = useState(false);
@@ -35,6 +37,20 @@ const Navbar1 = () => {
       setOpenDropDown_Services(false);
     }
   };
+
+  const history = useHistory();
+
+  //auth-context
+  const auth = useContext(AuthContext);
+
+  //Login Handler
+  const loginHandler = () => {
+    if (auth.isLoggedIn) {
+      auth.logout();
+    } else history.push("/auth");
+  };
+
+  console.log(auth.token);
 
   return (
     <section className={`navigation ${!active ? "hide" : ""}`}>
@@ -100,8 +116,15 @@ const Navbar1 = () => {
                 </li>
               </ul>
             </li>
+            {auth.isLoggedIn && (
+              <li>
+                <a href="/dash">TMS</a>
+              </li>
+            )}
             <li>
-              <a href="/auth">Sign In</a>
+              <a href="#" onClick={loginHandler}>
+                {auth.isLoggedIn ? "Logout" : "Login"}
+              </a>
             </li>
           </ul>
         </nav>
