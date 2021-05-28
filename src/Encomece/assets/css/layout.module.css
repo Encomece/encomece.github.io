@@ -632,10 +632,11 @@ body {
   color: white;
   display: inline-block;
 }
-.startup_sec1 h1 {
-  font-size: 40px;
-  font-weight: 850;
-  letter-spacing: 4px;
+.startup_sec1 h1  {
+    font-size: 45px;
+    font-weight: 750;
+    font-family: -webkit-body;
+    letter-spacing: 3px;
 }
 .startup_sec2 {
   display: flex;
@@ -708,7 +709,7 @@ body {
   font-weight: 500;
 }
 .startup_soln {
-  margin-top: 35px;
+  margin-top: 50px;
   position: relative;
   top: 260px;
   display: flex;
