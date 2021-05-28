@@ -427,12 +427,11 @@ body {
 
 @media screen and (max-width: 700px) {
   .row__inner {
-  transition: 450ms transform;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
+    transition: 450ms transform;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 }
 @media screen and (max-width: 556px) {
@@ -557,7 +556,7 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 610px;
+  min-height: 810px;
   position: relative;
 }
 .cnt {
@@ -643,18 +642,19 @@ body {
   color: white;
   display: inline-block;
 }
-.startup_sec1 h1  {
-    font-size: 45px;
-    font-weight: 750;
-    font-family: -webkit-body;
-    letter-spacing: 3px;
+.startup_sec1 h1 {
+  font-size: 45px;
+  font-weight: 750;
+  font-family: -webkit-body;
+  letter-spacing: 3px;
 }
 .startup_sec2 {
-    display: flex;
-    flex-direction: inherit;
-    place-content: center;
+  display: flex;
+  flex-direction: inherit;
+  place-content: center;
 }
-.startup_sec2pointone , .startup_sec2pointtwo{
+.startup_sec2pointone,
+.startup_sec2pointtwo {
   display: flex;
   place-content: center;
 }
@@ -662,7 +662,10 @@ body {
   display: flex;
   place-content: center;
 }
-.box1 , .box2, .box3 , .box4 {
+.box1,
+.box2,
+.box3,
+.box4 {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
   margin-left: 20px;
   margin-right: 20px;
@@ -691,10 +694,10 @@ body {
   border-top-right-radius: 6px;
 }
 
-
 .startup_text {
   background-color: #749181;
-  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, Georgia, serif, sans-serif;
+  font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, Georgia, serif,
+    sans-serif;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   position: relative;
@@ -704,12 +707,12 @@ body {
   font-weight: 500;
 }
 .startup_soln {
-    margin-top: 200px;
-    position: relative;
-    top: 260px;
-    display: flex;
-    flex-wrap: wrap;
-    background-color: #b9b7b7;
+  margin-top: 200px;
+  position: relative;
+  top: 260px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #b9b7b7;
 }
 .soln_image {
   margin-top: 50px;
@@ -725,7 +728,6 @@ body {
   font-weight: 500;
   font-size: 20px;
 }
-
 
 .contain {
   width: 100%;
@@ -774,50 +776,29 @@ body {
   top: 0;
   font-size: 10px;
   opacity: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
   transition: 450ms opacity;
 }
 .tile__details:after,
 .tile__details:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   display: #000;
   z-index: 1;
 }
-
-.tile__details:before {
-  content: '';
-  left: 0;
-  width: 100%;
-  font-size: 30px;
-  margin-left: 7px;
-  margin-top: -18px;
-  text-align: center;
-  z-index: 2;
-}
-.tile:hover .tile__details {
-  opacity: 1;
-}
-.tile__title {
-  position: absolute;
-  bottom: 0;
-  padding: 10px;
-  color: rgb(252, 252, 252);
-  font-size: medium;
-  font-style: oblique;
-  font-family: 'Limelight';
-}
-.row__inner:hover {
-  transform: translate3d(-62.5px, 0, 0);
-}
-.row__inner:hover .tile {
-  opacity: 0.3;
-}
-.row__inner:hover .tile:hover {
-  transform: scale(1.5);
-  opacity: 1;
+.soln_img1 {
+  background-image: url("../Images/SP_img/Group\ 278.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .tile:hover ~ .tile {
   transform: translate3d(125px, 0, 0);
@@ -833,7 +814,7 @@ body {
   border-radius: 5px;
 }
 .soln_img2 {
-  background-image: url("../Images/SP_img/Mask Group 22.webp");
+  background-image: url("../Images/SP_img/Mask\ Group\ 22.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -897,15 +878,15 @@ body {
   font-size: 28px;
   background-color: #495057;
   color: white;
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
   outline: none;
   cursor: pointer;
 }
-.contact_sec1 button:hover{
-  box-shadow: -31px -31px 25px 21px rgba(38,109,101,0.53) inset;
--webkit-box-shadow: -31px -31px 25px 21px rgba(38,109,101,0.53) inset;
--moz-box-shadow: -31px -31px 25px 21px rgba(38,109,101,0.53) inset;
+.contact_sec1 button:hover {
+  box-shadow: -31px -31px 25px 21px rgba(38, 109, 101, 0.53) inset;
+  -webkit-box-shadow: -31px -31px 25px 21px rgba(38, 109, 101, 0.53) inset;
+  -moz-box-shadow: -31px -31px 25px 21px rgba(38, 109, 101, 0.53) inset;
 }
 .contact_sec2 {
   margin-top: 25px;
@@ -914,7 +895,7 @@ body {
   width: 100%;
 }
 .PMS {
-  background-image: url("../Images/SP_img/Path 315.webp");
+  background-image: url("../Images/SP_img/Path\ 315.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -953,11 +934,10 @@ body {
   padding-bottom: 30px;
   /* box-shadow: 0 4px 14px 0 rgb(0 0 0 / 30%); */
   text-align: center;
-  box-shadow: 17px 25px 12px -1px rgba(0,0,0,0.68);
--webkit-box-shadow: 17px 25px 12px -1px rgba(0,0,0,0.68);
--moz-box-shadow: 17px 25px 12px -1px rgba(0,0,0,0.68);
+  box-shadow: 17px 25px 12px -1px rgba(0, 0, 0, 0.68);
+  -webkit-box-shadow: 17px 25px 12px -1px rgba(0, 0, 0, 0.68);
+  -moz-box-shadow: 17px 25px 12px -1px rgba(0, 0, 0, 0.68);
 }
-
 
 .PMS_card_sec1 img {
   width: 30%;
@@ -1052,9 +1032,7 @@ body {
 }
 #button {
   background-color: #1c8d36;
-    background-image: linear-gradient(
-315deg
-, #4c916b 0%, #326e6f 74%);
+  background-image: linear-gradient(315deg, #4c916b 0%, #326e6f 74%);
   border: none;
   outline: none;
   padding-top: 13px;
@@ -1070,15 +1048,15 @@ body {
   margin-top: 40px;
   cursor: pointer;
 }
-#button :hover{
+#button :hover {
   background-color: rgb(59, 65, 55);
 }
-.vp_Sec2{
+.vp_Sec2 {
   background-color: #deebdd;
   background-image: linear-gradient(315deg, #deebdd 0%, #bbdbbe 74%);
-  box-shadow: 16px 9px 18px 2px rgba(14,38,36,0.53);
--webkit-box-shadow: 16px 9px 18px 2px rgba(14,38,36,0.53);
--moz-box-shadow: 16px 9px 18px 2px rgba(14,38,36,0.53);
+  box-shadow: 16px 9px 18px 2px rgba(14, 38, 36, 0.53);
+  -webkit-box-shadow: 16px 9px 18px 2px rgba(14, 38, 36, 0.53);
+  -moz-box-shadow: 16px 9px 18px 2px rgba(14, 38, 36, 0.53);
 }
 
 .vp_sec2p1 img {
@@ -1092,13 +1070,11 @@ body {
   color: rgb(0 0 0 / 50%);
   font-size: 16px;
   margin-bottom: 10px;
-
 }
 .vp_sec2p2 h2 {
   font-size: 31px;
   font-family: ui-serif;
   color: #072c51;
-
 }
 .vp_Sec3p1 button {
   font-size: 23px;

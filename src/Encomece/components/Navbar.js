@@ -3,7 +3,8 @@ import { useHistory } from "react-router";
 import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
 import "./Navbar.scss";
 import { AuthContext } from "../../TMS/context/authContext";
-
+import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 const Navbar1 = () => {
   //states
   const [active, setActive] = useState(true);
@@ -56,9 +57,9 @@ const Navbar1 = () => {
     <section className={`navigation ${!active ? "hide" : ""}`}>
       <div className="nav-container">
         <div className="brand">
-          <a href="/">
+          <NavLink to="/">
             <img src={BrandLogo} alt="logo" width="160" />
-          </a>
+          </NavLink>
         </div>
         <nav>
           <div className="nav-mobile">
@@ -76,15 +77,33 @@ const Navbar1 = () => {
             style={{ display: openMobileMenu ? "block" : "none" }}
           >
             <li>
-              <a href="/">Home</a>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <a href="/">About</a>
+              <Link
+                to="aboutus"
+                active="nav__activelink"
+                spy={true}
+                smooth={true}
+                duration={500}
+                style={{ cursor: "pointer", color: "white" }}
+              >
+                About us
+              </Link>
             </li>
             <li>
-              <a href="#!" onClick={() => dropDownOpenHandler("programs")}>
+              <Link
+                to="programs"
+                active="nav__activelink"
+                spy={true}
+                smooth={true}
+                duration={1000}
+                style={{ cursor: "pointer", color: "white" }}
+                // onMouseEnter={() => dropDownOpenHandler("programs")}
+              >
                 Programs
-              </a>
+              </Link>
+
               <ul
                 className="nav-dropdown"
                 style={{ display: openDropDown_Program ? "block" : "none" }}
@@ -98,9 +117,18 @@ const Navbar1 = () => {
               </ul>
             </li>
             <li>
-              <a href="#!" onClick={() => dropDownOpenHandler("services")}>
+              <Link
+                to="services"
+                active="nav__activelink"
+                spy={true}
+                smooth={true}
+                duration={1500}
+                style={{ cursor: "pointer", color: "white" }}
+                // onMouseEnter={() => dropDownOpenHandler("services")}
+              >
                 Services
-              </a>
+              </Link>
+
               <ul
                 className="nav-dropdown"
                 style={{ display: openDropDown_Services ? "block" : "none" }}
@@ -122,9 +150,13 @@ const Navbar1 = () => {
               </li>
             )}
             <li>
-              <a href="#" onClick={loginHandler}>
+              <Link
+                to="#"
+                onClick={loginHandler}
+                style={{ cursor: "pointer", color: "white" }}
+              >
                 {auth.isLoggedIn ? "Logout" : "Login"}
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>

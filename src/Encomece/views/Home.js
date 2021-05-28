@@ -10,16 +10,11 @@ import CarouselMain from "../components/CarouselMain";
 
 //css
 import classes from "../assets/css/index_layout.module.css";
-
-//icons
-import SupervisorAccountTwoToneIcon from "@material-ui/icons/SupervisorAccountTwoTone";
-import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
-import HowToRegIcon from "@material-ui/icons/HowToReg";
-import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
+import "../assets/css/index_layout.module.css";
 
 //Images
+import Image2 from "../assets/Images/Index_img/flat-illustration-blog-content-blogging-commercial-blog-posting-internet-blogging-service_126608-84-removebg-preview.webp"
 import Image1 from "../assets/Images/Index_img/digital-marketing-illustration_1893-2527-removebg-preview.webp";
-import Image2 from "../assets/Images/Index_img/flat-illustration-blog-content-blogging-commercial-blog-posting-internet-blogging-service_126608-84-removebg-preview.webp";
 
 const Home = () => {
   return (
@@ -40,153 +35,172 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className={classes.aboutus}>
-        <div className={classes.mainsec}>
-          <div className={classes.col1}>
-            <div className={classes.collayout}>
-              <div className={classes.logo}>
-                <SupervisorAccountTwoToneIcon
-                  style={{ fontSize: "100px", color: "orange" }}
-                />
-                <h4>Dedicated Teams</h4>
-                <br />
-                <p>
-                  We at Encomece ensure the quality of work and confidentiality
-                  of information.
-                </p>
+      <div style={{ paddingTop: "60px" }} id="aboutus">
+        {" "}
+        <div className={classes.aboutus}>
+          <div className={classes.mainsec}>
+            <div className={classes.col1}>
+              <div className={classes.collayout}>
+                <div className={classes.logo}>
+                  <i
+                    className="fas fa-users fa-5x"
+                    style={{ color: "green" }}
+                  ></i>
+                  <h4>Dedicated Teams</h4>
+                  <br />
+                  <p>
+                    We at Encomece ensure the quality of work and
+                    confidentiality of information.
+                  </p>
+                </div>
+              </div>
+              <div className={classes.collayout}>
+                <div className={classes.logo}>
+                  <i
+                    className="fas fa-users fa-5x"
+                    style={{ color: "violet" }}
+                  ></i>
+                  <h4>Best Consulation</h4>
+                  <br />
+                  <p>
+                    We provide the best consultation and suggest you the best
+                    possible thing to start with.
+                  </p>
+                </div>
               </div>
             </div>
-            <div className={classes.collayout}>
-              <div className={classes.logo}>
-                <QuestionAnswerIcon
-                  style={{ fontSize: "100px", color: "blue" }}
-                />
-                <h4>Best Consulation</h4>
-                <br />
-                <p>
-                  We provide the best consultation and suggest you the best
-                  possible thing to start with.
-                </p>
-              </div>
+            <div className={classes.col2} style={{ padding: "0 1.5% 0 1.5%" }}>
+              <br />
+              <br />
+              <h1>About Us</h1>
+              <br />
+              <h3>Best resources for the best idea</h3>
+              <p>
+                We welcome young and bright minds brimming with innovative ideas
+                and help them make it real. Our goal is to walk alongside
+                startups and provide them with guidance at every step to
+                success. We believe every idea is the best idea and, best ideas
+                need the best resources. If you are a new startup or having an
+                idea that holds potential, we are here to help you.
+              </p>
             </div>
-          </div>
-          <div className={classes.col2} style={{ padding: "0 1.5% 0 1.5%" }}>
-            <br />
-            <br />
-            <h1>About Us</h1>
-            <br />
-            <h3>Best resources for the best idea</h3>
-            <p>
-              We welcome young and bright minds brimming with innovative ideas
-              and help them make it real. Our goal is to walk alongside startups
-              and provide them with guidance at every step to success. We
-              believe every idea is the best idea and, best ideas need the best
-              resources. If you are a new startup or having an idea that holds
-              potential, we are here to help you.
-            </p>
-          </div>
-          <div className={classes.col1}>
-            <div className={classes.collayout}>
-              <div className={classes.logo}>
-                <HowToRegIcon style={{ fontSize: "100px", color: "red" }} />
-                <h4>Trained Experts</h4>
-                <br />
-                <p>
-                  Our trained professionals will support you in every task to
-                  accelerate your startup growth.
-                </p>
+            <div className={classes.col1}>
+              <div className={classes.collayout}>
+                <div className={classes.logo}>
+                  <i
+                    className="fas fa-users fa-5x"
+                    style={{ color: "red" }}
+                  ></i>
+                  <h4>Trained Experts</h4>
+                  <br />
+                  <p>
+                    Our trained professionals will support you in every task to
+                    accelerate your startup growth.
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className={classes.collayout}>
-              <div className={classes.logo}>
-                <VerifiedUserIcon
-                  style={{ fontSize: "100px", color: "green" }}
-                />
-                <h4>Assurance</h4>
-                <br />
-                <p>
-                  We guarantee the utmost confidentiality and quality of your
-                  work with the best results possible.
-                </p>
+              <div className={classes.collayout}>
+                <div className={classes.logo}>
+                  <i
+                    className="fas fa-users fa-5x"
+                    style={{ color: "orange" }}
+                  ></i>
+                  <h4>Assurance</h4>
+                  <br />
+                  <p>
+                    We guarantee the utmost confidentiality and quality of your
+                    work with the best results possible.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className={classes.Programs}>
-        <h1>Featured Programs</h1>
-        <div>
-          <div className={classes.vep}>
-            <div className={classes.image}>
-              <img src={Image1} width="75%" alt="" />
-            </div>
-            <div className={classes.content}>
-              <center>
-                <h2 style={{ marginTop: "19px", fontFamily: "fangsong" }}>
-                  VIRTUAL EMPLOYEE PROGRAM
-                </h2>
-              </center>
-              <p style={{ marginTop: "25px" }}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-                illum, quisquam, tempora earum saepe cum aperiam amet, pariatur
-                nisi non repudiandae molestiae eligendi porro obcaecati.
-              </p>
-              <center>
-                <button className={classes.button}>
+      <div id="programs" style={{ paddingTop: "70px" }}>
+        {" "}
+        <div className={classes.Programs}>
+          <h1>Featured Programs</h1>
+          <div>
+            <div className={classes.vep}>
+              <div className={classes.image}>
+                <img src={Image1} width="75%" alt="" />
+              </div>
+              <div className={classes.content}>
+                <center>
+                  <h1 style={{ marginTop: "19px", fontFamily: "fangsong" }}>
+                    VIRTUAL EMPLOYEE PROGRAM
+                  </h1>
+                </center>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
+                  illum, quisquam, tempora earum saepe cum aperiam amet,
+                  pariatur nisi non repudiandae molestiae eligendi porro
+                  obcaecati.
+                </p>
+                <center>
                   <NavLink to="/ve_program" className={classes.link}>
-                    Learn More &nbsp;
+                    <button className={classes.button}>
+                      Learn More &nbsp;
+                    </button>
                   </NavLink>
-                  <span style={{ fontSize: "16px", fontFamily: "fantasy" }}>
-                    &#8594;
-                  </span>
-                </button>
-              </center>
+                </center>
+              </div>
             </div>
-          </div>
-          <div className={classes.sp}>
-            <div className={classes.image}>
-              <img src={Image2} width="87%" alt="" />
-            </div>
-            <div className={classes.content}>
-              <center>
-                <h2 style={{ marginTop: "19px", fontFamily: "fangsong" }}>
-                  STARTUP PROGRAM
-                </h2>
-              </center>
-              <p style={{ marginTop: "25px" }}>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-                illum, quisquam, tempora earum saepe cum aperiam amet, pariatur
-                nisi non repudiandae molestiae eligendi porro obcaecati.
-              </p>
-              <center>
-                <button className={classes.button}>
+            <div className={classes.sp}>
+              <div className={classes.image}>
+                <img src={Image2} width="87%" alt="" />
+              </div>
+              <div className={classes.content}>
+                <center>
+                  <h1 style={{ marginTop: "19px", fontFamily: "fangsong" }}>
+                    STARTUP PROGRAM
+                  </h1>
+                </center>
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
+                  illum, quisquam, tempora earum saepe cum aperiam amet,
+                  pariatur nisi non repudiandae molestiae eligendi porro
+                  obcaecati.
+                </p>
+                <center>
                   <NavLink to="/startup_program" className={classes.link}>
-                    Learn More &nbsp;
+                    <button className={classes.button}>
+                      Learn More &nbsp;
+                    </button>
                   </NavLink>
-                  <span style={{ fontSize: "16px", fontFamily: "fantasy" }}>
-                    &#8594;
-                  </span>
-                </button>
-              </center>
+                </center>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
       <div className={classes.sec4}>
         <div className={classes.sec41}>
           <h1>Didn't get what you are looking for?</h1>
+
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
             incidunt amet libero ratione, qui debitis ea officiis alias ex fuga
             esse vitae dicta dolore consectetur nam illum autem unde.
             Cupiditate?
           </p>
+
           <button className={classes.join_now}>Join Us Now</button>
+          <div id="services"></div>
         </div>
         <div className={classes.sec42}></div>
       </div>
       <div className={classes.toolsandR}>
         <h1>Tools And Resources</h1>
+        {/* <h2>
+          Browse all
+          <i
+            style={{ paddingLeft: "12px" }}
+            className="fas fa-greater-than"
+          ></i>
+        </h2> */}
         <div>
           <Carousel fade indicators={false}>
             <Carousel.Item interval={10000}>
