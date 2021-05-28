@@ -331,7 +331,7 @@ body {
   }
   .soln_info {
     width: 39%;
-    margin-top: 100px;
+    margin-top: 50px;
   }
   .solutions {
     place-content: center;
@@ -422,6 +422,17 @@ body {
   }
   .contact_sec2 {
     width: 80%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .row__inner {
+  transition: 450ms transform;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   }
 }
 @media screen and (max-width: 556px) {
@@ -639,17 +650,18 @@ body {
     letter-spacing: 3px;
 }
 .startup_sec2 {
-  display: flex;
-  place-content: center;
+    display: flex;
+    flex-direction: inherit;
+    place-content: center;
 }
 .startup_sec2pointone , .startup_sec2pointtwo{
   display: flex;
   place-content: center;
 }
-/* .startup_sec2pointtwo {
+.startup_sec2pointtwo {
   display: flex;
   place-content: center;
-} */
+}
 .box1 , .box2, .box3 , .box4 {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
   margin-left: 20px;
@@ -662,34 +674,17 @@ body {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
-/* .box2 {
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-  border-radius: 6px;
-  margin-left: 20px;
-  margin-right: 20px;
-} */
+
 .imgb2 {
   background-color: white;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
-/* .box3, box4 {
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-  border-radius: 6px;
-  margin-left: 20px;
-  margin-right: 20px;
-} */
 .imgb3 {
   background-color: white;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
-/* .box4 {
-  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
-  border-radius: 6px;
-  margin-left: 20px;
-  margin-right: 20px;
-} */
 .imgb4 {
   background-color: white;
   border-top-left-radius: 6px;
@@ -709,12 +704,12 @@ body {
   font-weight: 500;
 }
 .startup_soln {
-  margin-top: 50px;
-  position: relative;
-  top: 260px;
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #b9b7b7;
+    margin-top: 200px;
+    position: relative;
+    top: 260px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #b9b7b7;
 }
 .soln_image {
   margin-top: 50px;
@@ -730,34 +725,104 @@ body {
   font-weight: 500;
   font-size: 20px;
 }
-.solutions {
+
+
+.contain {
+  width: 100%;
   position: relative;
   top: 350px;
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 10px;
 }
-.soln1 {
-  background-color: white;
-  box-shadow: 0 4px 14px 0 rgb(0 0 0 / 50%);
+.row__inner {
+  width: 100%;
+  transition: 450ms transform;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+  align-self: center;
+  white-space: pre-wrap;
+  padding: 0 50px;
+  margin: 50.3125px 0;
+  padding-bottom: 10px;
+}
+.tile {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  /* width: 250px; */
+  height: 340.625px;
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 450ms all;
+  transform-origin: center left;
+}
+.tile__img {
+  width: 100%;
+  height: 340.625px;
+  object-fit: cover;
+}
+.tile__details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-size: 10px;
+  opacity: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  transition: 450ms opacity;
+}
+.tile__details:after,
+.tile__details:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: #000;
   z-index: 1;
-  margin-top: 30px;
-  border-radius: 5px;
 }
-.soln1 :hover{
-  background-color: white;
-  box-shadow: 0 4px 14px 0 rgb(0 0 0 / 50%);
-  z-index: 4;
-  border-radius: 5px;
+
+.tile__details:before {
+  content: '';
+  left: 0;
+  width: 100%;
+  font-size: 30px;
+  margin-left: 7px;
+  margin-top: -18px;
+  text-align: center;
+  z-index: 2;
 }
-.soln_img1 {
-  background-image: url("../Images/SP_img/Group 278.webp");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+.tile:hover .tile__details {
+  opacity: 1;
 }
+.tile__title {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  color: rgb(252, 252, 252);
+  font-size: medium;
+  font-style: oblique;
+  font-family: 'Limelight';
+}
+.row__inner:hover {
+  transform: translate3d(-62.5px, 0, 0);
+}
+.row__inner:hover .tile {
+  opacity: 0.3;
+}
+.row__inner:hover .tile:hover {
+  transform: scale(1.5);
+  opacity: 1;
+}
+.tile:hover ~ .tile {
+  transform: translate3d(125px, 0, 0);
+}
+
 .soln2 {
   background-color: white;
   border-top-left-radius: 5px;

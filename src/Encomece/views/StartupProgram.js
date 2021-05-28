@@ -18,8 +18,10 @@ import Image7 from "../assets/Images/SP_img/Mask Group 10.webp";
 import Image8 from "../assets/Images/SP_img/Group 271.webp";
 import Image9 from "../assets/Images/SP_img/document.webp";
 import Image10 from "../assets/Images/SP_img/cogwheels.webp";
-import Image11 from "../assets/Images/SP_img/website.webp";
-import { Button } from "@material-ui/core";
+import Image11 from "../assets/Images/SP_img/website.webp"; 
+import Image12 from "../assets/Images/SP_img/Group 278.webp";
+import Image13 from "../assets/Images/SP_img/Mask Group 22.webp";
+import Image14 from "../assets/Images/SP_img/Group\ 277.webp";
 
 const StartupProgram = () => {
   const history = useHistory();
@@ -121,54 +123,48 @@ const StartupProgram = () => {
       </div>
 
       <div className={classes.solutions}>
-        <div className={classes.soln1} >
-          <div className={classes.soln_img1}>
-            <h2>
-              Management <span className={classes.solnt}>Solutions</span>
-            </h2>
-          </div>
-          <div className={classes.soln_text}>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat
-              vel facilis dolores suscipit sint. Cupiditate aliquam voluptates
-              necessitatibus laboriosam cumque illo a officia alias. Totam
-              consequuntur numquam aliquid.
-            </p>
-          </div>
-        </div>
+      
+      <div class= {classes.contain}>
+      <div class={classes.row__inner}>
 
-        <div className={classes.soln2}>
-          <div className={classes.soln_img2}>
-            <h2 id={classes.MS}>
-              Marketing <span className={classes.solnt}> Solutions</span>
-            </h2>
-          </div>
-          <div className={classes.soln_text}>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat
-              vel facilis dolores suscipit sint. Cupiditate aliquam voluptates
-              necessitatibus laboriosam cumque illo a officia alias. Totam
-              consequuntur numquam aliquid. Lorem ipsum dolor sit, amet
-              consectetur.
-            </p>
-          </div>
-        </div>
 
-        <div className={classes.soln3}>
-          <div className={classes.soln_img3}>
-            <h2>
-              Development <span id={classes.SOLN}>Solutions</span>
-            </h2>
+        <div class={classes.tile}>
+          <div class={classes.tile__media}>
+            <img class={classes.tile__img} src={Image12} alt=""  />
           </div>
-          <div className={classes.soln_text}>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat
-              vel facilis dolores suscipit sint. Cupiditate aliquam voluptates
-              necessitatibus laboriosam cumque illo a officia alias. Totam
-              consequuntur numquam aliquid.
-            </p>
+          <div class={classes.tile__details}>
+            <div class={classes.tile__title}>
+              Management Solutions
+            </div>
           </div>
         </div>
+  
+        <div class={classes.tile}>
+          <div class={classes.tile__media}>
+            <img class={classes.tile__img} src={Image13} alt=""  />
+          </div>
+          <div class={classes.tile__details}>
+            <div class={classes.tile__title}>
+            Marketing <span className={classes.solnt}> Solutions</span>
+            </div>
+          </div>
+        </div>
+  
+        <div class={classes.tile}>
+          <div class={classes.tile__media}>
+            <img class={classes.tile__img} src={Image14} alt=""  />
+          </div>
+          <div class={classes.tile__details}>
+            <div class={classes.tile__title}>
+            Development <span id={classes.SOLN}>Solutions</span>
+            </div>
+          </div>
+        </div>    
+
+      </div>
+  </div>
+
+
       </div>
 
       <div className={classes.contactus}>
