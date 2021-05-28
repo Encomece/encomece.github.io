@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 //Components
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -18,8 +19,11 @@ import Image8 from "../assets/Images/SP_img/Group 271.webp";
 import Image9 from "../assets/Images/SP_img/document.webp";
 import Image10 from "../assets/Images/SP_img/cogwheels.webp";
 import Image11 from "../assets/Images/SP_img/website.webp";
+import { Button } from "@material-ui/core";
 
 const StartupProgram = () => {
+  const history = useHistory();
+
   return (
     <>
       <div className={classes.bgImg}>
@@ -54,47 +58,52 @@ const StartupProgram = () => {
         </div>
         <div className={classes.startup_sec2}>
           <div className={classes.startup_sec2pointone}>
+
             <div className={classes.box1}>
               <div className={classes.imgb1}>
-                <img src={Image2} width="60%" alt="" />
+                <img src={Image2} width="100%" alt="" />
               </div>
               <div className={classes.startup_text}>
-                <h2>Research and </h2>
+                <h2>Research & </h2>
                 <h2>Analysis</h2>
               </div>
             </div>
+            
             <div className={classes.box2}>
               <div className={classes.imgb2}>
-                <img src={Image3} width="64%" alt="" />
+                <img src={Image3} width="110%" alt="" />
               </div>
               <div className={classes.startup_text}>
-                <h2>Strategy and </h2>
+                <h2>Strategy & </h2>
                 <h2>Planning</h2>
               </div>
             </div>
+            
           </div>
+
           <div className={classes.startup_sec2pointtwo}>
             <div className={classes.box3}>
               <div className={classes.imgb3}>
-                <img src={Image4} width="60%" alt="" />
+                <img src={Image4} width="100%" alt="" />
               </div>
               <div className={classes.startup_text}>
-                <h2>Structure and </h2>
+                <h2>Structure & </h2>
                 <h2>Prototyping</h2>
               </div>
             </div>
             <div className={classes.box4}>
               <div className={classes.imgb4}>
-                <img src={Image5} width="47%" alt="" />
+                <img src={Image5} width="80%" alt="" />
               </div>
               <div className={classes.startup_text}>
-                <h2>Budget and </h2>
+                <h2>Budget & </h2>
                 <h2>Requirements</h2>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <div className={classes.startup_soln}>
         <div className={classes.soln_image}>
           <img src={Image6} alt="" />
@@ -110,8 +119,9 @@ const StartupProgram = () => {
           </p>
         </div>
       </div>
+
       <div className={classes.solutions}>
-        <div className={classes.soln1}>
+        <div className={classes.soln1} >
           <div className={classes.soln_img1}>
             <h2>
               Management <span className={classes.solnt}>Solutions</span>
@@ -126,6 +136,7 @@ const StartupProgram = () => {
             </p>
           </div>
         </div>
+
         <div className={classes.soln2}>
           <div className={classes.soln_img2}>
             <h2 id={classes.MS}>
@@ -142,6 +153,7 @@ const StartupProgram = () => {
             </p>
           </div>
         </div>
+
         <div className={classes.soln3}>
           <div className={classes.soln_img3}>
             <h2>
@@ -158,6 +170,7 @@ const StartupProgram = () => {
           </div>
         </div>
       </div>
+
       <div className={classes.contactus}>
         <div className={classes.contact_sec1}>
           <h1>
@@ -165,12 +178,20 @@ const StartupProgram = () => {
             repellat? Eaque, esse.
           </h1>
           <br />
-          <button>Contact Us</button>
+
+          <button style={{cursor : 'crosshair'}}
+           onClick={
+            ()=>{
+              history.push('/');
+            }
+          }
+           >Contact Us</button>
         </div>
         <div className={classes.contact_sec2}>
           <img src={Image7} alt="" />
         </div>
       </div>
+
       <div className={classes.PMS}>
         <div className={classes.PMS_sec1}>
           <div className={classes.PMS_text}>
