@@ -175,14 +175,8 @@ const StartupProgram = () => {
             repellat? Eaque, esse.
           </h1>
           <br />
-
-          <button style={{cursor : 'crosshair'}}
-           onClick={
-            ()=>{
-              history.push('/');
-            }
-          }
-           >Contact Us</button>
+        <button onClick={()=> console.log("CLICKED!")} >Connect Us!</button>
+        
         </div>
         <div className={classes.contact_sec2}>
           <img src={Image7} alt="" />
