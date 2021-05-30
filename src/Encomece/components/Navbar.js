@@ -5,6 +5,7 @@ import "./Navbar.scss";
 import { AuthContext } from "../../TMS/context/authContext";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
+
 const Navbar1 = () => {
   //states
   const [active, setActive] = useState(true);
@@ -51,7 +52,7 @@ const Navbar1 = () => {
     } else history.push("/auth");
   };
 
-  console.log(auth.token);
+  // console.log(auth.token);
 
   return (
     <section className={`navigation ${!active ? "hide" : ""}`}>

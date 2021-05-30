@@ -1,17 +1,17 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-//Components
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
-//css
 import classes from "../assets/css/layout.module.css";
 
 //Images
-import Image1 from "../assets/Images/VE_img/Group 268.webp";
+import Image1 from  "../assets/Images/VE_img/Group 268.webp";
 import Image2 from "../assets/Images/VE_img/Mask Group 21.webp";
-import Image3 from "../assets/Images/VE_img/avatar-circle-human-male-4-512 .webp";
+import Image3 from  "../assets/Images/VE_img/avatar-circle-human-male-4-512 .webp";
+
+//Components
+const Navbar = React.lazy(()=> import( "../components/Navbar"));
+const Footer = React.lazy(()=> import("../components/Footer"));
+
 
 const VEProgram = () => {
   const history = useHistory();

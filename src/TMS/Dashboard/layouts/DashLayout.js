@@ -4,15 +4,23 @@ import { Switch, Route, Redirect } from "react-router-dom";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-// core components
-import Navbar from "../components/Navbars/Navbar.js";
-import Sidebar from "../components/Sidebar/Sidebar.js";
+// // core components
+// import Navbar from "../components/Navbars/Navbar.js";
+// import Sidebar from "../components/Sidebar/Sidebar.js";
 
 //Importing Route
 import routes from "../routes.js";
 
-import styles from "../assets/jss/material-dashboard-react/layouts/dashLayoutStyle.js";
-import RightSidebar from "../components/RightSidebar/RightSidebar";
+// import styles from "../assets/jss/material-dashboard-react/layouts/dashLayoutStyle.js";
+// import RightSidebar from "../components/RightSidebar/RightSidebar";
+
+// core components
+const Navbar = React.lazy(()=> import( "../components/Navbars/Navbar.js"));
+const Sidebar = React.lazy(()=> import("../components/Sidebar/Sidebar.js"));
+
+const styles = React.lazy(()=> import("../assets/jss/material-dashboard-react/layouts/dashLayoutStyle.js"));
+
+const RightSidebar = React.lazy(()=> import("../components/RightSidebar/RightSidebar"));
 
 const switchRoutes = (
   <Switch>

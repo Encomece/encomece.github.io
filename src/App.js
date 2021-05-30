@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
+  // Redirect,
 } from "react-router-dom";
 
 import Notifications from "react-notify-toast"; //For pop-up notification
@@ -20,6 +20,10 @@ import { useTaskHook } from "./TMS/customHooks/task-hook";
 
 //routes
 import { global_routes, secure_routes } from "./routes";
+import { Suspense } from "react";
+
+// const Notifications= React.lazy(()=>import("react-notify-toast")); //For pop-up notification
+
 
 const App = () => {
   //Context
@@ -88,7 +92,10 @@ const App = () => {
         >
           <main>
             <Router>
+            <Suspense fallback={<div>Page is Loading...</div>}>
+
               <Switch>{routes}</Switch>
+            </Suspense>
             </Router>
           </main>
         </TaskContext.Provider>

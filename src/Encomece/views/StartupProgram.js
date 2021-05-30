@@ -1,13 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 //Components
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 //css
 import classes from "../assets/css/layout.module.css";
 
-//Images
 import Image1 from "../assets/Images/SP_img/Group 270.webp";
 import Image2 from "../assets/Images/SP_img/Group 272.webp";
 import Image3 from "../assets/Images/SP_img/Group 273.webp";
@@ -22,6 +22,7 @@ import Image11 from "../assets/Images/SP_img/website.webp";
 import Image12 from "../assets/Images/SP_img/Group 278.webp";
 import Image13 from "../assets/Images/SP_img/Mask Group 22.webp";
 import Image14 from "../assets/Images/SP_img/Group\ 277.webp";
+
 
 const StartupProgram = () => {
   const history = useHistory();
