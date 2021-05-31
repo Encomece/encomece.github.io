@@ -1,13 +1,19 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useLocation, useHistory } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
-import Menu from "@material-ui/icons/Menu";
-import Hidden from "@material-ui/core/Hidden";
+
+// import IconButton from "@material-ui/core/IconButton";
+// import Menu from "@material-ui/icons/Menu";
+// import Hidden from "@material-ui/core/Hidden";
+
 //Context
 import { AuthContext } from "../../../context/authContext";
 
 //Style
 import "./Navbar.css";
+
+const IconButton= React.lazy(()=> import("@material-ui/core/IconButton")); 
+const Menu= React.lazy(()=> import("@material-ui/icons/Menu")); 
+const Hidden= React.lazy(()=> import( "@material-ui/core/Hidden"));
 
 const Header = (props) => {
   const history = useHistory();

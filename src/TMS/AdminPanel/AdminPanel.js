@@ -5,9 +5,9 @@ import { AuthContext } from "../context/authContext";
 
 import "./AdminPanel.css";
 
-import DummyImage from "../assets/img/Image 6.webp";
+import DummyImage from  "../assets/img/Image 6.webp";
 
-import BrandLogo from "../assets/img/logo.png";
+import BrandLogo  from "../assets/img/logo.png";
 
 const AdminPanel = () => {
   const { allUsers, setAllUsersHandler } = useContext(TaskContext);

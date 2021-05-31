@@ -8,8 +8,9 @@ import Brand_logo from "../../assets/img/logo.png";
 import { Grid, Button, Typography, Link } from "@material-ui/core";
 import { FcGoogle } from "react-icons/fc";
 
-import FormikAuthForm from "../Components/FormikAuthForm";
-import ForgotPswd from "../Components/ForgotPswd";
+
+const FormikAuthForm= React.lazy(()=>import("../Components/FormikAuthForm"));
+const ForgotPswd= React.lazy(()=>import("../Components/ForgotPswd"));
 //Login Details
 
 const Authentication1 = () => {

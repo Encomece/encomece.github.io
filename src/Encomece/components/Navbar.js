@@ -5,6 +5,7 @@ import "./Navbar.scss";
 import { AuthContext } from "../../TMS/context/authContext";
 import { Link } from "react-scroll";
 import { NavLink } from "react-router-dom";
+
 const Navbar1 = () => {
   //states
   const [active, setActive] = useState(true);
@@ -28,17 +29,6 @@ const Navbar1 = () => {
   //Mobile-Menu-toggler
   const mobileMenuHandler = () => setOpenMobileMenu((prev) => !prev);
 
-  //DropDown-toggler
-  const dropDownOpenHandler = (type) => {
-    if (type === "services") {
-      setOpenDropDown_Program(false);
-      setOpenDropDown_Services((prev) => !prev);
-    } else {
-      setOpenDropDown_Program((prev) => !prev);
-      setOpenDropDown_Services(false);
-    }
-  };
-
   const history = useHistory();
 
   //auth-context
@@ -51,7 +41,7 @@ const Navbar1 = () => {
     } else history.push("/auth");
   };
 
-  console.log(auth.token);
+  // console.log(auth.token);
 
   return (
     <section className={`navigation ${!active ? "hide" : ""}`}>
@@ -91,7 +81,9 @@ const Navbar1 = () => {
                 About us
               </Link>
             </li>
-            <li>
+            
+
+            <li className="nav__menu-item">
               <Link
                 to="programs"
                 active="nav__activelink"
@@ -99,24 +91,23 @@ const Navbar1 = () => {
                 smooth={true}
                 duration={1000}
                 style={{ cursor: "pointer", color: "white" }}
-                // onMouseEnter={() => dropDownOpenHandler("programs")}
-              >
-                Programs
+              > Programs
               </Link>
 
               <ul
-                className="nav-dropdown"
-                style={{ display: openDropDown_Program ? "block" : "none" }}
+                className="nav_dropdown"
               >
-                <li>
+                <li className="nav_dropdown-item">
                   <a href="/startup_program">Startup Program</a>
                 </li>
-                <li>
+                <li className="nav_dropdown-item">
                   <a href="/ve_program">Virtual Employee Program</a>
                 </li>
               </ul>
             </li>
-            <li>
+            
+
+            <li className="nav__menu-item">
               <Link
                 to="services"
                 active="nav__activelink"
@@ -124,22 +115,20 @@ const Navbar1 = () => {
                 smooth={true}
                 duration={1500}
                 style={{ cursor: "pointer", color: "white" }}
-                // onMouseEnter={() => dropDownOpenHandler("services")}
               >
                 Services
               </Link>
 
               <ul
-                className="nav-dropdown"
-                style={{ display: openDropDown_Services ? "block" : "none" }}
+                className="nav_dropdown"
               >
-                <li>
+                <li className="nav_dropdown-item">
                   <a href="#!">Marketing</a>
                 </li>
-                <li>
+                <li className="nav_dropdown-item">
                   <a href="#!">Content Writing</a>
                 </li>
-                <li>
+                <li className="nav_dropdown-item">
                   <a href="#!">Advertisement</a>
                 </li>
               </ul>
