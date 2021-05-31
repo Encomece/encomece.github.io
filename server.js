@@ -6,6 +6,7 @@ const googleRoutes = require("./routes/googleRoutes");
 const passport = require("passport");
 const contactRoutes = require("./routes/contactRoutes");
 const workspaceRoutes = require("./routes/workspaceRoutes");
+const profileRoutes = require("./routes/profileRoutes");
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 //Routes
 app.use("/contact", contactRoutes);
 app.use("/api/dashboard/workspace", workspaceRoutes);
+app.use("/api/dashboard/profile", profileRoutes);
 app.use("/api", authRoutes);
 app.use("/", googleRoutes);
 
