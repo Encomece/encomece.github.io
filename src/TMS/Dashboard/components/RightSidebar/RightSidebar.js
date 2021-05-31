@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import PerosnImg from "../../assets/img/PersonImg.webp";
 import "./RightSidebar.css";
@@ -17,6 +17,46 @@ const LeftSidebar = () => {
     history.push("/");
   };
 
+  const [profileDetails, setProfileDetails] = useState({});
+
+  useEffect(() => {
+    fetch(
+      process.env.REACT_APP_BASE_URL +
+        "/dashboard/profile/details/" +
+        auth.userId
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.ok === true) {
+          setProfileDetails(data.details);
+        } else {
+          setProfileDetails({ isAvailable: "false" });
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const userInfo = {
+    FirstName:
+      profileDetails.firstName == undefined
+        ? auth.userName
+        : profileDetails.firstName,
+    LastName:
+      profileDetails.lastName == undefined ? "" : profileDetails.lastName,
+    Description:
+      profileDetails.description == undefined
+        ? " Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diamnonumy eirmod tempor invidunt ut labore et dol ore magna aliquyamerat, sed diam vol uptua. At vero eos et accusam et justo duo dolores"
+        : profileDetails.description,
+    Number:
+      profileDetails.contactNumber == undefined
+        ? "Add a Number"
+        : profileDetails.contactNumber,
+  };
+
+  const updateProfileBtn = () => {
+    history.push("/dash/profile");
+  };
+
   return (
     <div className="dash-leftSidebar">
       <div className="dash-loginBtn">
@@ -27,25 +67,23 @@ const LeftSidebar = () => {
       <div className="dash-avatarImg">
         <img src={PerosnImg} alt="person-img" />
       </div>
-      <div className="dash-client-name">{auth.userName}</div>
+      <div className="dash-client-name">
+        {userInfo.FirstName + " " + userInfo.LastName}
+      </div>
       <div className="dash-clientDetails">
         <div className="dash-client-about-heading">About</div>
-        <div className="dash-client-about">
-          Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diam
-          nonumy eirmod tempor invidunt ut labore et dol ore magna aliquyam
-          erat, sed diam vol uptua. At vero eos et accusam et justo duo dolores
-        </div>
+        <div className="dash-client-about">{userInfo.Description}</div>
         <div className="dash-contactDetails">
           <div className="dash-contact-email">
             <EmailOutlined /> <span>{auth.userEmail}</span>
           </div>
           <div className="dash-contact-phone">
             <PhoneIcon />
-            <span>Add a Number</span>
+            <span>{userInfo.Number}</span>
           </div>
         </div>
         <div className="dash-update-btn">
-          <button>Update Profile</button>
+          <button onClick={updateProfileBtn}>Update Profile</button>
         </div>
       </div>
     </div>
