@@ -62,7 +62,7 @@ const FormContainer = () => {
       console.log(data);
       try {
         const response = await sendRequest(
-          "http://localhost:8000/api" + "/dashboard/workspace/task",
+          process.env.REACT_APP_BASE_URL + "/dashboard/workspace/task",
           "POST",
           data,
           {
