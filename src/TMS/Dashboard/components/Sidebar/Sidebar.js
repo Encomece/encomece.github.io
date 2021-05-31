@@ -3,19 +3,19 @@ import React from "react";
 import classNames from "classnames";
 import { NavLink, useLocation } from "react-router-dom";
 
-import Brand_logo from"../../assets/img/logo.png";
+import Brand_logo from "../../assets/img/logo.png";
+
+//css
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "../../assets/jss/material-dashboard-react/components/sidebarStyle.js";
 
 // @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-const Drawer= React.lazy(()=> import("@material-ui/core/Drawer"));
-const List= React.lazy(()=> import("@material-ui/core/List"));
-const ListItem= React.lazy(()=> import("@material-ui/core/ListItem"));
-const ListItemText= React.lazy(()=> import("@material-ui/core/ListItemText"));
-const Icon= React.lazy(()=> import("@material-ui/core/Icon"));
-const Hidden= React.lazy(()=> import("@material-ui/core/Hidden"));
-
-
-const styles= React.lazy(()=> import("../../assets/jss/material-dashboard-react/components/sidebarStyle.js"));
+const Drawer = React.lazy(() => import("@material-ui/core/Drawer"));
+const List = React.lazy(() => import("@material-ui/core/List"));
+const ListItem = React.lazy(() => import("@material-ui/core/ListItem"));
+const ListItemText = React.lazy(() => import("@material-ui/core/ListItemText"));
+const Icon = React.lazy(() => import("@material-ui/core/Icon"));
+const Hidden = React.lazy(() => import("@material-ui/core/Hidden"));
 
 const useStyles = makeStyles(styles);
 
