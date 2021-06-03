@@ -1,0 +1,37 @@
+.upload-section {
+  display: flex;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.drop-zone {
+  margin-bottom: 10px;
+  padding: 40px 10px;
+  height: inherit;
+  border: 2px dashed #e9ebeb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.image-preview {
+  height: 200px;
+  width: 200px;
+  margin-left: 5%;
+}
+
+.preview-image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+.preview-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+}

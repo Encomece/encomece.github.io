@@ -1,10 +1,10 @@
 import React from "react";
-import ProfileDetails from "./components/ProfileDetails";
+import Profile_Details from "./components/Profile_Details";
 
 const Profile = () => {
   return (
     <div>
-      <ProfileDetails />
+      <Profile_Details />
     </div>
   );
 };
