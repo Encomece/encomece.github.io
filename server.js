@@ -1,9 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
+const passport = require("passport");
+const fs = require("fs");
+
 const authRoutes = require("./routes/authRoutes");
 const googleRoutes = require("./routes/googleRoutes");
-const passport = require("passport");
 const contactRoutes = require("./routes/contactRoutes");
 const workspaceRoutes = require("./routes/workspaceRoutes");
 const profileRoutes = require("./routes/profileRoutes");
@@ -29,6 +32,12 @@ app.use((req, res, next) => {
   next();
 });
 
+//for fetching static files(images)
+app.use(
+  "/uploads/profile-pics",
+  express.static(path.join("uploads", "profile-pics"))
+);
+
 //Routes
 app.use("/contact", contactRoutes);
 app.use("/api/dashboard/workspace", workspaceRoutes);
@@ -38,6 +47,11 @@ app.use("/", googleRoutes);
 
 // For any unknown API request
 app.use((error, req, res, next) => {
+  if (req.file) {
+    fs.unlink(req.file.path, (err) => {
+      console.log(err);
+    });
+  }
   if (res.headerSent) {
     return next(error);
   }
@@ -57,7 +71,7 @@ mongoose
   })
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`MongoDB Connected 😊 and Connection started at ${PORT}`);
+      console.log(`MongoDB Connected and Connection started at ${PORT}`);
       console.log(`Local -> http://localhost:8000`);
       console.log(`Client Origin -> ${process.env.CLIENT_ORIGIN}`);
     });

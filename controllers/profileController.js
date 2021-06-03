@@ -3,30 +3,23 @@ const Profile = require("../models/Profile");
 //create and update profile details
 module.exports.profile_details = async (req, res) => {
   try {
-    const {
-      firstName,
-      lastName,
-      contactNumber,
-      city,
-      zip,
-      description,
-      email,
-      userId,
-    } = req.body;
+    const { firstName, lastName, description, email, userId, company } =
+      req.body;
+    const { path } = req.file;
+    const image_path = process.env.IMAGE_BASE_URL + req.file.filename;
+
     const getUser = await Profile.findOne({ userId: userId });
     if (getUser) {
       await Profile.findOneAndUpdate(
         { userId: userId },
         {
           $set: {
-            firstName: firstName == null ? getUser.firstName : firstName,
-            lastName: lastName == null ? getUser.lastName : lastName,
-            contactNumber:
-              contactNumber == null ? getUser.contactNumber : contactNumber,
-            city: city == null ? getUser.city : city,
-            zip: zip == null ? getUser.zip : zip,
+            firstName: firstName.length == 0 ? getUser.firstName : firstName,
+            lastName: lastName.length == 0 ? getUser.lastName : lastName,
             description:
-              description == null ? getUser.description : description,
+              description.length == 0 ? getUser.description : description,
+            profilePic: path.length == 0 ? getUser.profilePic : image_path,
+            company: company.length == 0 ? getUser.company : company,
           },
         }
       );
@@ -37,12 +30,10 @@ module.exports.profile_details = async (req, res) => {
         email,
         firstName,
         lastName,
-        contactNumber,
-        city,
-        zip,
+        company,
         description,
+        profilePic: path.length != 0 && image_path,
       };
-
       const new_profile = await new Profile(new_details);
       await new_profile.save();
       res.status(201).json({ ok: true, message: "Profile Updated" });
