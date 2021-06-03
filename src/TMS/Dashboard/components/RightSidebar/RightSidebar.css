@@ -12,13 +12,15 @@
 }
 
 .dash-avatarImg {
-  height: 150px;
-  width: 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   margin-top: 130px;
 }
 .dash-avatarImg img {
-  width: 100%;
-  object-fit: contain;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }
 .dash-client-name {
   font-size: 2rem;

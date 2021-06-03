@@ -3,11 +3,10 @@ import { useHistory } from "react-router-dom";
 import "./RightSidebar.css";
 
 import { EmailOutlined } from "@material-ui/icons";
-import PhoneIcon from "@material-ui/icons/Phone";
+import BusinessIcon from "@material-ui/icons/Business";
+import { Avatar } from "@material-ui/core";
 
 import { AuthContext } from "../../../context/authContext";
-
-import PerosnImg from "../../assets/img/PersonImg.webp";
 
 const LeftSidebar = () => {
   const auth = useContext(AuthContext);
@@ -28,6 +27,7 @@ const LeftSidebar = () => {
     )
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         if (data.ok === true) {
           setProfileDetails(data.details);
         } else {
@@ -35,7 +35,7 @@ const LeftSidebar = () => {
         }
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [setProfileDetails]);
 
   const userInfo = {
     FirstName:
@@ -48,10 +48,11 @@ const LeftSidebar = () => {
       profileDetails.description == undefined
         ? " Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diamnonumy eirmod tempor invidunt ut labore et dol ore magna aliquyamerat, sed diam vol uptua. At vero eos et accusam et justo duo dolores"
         : profileDetails.description,
-    Number:
-      profileDetails.contactNumber == undefined
-        ? "Add a Number"
-        : profileDetails.contactNumber,
+    company: profileDetails.company,
+    profilePic:
+      profileDetails.profilePic == undefined
+        ? null
+        : process.env.REACT_APP_SERVER_URL + profileDetails.profilePic,
   };
 
   const updateProfileBtn = () => {
@@ -66,7 +67,14 @@ const LeftSidebar = () => {
         </button>
       </div>
       <div className="dash-avatarImg">
-        <img src={PerosnImg} alt="person-img" />
+        {userInfo.profilePic == null ? (
+          <Avatar
+            src="/broken-image.jpg"
+            style={{ height: "150px", width: "150px" }}
+          />
+        ) : (
+          <img src={userInfo.profilePic} alt="person-img" />
+        )}
       </div>
       <div className="dash-client-name">
         {userInfo.FirstName + " " + userInfo.LastName}
@@ -78,10 +86,12 @@ const LeftSidebar = () => {
           <div className="dash-contact-email">
             <EmailOutlined /> <span>{auth.userEmail}</span>
           </div>
-          <div className="dash-contact-phone">
-            <PhoneIcon />
-            <span>{userInfo.Number}</span>
-          </div>
+          {userInfo.company && (
+            <div className="dash-contact-phone">
+              <BusinessIcon />
+              <span>{userInfo.company}</span>
+            </div>
+          )}
         </div>
         <div className="dash-update-btn">
           <button onClick={updateProfileBtn}>Update Profile</button>
