@@ -15,6 +15,7 @@ const workspaceSchema = new mongoose.Schema({
       assigned_VE_Id: String,
       assigned_VE_Name: String,
       assigned_VE_Email: String,
+      attachment: String,
       status: {
         type: Boolean,
         default: false,

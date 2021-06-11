@@ -32,12 +32,6 @@ app.use((req, res, next) => {
   next();
 });
 
-//for fetching static files(images)
-app.use(
-  "/uploads/profile-pics",
-  express.static(path.join("uploads", "profile-pics"))
-);
-
 //Routes
 app.use("/contact", contactRoutes);
 app.use("/api/dashboard/workspace", workspaceRoutes);
@@ -47,11 +41,6 @@ app.use("/", googleRoutes);
 
 // For any unknown API request
 app.use((error, req, res, next) => {
-  if (req.file) {
-    fs.unlink(req.file.path, (err) => {
-      console.log(err);
-    });
-  }
   if (res.headerSent) {
     return next(error);
   }

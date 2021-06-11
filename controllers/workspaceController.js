@@ -3,6 +3,7 @@ const VE_Workspace = require("../models/VE_Workspace");
 const UsersModel = require("../models/User");
 const emailTemplates = require("../config/nodemailerMailTemps");
 const sendEmail = require("../config/nodemailer"); //nodemailer
+const cloudinary = require("../config/cloudinary");
 
 //Getting the list of all tasks
 module.exports.get_tasks = async (req, res) => {
@@ -33,7 +34,23 @@ module.exports.post_tasks = async (req, res) => {
       userEmail,
       taskId,
     } = req.body;
+    console.log(req.body);
+    const { path } = req.file;
+
     const getUser = await Workspace.findOne({ userId: userId });
+
+    if (getUser.attachment != null && path) {
+      await cloudinary.uploader.destroy(getUser.attachment);
+    }
+
+    let attach = null;
+    if (path) {
+      attach = await cloudinary.uploader.upload(path, {
+        folder: "attachments",
+        use_filename: true,
+      });
+    }
+
     var totalTask = 0;
     if (getUser) {
       totalTask = getUser.tasks.length;
@@ -46,6 +63,7 @@ module.exports.post_tasks = async (req, res) => {
       taskDescription,
       dueDate,
       assigned_VE_Name: "Not Assigned",
+      attachment: attach.public_id,
     };
     //Finding that user and pushing the task in tasks array of user
     const updatingTaskList = await Workspace.findOneAndUpdate(

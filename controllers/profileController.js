@@ -1,4 +1,5 @@
 const Profile = require("../models/Profile");
+const cloudinary = require("../config/cloudinary");
 
 //create and update profile details
 module.exports.profile_details = async (req, res) => {
@@ -6,20 +7,31 @@ module.exports.profile_details = async (req, res) => {
     const { firstName, lastName, description, email, userId, company } =
       req.body;
     const { path } = req.file;
-    const image_path = process.env.IMAGE_BASE_URL + req.file.filename;
+    let image = null;
+    if (path) {
+      image = await cloudinary.uploader.upload(path, {
+        folder: "profilePics",
+        use_filename: true,
+      });
+    }
 
     const getUser = await Profile.findOne({ userId: userId });
+
     if (getUser) {
+      if (getUser.cloudinary_id.length != 0) {
+        if (image) {
+          await cloudinary.uploader.destroy(getUser.cloudinary_id);
+        }
+      }
       await Profile.findOneAndUpdate(
         { userId: userId },
         {
           $set: {
-            firstName: firstName.length == 0 ? getUser.firstName : firstName,
-            lastName: lastName.length == 0 ? getUser.lastName : lastName,
-            description:
-              description.length == 0 ? getUser.description : description,
-            profilePic: path.length == 0 ? getUser.profilePic : image_path,
-            company: company.length == 0 ? getUser.company : company,
+            firstName: firstName || getUser.firstName,
+            lastName: lastName || getUser.lastName,
+            description: description || getUser.description,
+            cloudinary_id: image.public_id || getUser.cloudinary_id,
+            company: company || getUser.company,
           },
         }
       );
@@ -32,7 +44,7 @@ module.exports.profile_details = async (req, res) => {
         lastName,
         company,
         description,
-        profilePic: path.length != 0 && image_path,
+        cloudinary_id: image && image.public_id,
       };
       const new_profile = await new Profile(new_details);
       await new_profile.save();

@@ -22,7 +22,7 @@ const profileSchema = new mongoose.Schema(
     description: {
       type: String,
     },
-    profilePic: {
+    cloudinary_id: {
       type: String,
     },
   },

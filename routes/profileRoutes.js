@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const profileController = require("../controllers/profileController");
-const fileUpload = require("../config/fileUpload_multer");
+const fileUpload = require("../config/multer");
 
 const router = Router();
 

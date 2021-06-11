@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const fileUpload = require("../config/attachment_multer");
 
 const workspaceController = require("../controllers/workspaceController");
 
@@ -10,7 +11,7 @@ const router = Router();
 
 router.get("/allTasks/:userId", workspaceController.get_tasks); //for sending the list of tasks to client
 router.post("/task/comments", workspaceController.post_comment); //for adding a new comment to a task
-router.post("/task", workspaceController.post_tasks); //for adding a new task
+router.post("/task", fileUpload.single("file"), workspaceController.post_tasks); //for adding a new task
 router.get("/allUsers", workspaceController.get_allUsers); //Getting all user
 router.get("/allUsers/:userId", workspaceController.get_userById); //Getting user by id
 router.post("/sendTask", workspaceController.send_Task_to_VE); //sending taskDetails to VE
