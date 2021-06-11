@@ -38,21 +38,15 @@ const LeftSidebar = () => {
   }, [setProfileDetails]);
 
   const userInfo = {
-    FirstName:
-      profileDetails.firstName == undefined
-        ? auth.userName
-        : profileDetails.firstName,
-    LastName:
-      profileDetails.lastName == undefined ? "" : profileDetails.lastName,
+    FirstName: profileDetails.firstName || auth.userName,
+    LastName: profileDetails.lastName || "",
     Description:
-      profileDetails.description == undefined
-        ? " Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diamnonumy eirmod tempor invidunt ut labore et dol ore magna aliquyamerat, sed diam vol uptua. At vero eos et accusam et justo duo dolores"
-        : profileDetails.description,
+      profileDetails.description ||
+      " Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diamnonumy eirmod tempor invidunt ut labore et dol ore magna aliquyamerat, sed diam vol uptua. At vero eos et accusam et justo duo dolores",
     company: profileDetails.company,
-    profilePic:
-      profileDetails.profilePic == undefined
-        ? null
-        : process.env.REACT_APP_SERVER_URL + profileDetails.profilePic,
+    publicId:
+      "https://res.cloudinary.com/modassir123/image/upload/v1623093599/" +
+      profileDetails.cloudinary_id,
   };
 
   const updateProfileBtn = () => {
@@ -67,13 +61,11 @@ const LeftSidebar = () => {
         </button>
       </div>
       <div className="dash-avatarImg">
-        {userInfo.profilePic == null ? (
+        {<img src={userInfo.publicId} alt="person-img" /> || (
           <Avatar
             src="/broken-image.jpg"
             style={{ height: "150px", width: "150px" }}
           />
-        ) : (
-          <img src={userInfo.profilePic} alt="person-img" />
         )}
       </div>
       <div className="dash-client-name">
