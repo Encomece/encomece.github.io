@@ -126,7 +126,7 @@ module.exports.post_tasks = async (req, res) => {
 module.exports.post_comment = async (req, res) => {
   let { type } = req.body;
   if (type === "ve") {
-    const { comment, taskId, userId, person, assignUserId } = req.body;
+    const { comment, projectId, userId, person, assignUserId } = req.body;
     const newComment = {
       person: person,
       comment: comment,
@@ -134,20 +134,20 @@ module.exports.post_comment = async (req, res) => {
     };
     try {
       const VEcomments = await VE_Workspace.findOneAndUpdate(
-        { userId: userId, "tasks.taskId": taskId },
+        { userId: userId, "projects.projectId": projectId },
         {
           $push: {
-            "tasks.$.taskComments": newComment,
+            "projects.comments": newComment,
           },
         },
         { returnOriginal: true }
       );
 
       await Workspace.findOneAndUpdate(
-        { userId: assignUserId, "tasks.taskId": taskId },
+        { userId: assignUserId, "projects.projectId": projectId },
         {
           $push: {
-            "tasks.$.taskComments": newComment,
+            "projects.comments": newComment,
           },
         },
         { returnOriginal: true }
@@ -158,7 +158,7 @@ module.exports.post_comment = async (req, res) => {
       res.json(err);
     }
   } else if (type === "client") {
-    const { comment, taskId, userId, assigned_VE_Id, person } = req.body;
+    const { comment, projectId, userId, assigned_VE_Id, person } = req.body;
     const newComment = {
       person: person,
       comment: comment,
@@ -166,18 +166,18 @@ module.exports.post_comment = async (req, res) => {
     };
     try {
       const clientComments = await Workspace.findOneAndUpdate(
-        { userId: userId, "tasks.taskId": taskId },
+        { userId: userId, "projects.projectId": projectId },
         {
           $push: {
-            "tasks.$.taskComments": newComment,
+            "projects.comments": newComment,
           },
         }
       );
       await VE_Workspace.findOneAndUpdate(
-        { userId: assigned_VE_Id, "tasks.taskId": taskId },
+        { userId: assigned_VE_Id, "projects.projectId": projectId },
         {
           $push: {
-            "tasks.$.taskComments": newComment,
+            "projects.comments": newComment,
           },
         }
       );
