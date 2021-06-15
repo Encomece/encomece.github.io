@@ -5,41 +5,88 @@ const emailTemplates = require("../config/nodemailerMailTemps");
 const sendEmail = require("../config/nodemailer"); //nodemailer
 const cloudinary = require("../config/cloudinary");
 
-//Getting the list of all tasks
-module.exports.get_tasks = async (req, res) => {
-  //Will recieve the userId during api request on client to search the user
+//getting all projects
+module.exports.get_projects = async (req, res) => {
   const { userId } = req.params;
+
   try {
-    const userTasks = await Workspace.findOne({ userId: userId });
-    if (userTasks) {
-      res.json(userTasks.tasks);
-    } else {
-      res.json({ message: "No Task Assigned", ok: false });
-    }
+    const userProjects = await Workspace.findOne({ userId: userId });
+    if (userProjects) res.json(userProjects.projects);
+    else res.json({ message: "No Projects Available", ok: false });
+  } catch (err) {
+    res.json({ err });
+  }
+};
+
+//getting all tasks
+module.exports.get_tasks = async (req, res) => {
+  const { token } = req.params;
+  const query = token.split("=");
+  const userId = query[0];
+  const projectId = query[1];
+
+  try {
+    const getTasks = await Workspace.findOne({
+      userId: userId,
+      "projects.projectId": projectId,
+    });
+    if (getTasks) res.json(getTasks.tasks);
+    else res.json({ message: "No Task Added", ok: false });
   } catch (err) {
     res.json(err);
   }
 };
 
-//Adding a task
+//adding a project
+module.exports.post_project = async (req, res) => {
+  const { userId, userName, userEmail, projectName, projectType } = req.body;
+  try {
+    const newProjectDetails = {
+      projectName,
+      projectType,
+    };
+
+    const existingUser = await user.findOneAndUpdate(
+      { userId },
+      {
+        $push: {
+          projects: newProjectDetails,
+        },
+      }
+    );
+
+    if (!!existingUser) {
+      const newProject = await new Workspace({
+        userId,
+        userName,
+        userEmail,
+        projects: [newProjectDetails],
+      });
+      await newProject.save();
+    }
+    res.status(201).json({ message: "Project Created", ok: true });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Project Creation failed",
+      error: { ...error },
+      ok: false,
+    });
+  }
+};
+
+//adding a task
 module.exports.post_tasks = async (req, res) => {
   try {
-    const {
-      taskName,
-      taskType,
-      taskDescription,
-      dueDate,
-      userId,
-      userName,
-      userEmail,
-      taskId,
-    } = req.body;
-    console.log(req.body);
+    const { taskName, taskDescription, userId, projectId } = req.body;
     const { path } = req.file;
 
-    const getUser = await Workspace.findOne({ userId: userId });
+    const getProject = await Workspace.findOne({
+      userId: userId,
+      "projects.projectId": projectId,
+    });
 
-    if (getUser.attachment != null && path) {
+    if (getProject.attachment != null && path) {
       await cloudinary.uploader.destroy(getUser.attachment);
     }
 
@@ -51,52 +98,27 @@ module.exports.post_tasks = async (req, res) => {
       });
     }
 
-    var totalTask = 0;
-    if (getUser) {
-      totalTask = getUser.tasks.length;
-    }
     const newTask = {
-      id: totalTask + 1,
-      taskId,
       taskName,
-      taskType,
       taskDescription,
-      dueDate,
-      assigned_VE_Name: "Not Assigned",
       attachment: attach.public_id,
     };
-    //Finding that user and pushing the task in tasks array of user
-    const updatingTaskList = await Workspace.findOneAndUpdate(
+
+    await Workspace.findOneAndUpdate(
       {
-        userId: userId,
+        userId,
+        "projects.projectId": projectId,
       },
       {
         $push: {
-          tasks: newTask,
+          "projects.tasks": newTask,
         },
-      },
-      { returnOriginal: false }
+      }
     );
-    if (updatingTaskList) {
-      res.status(201).json({
-        task: updatingTaskList.tasks,
-        message: "New Task Added",
-        ok: true,
-      });
-    } else {
-      //Creating newUser Workspace model and the storing task to tasks array
-      const newTaskList = await new Workspace({
-        userId: userId,
-        userName: userName,
-        userEmail: userEmail,
-        tasks: [newTask],
-      });
-      await newTaskList.save();
-      res.status(201).json({ message: "Task created successfully", ok: true });
-    }
+    res.status(201).json({ message: "Task created successfully", ok: true });
   } catch (err) {
     console.log(err);
-    res.json(err);
+    res.json({ message: "Task Creation Failed", error: { ...err }, ok: false });
   }
 };
 

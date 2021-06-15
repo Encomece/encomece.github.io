@@ -4,29 +4,38 @@ const workspaceSchema = new mongoose.Schema({
   userId: String,
   userName: String,
   userEmail: String,
-  tasks: [
+  projects: [
     {
-      id: Number,
-      taskId: String,
-      taskName: String,
-      taskType: Object,
-      taskDescription: String,
-      dueDate: Date,
-      assigned_VE_Id: String,
-      assigned_VE_Name: String,
-      assigned_VE_Email: String,
-      attachment: String,
-      status: {
-        type: Boolean,
-        default: false,
+      projectId: {
+        type: mongoose.Schema.Types.ObjectId,
+        auto: true,
       },
-      taskComments: [
+      projectName: String,
+      projectType: String,
+      veId: String,
+      veName: String,
+      veEmail: String,
+      tasks: [
+        {
+          taskId: {
+            type: mongoose.Schema.Types.ObjectId,
+            auto: true,
+          },
+          taskName: String,
+          taskDescription: String,
+          dueDate: Date,
+          attachment: String,
+          status: {
+            type: Boolean,
+            default: false,
+          },
+        },
+      ],
+      comments: [
         {
           person: String,
           comment: String,
-          time: {
-            type: Date,
-          },
+          time: Date,
         },
       ],
     },
