@@ -1,20 +1,16 @@
 import React, { useContext } from "react";
 
 //Material-ui core componets
-import { Button, LinearProgress, Box } from "@material-ui/core";
-import { DatePicker } from "formik-material-ui-pickers";
+import { Button, LinearProgress } from "@material-ui/core";
 
 //Formik Components
 import { Formik, Form, Field } from "formik"; //Using Formik
 import { Autocomplete } from "formik-material-ui-lab";
 import * as Yup from "yup";
-import { v4 as uuidv4 } from "uuid";
 import { TextField } from "formik-material-ui";
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
-import DateFnsUtils from "@date-io/date-fns";
 import MuiTextField from "@material-ui/core/TextField";
 
-import { TaskType } from "./TaskData/TaskType";
+import { ProjectType } from "./ProjectData/ProjectType";
 import { useHttpClient } from "../../../../customHooks/http-hook";
 import { AuthContext } from "../../../../context/authContext";
 import { TaskContext } from "../../../../context/taskContext";
@@ -32,48 +28,42 @@ const FormContainer = () => {
 
   //form initial-values
   const initialValues = {
-    taskName: "",
-    taskType: "none",
-    taskDescription: "",
-    dueDate: new Date(),
+    projectName: "",
+    projectType: "none",
   };
 
   //Vaidation the input
   const validationSchema = Yup.object().shape({
-    taskName: Yup.string().required("Add a task"),
+    projectName: Yup.string().required("Add a Project"),
   });
 
   //Submitting the form
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
+  const onSubmit = (values, { setSubmitting }) => {
     setTimeout(async () => {
       setSubmitting(false);
       const formData = JSON.stringify(values, null, 2);
+      console.log(formData);
       var data = JSON.parse(formData);
-      var id = uuidv4();
-      console.log(auth.userName);
       var extraData = {
         userId: auth.userId,
         userName: auth.userName,
         userEmail: auth.userEmail,
-        taskId: id,
       };
       data = { ...data, ...extraData };
       data = JSON.stringify(data);
       console.log(data);
       try {
         const response = await sendRequest(
-          process.env.REACT_APP_BASE_URL + "/dashboard/workspace/task",
+          process.env.REACT_APP_BASE_URL + "/dashboard/workspace/project",
           "POST",
           data,
           {
             "Content-Type": "application/json",
           }
         );
-        console.log(response);
         if (response.ok) {
           taskContext.setAllTasksHandler(response.task);
           console.log(response.message);
-          resetForm({ values: "" });
         }
       } catch (error) {
         console.log(error);
@@ -88,78 +78,80 @@ const FormContainer = () => {
       onSubmit={onSubmit}
     >
       {({ submitForm, isSubmitting, touched, errors }) => (
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <Form>
-            <div className="dash-createTask-formContainer">
-              <div className="dash-createTask-feild">
-                <Field
-                  component={TextField}
-                  name="taskName"
-                  type="text"
-                  label="Task Heading"
-                  style={{ width: "40%" }}
-                />
-              </div>
-              <div className="dash-createTask-feild">
-                <Field
-                  component={Autocomplete}
-                  name="taskType"
-                  options={TaskType}
-                  style={{ width: "40%" }}
-                  renderInput={(params) => (
-                    <MuiTextField
-                      {...params}
-                      helperText={touched["taskType"] && errors["taskType"]}
-                      label="Task Type"
-                    />
-                  )}
-                />
-              </div>
-              <div className="dash-createTask-feild">
-                <Field
-                  component={TextField}
-                  name="taskDescription"
-                  type="textarea"
-                  row="5"
-                  fullWidth
-                  label="Task Description"
-                  style={{ width: "40%" }}
-                />
-              </div>
-              <div className="dash-createTask-feild">
-                <Field
-                  component={DatePicker}
-                  name="dueDate"
-                  label="Due Date"
-                  style={{ width: "40%" }}
-                />
-              </div>
-              <div className="dash-createTask-button">
-                {isLoading && (
-                  <>
-                    <br />
-                    <LinearProgress />
-                    <br />
-                  </>
-                )}
-                <Button
-                  variant="contained"
-                  color="primary"
-                  disabled={isSubmitting}
-                  onClick={submitForm}
-                  style={{
-                    margin: "5px 0 0 0",
-                    borderRadius: "5px",
-                    width: "130px",
-                    backgroundColor: "#091D55",
-                  }}
-                >
-                  Add Task
-                </Button>
-              </div>
+        <Form>
+          <div className="dash-createTask-formContainer">
+            <div className="dash-createTask-feild">
+              <Field
+                component={TextField}
+                name="projectName"
+                type="text"
+                label="Project Heading"
+                style={{ width: "40%" }}
+              />
             </div>
-          </Form>
-        </MuiPickersUtilsProvider>
+            <div className="dash-createTask-feild">
+              <Field
+                component={Autocomplete}
+                name="projectType"
+                options={ProjectType}
+                style={{ width: "40%" }}
+                renderInput={(params) => (
+                  <MuiTextField
+                    {...params}
+                    helperText={touched["projectType"] && errors["projectType"]}
+                    label="Project Type"
+                  />
+                )}
+              />
+            </div>
+            {/* <div style={{ paddingLeft: "10px" }}>
+                <input
+                  type="file"
+                  onChange={onFileChangeHandler}
+                  accept=".png, .jpg, .jpeg, .pdf"
+                  name="file"
+                  style={{ display: "none" }}
+                  id="attachment"
+                />
+                <h7 style={{ color: "grey" }}>Add an attachment</h7>
+                <label htmlFor="attachment">
+                  <AttachmentIcon fontSize="large" style={{ color: "grey" }} />
+                </label>
+                {file && (
+                  <div style={{ color: "grey" }}>
+                    <strong>Selected file:</strong>{" "}
+                    {file.name.length > 10
+                      ? file.name.slice(0, 10) + "..."
+                      : file.name}
+                    <ClearIcon onClick={() => setFile(null)} />
+                  </div>
+                )}
+              </div> */}
+            <div className="dash-createTask-button">
+              {isLoading && (
+                <>
+                  <br />
+                  <LinearProgress />
+                  <br />
+                </>
+              )}
+              <Button
+                variant="contained"
+                color="primary"
+                disabled={isSubmitting}
+                onClick={submitForm}
+                style={{
+                  margin: "5px 0 0 0",
+                  borderRadius: "5px",
+                  width: "130px",
+                  backgroundColor: "#091D55",
+                }}
+              >
+                Add Task
+              </Button>
+            </div>
+          </div>
+        </Form>
       )}
     </Formik>
   );
