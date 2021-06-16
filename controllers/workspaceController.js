@@ -1,6 +1,6 @@
 const Workspace = require("../models/Workspace");
 const VE_Workspace = require("../models/VE_Workspace");
-const UsersModel = require("../models/User");
+const {User} = require("../models/User");
 const emailTemplates = require("../config/nodemailerMailTemps");
 const sendEmail = require("../config/nodemailer"); //nodemailer
 const cloudinary = require("../config/cloudinary");
@@ -21,7 +21,7 @@ module.exports.get_projects = async (req, res) => {
 //getting all tasks
 module.exports.get_tasks = async (req, res) => {
   const { token } = req.params;
-  const query = token.split("=");
+  const query = token?.split("=");
   const userId = query[0];
   const projectId = query[1];
 
@@ -46,7 +46,7 @@ module.exports.post_project = async (req, res) => {
       projectType,
     };
 
-    const existingUser = await user.findOneAndUpdate(
+    const existingUser = await User.findOneAndUpdate(
       { userId },
       {
         $push: {
@@ -55,7 +55,7 @@ module.exports.post_project = async (req, res) => {
       }
     );
 
-    if (!!existingUser) {
+    if (!existingUser) {
       const newProject = await new Workspace({
         userId,
         userName,
@@ -78,9 +78,9 @@ module.exports.post_project = async (req, res) => {
 //adding a task
 module.exports.post_tasks = async (req, res) => {
   try {
+    console.log(req.body)
     const { taskName, taskDescription, userId, projectId } = req.body;
     const { path } = req.file;
-
     const getProject = await Workspace.findOne({
       userId: userId,
       "projects.projectId": projectId,
@@ -250,7 +250,7 @@ module.exports.get_taskById = async (req, res, next) => {
 //Getting all VE
 module.exports.get_All_VE = async (req, res, next) => {
   try {
-    const users = await UsersModel.User.find({ "local.userType": "VE" });
+    const users = await User.find({ "local.userType": "VE" });
     let VE_data = [];
     if (users) {
       users.forEach((user) => {
@@ -320,7 +320,7 @@ module.exports.send_Task_to_VE = async (req, res, next) => {
 module.exports.add_VE_task = async (req, res, next) => {
   const { userId, assignUserId, assignTaskId } = req.body;
   try {
-    const VE_details = await UsersModel.User.findById(userId);
+    const VE_details = await User.findById(userId);
 
     await Workspace.findOneAndUpdate(
       { userId: assignUserId, "tasks.taskId": assignTaskId },
