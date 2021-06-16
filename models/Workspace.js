@@ -23,7 +23,6 @@ const workspaceSchema = new mongoose.Schema({
           },
           taskName: String,
           taskDescription: String,
-          dueDate: Date,
           attachment: String,
           status: {
             type: Boolean,

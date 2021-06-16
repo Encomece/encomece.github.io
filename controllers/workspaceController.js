@@ -26,10 +26,13 @@ module.exports.get_tasks = async (req, res) => {
   const projectId = query[1];
 
   try {
-    const getTasks = await Workspace.findOne({
-      userId: userId,
-      "projects.projectId": projectId,
-    });
+    const getTasks = await Workspace.findOne(
+      {
+        userId: userId,
+        "projects.projectId": projectId,
+      },
+      { "projects.$": 1 }
+    );
     if (getTasks) res.json(getTasks.projects[0]);
     else res.json({ message: "No Task Added", ok: false });
   } catch (err) {
@@ -83,12 +86,11 @@ module.exports.post_tasks = async (req, res) => {
 
     const getProject = await Workspace.findOne({
       userId: userId,
-      "projects.projectId": projectId,
     });
 
-    if (getProject.attachment != null && path) {
-      await cloudinary.uploader.destroy(getUser.attachment);
-    }
+    const reqProjectIdx = getProject.projects
+      .map((project) => project.projectId)
+      .indexOf(projectId);
 
     let attach = null;
     if (path) {
@@ -101,20 +103,10 @@ module.exports.post_tasks = async (req, res) => {
     const newTask = {
       taskName,
       taskDescription,
-      attachment: attach.public_id,
+      attachment: attach && attach.public_id,
     };
-
-    await Workspace.findOneAndUpdate(
-      {
-        userId,
-        "projects.projectId": projectId,
-      },
-      {
-        $push: {
-          "projects.tasks": newTask,
-        },
-      }
-    );
+    getProject.projects[reqProjectIdx].tasks.push(newTask);
+    getProject.save();
     res.status(201).json({ message: "Task created successfully", ok: true });
   } catch (err) {
     console.log(err);
