@@ -11,9 +11,9 @@ import { AuthContext } from "../../../context/authContext";
 //Style
 import "./Navbar.css";
 
-const IconButton= React.lazy(()=> import("@material-ui/core/IconButton")); 
-const Menu= React.lazy(()=> import("@material-ui/icons/Menu")); 
-const Hidden= React.lazy(()=> import( "@material-ui/core/Hidden"));
+const IconButton = React.lazy(() => import("@material-ui/core/IconButton"));
+const Menu = React.lazy(() => import("@material-ui/icons/Menu"));
+const Hidden = React.lazy(() => import("@material-ui/core/Hidden"));
 
 const Header = (props) => {
   const history = useHistory();
@@ -36,7 +36,10 @@ const Header = (props) => {
     setNavBarHeading(location.pathname.split("/").pop().toUpperCase());
   }, [location]);
 
-  if (NavbarHeading.length == 1) {
+  function isCharDigit(n) {
+    return !!n.trim() && !isNaN(+n);
+  }
+  if (isCharDigit(NavbarHeading[0])) {
     setNavBarHeading("PROJECT DETAILS");
   }
 

@@ -12,7 +12,7 @@ import { TaskContext } from "../../../../../context/taskContext";
 import { useHttpClient } from "../../../../../customHooks/http-hook";
 
 const MyTask = () => {
-  const histoty = useHistory();
+  const history = useHistory();
 
   //Using context for state update
   const auth = useContext(AuthContext);
@@ -30,7 +30,7 @@ const MyTask = () => {
     var reqLink =
       process.env.REACT_APP_BASE_URL +
       "/dashboard/workspace/" +
-      (auth.userType === "client" ? "allTasks/" : "VE/task/") +
+      (auth.userType === "client" ? "allProjects/" : "VE/task/") +
       auth.userId;
     sendRequest(reqLink)
       .then((response) => {
@@ -42,8 +42,8 @@ const MyTask = () => {
     return () => (mounted = false);
   }, [taskContext.allTasks]);
 
-  const onClickHandler = (id) => {
-    histoty.push(`/dash/${id}`);
+  const onClickHandler = (projectId) => {
+    history.push(`/dash/${projectId}`);
   };
 
   return (
@@ -63,14 +63,14 @@ const MyTask = () => {
                 return (
                   <div
                     className="dash-tasklist-task last"
-                    onClick={() => onClickHandler(index)}
+                    onClick={() => onClickHandler(task.projectId)}
                   >
                     <img
                       src={ProjectIcon}
                       alt="project-icon"
                       className="dash-myTasks-task-container-img"
                     />
-                    <span>PROJECT {index + 1}</span>
+                    <span>{task.projectName}</span>
                   </div>
                 );
               } else {

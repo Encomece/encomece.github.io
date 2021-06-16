@@ -25,12 +25,12 @@ const TaskDetail = () => {
 
   //States
   const [taskList, setTasksList] = useState([]);
-  const [reqTask, setReqTask] = useState([]);
+  const [projectDetails, setProjectDetails] = useState(null);
 
   //Custom hook for all http work
   const { sendRequest, isLoading } = useHttpClient();
 
-  const { id } = useParams();
+  const { projectId } = useParams();
 
   //Converting Date-String to human readable
   const dateHandler = (dateString) => {
@@ -40,19 +40,20 @@ const TaskDetail = () => {
 
   useEffect(() => {
     let mounted = true;
+    const token = auth.userId + "=" + projectId;
     var reqLink =
       process.env.REACT_APP_BASE_URL +
-      "/dashboard/workspace/" +
-      (auth.userType === "client" ? "allTasks/" : "VE/task/") +
-      auth.userId;
+      "/dashboard/workspace/projectDetails/" +
+      token;
     sendRequest(reqLink)
       .then((response) => {
         if (mounted) {
-          setTasksList(response);
+          console.log(response);
+          setProjectDetails(response);
+          setTasksList(response.tasks);
         }
       })
       .catch((err) => console.log(err));
-    setReqTask([taskList[id]]);
     return () => (mounted = false);
   }, [taskContext.allTasks, taskContext.allComments]);
 
@@ -66,23 +67,22 @@ const TaskDetail = () => {
         ...data,
         userId: auth.userId,
         person: auth.userName,
-        taskId: taskList[id].taskId,
+        projectId: projectDetails.projectId,
         userId: auth.userId,
       };
       if (auth.userType == "client") {
         data = {
           ...data,
-          assigned_VE_Id: taskList[id].assigned_VE_Id,
+          assigned_VE_Id: projectDetails.veId,
           type: "client",
         };
       } else {
         data = {
           ...data,
-          assignUserId: taskList[id].assignUserId,
+          assignUserId: projectDetails.assignUserId,
           type: "ve",
         };
       }
-
       data = JSON.stringify(data);
       console.log(data);
       sendRequest(
@@ -104,66 +104,66 @@ const TaskDetail = () => {
 
   return (
     <div className="dash-taskdetail-container">
-      {taskList[id] && (
-        <>
-          <div className="dash-taskdetail-heading">
-            <span>
-              <img src={BackLogo} alt="back" onClick={goBackHandler} />
+      <>
+        <div className="dash-taskdetail-heading">
+          <span>
+            <img src={BackLogo} alt="back" onClick={goBackHandler} />
+          </span>
+          <span>{!!projectDetails && projectDetails.projectName}</span>
+        </div>
+        <div className="dash-taskdetail-tasks-container">
+          <div className="dash-taskdetail-tablehead">
+            <span>Task Name</span>
+            <span>Description</span>
+            <span className="dash-taskdetail-tablehead-col3">Status</span>
+            <span style={{ textAlign: "center" }}>Due Date</span>
+            <span style={{ textAlign: "center" }}>
+              Assigned {auth.userType === "client" ? "To" : "By"}
             </span>
-            <span>PROJECT {parseInt(id) + 1}</span>
           </div>
-          <div className="dash-taskdetail-tasks-container">
-            <div className="dash-taskdetail-tablehead">
-              <span>Task Name</span>
-              <span>Description</span>
-              <span className="dash-taskdetail-tablehead-col3">Status</span>
-              <span style={{ textAlign: "center" }}>Due Date</span>
-              <span style={{ textAlign: "center" }}>
-                Assigned {auth.userType === "client" ? "To" : "By"}
-              </span>
-            </div>
-            <div className="dash-taskdetail-task-container">
-              <div className="dash-taskdetail-task-container-contents">
-                <div className="dash-taskdetail-task-container-col col1">
-                  {taskList[id].taskName}
+          <div className="dash-taskdetail-task-container">
+            {taskList.map((task, index) => {
+              return (
+                <div className="dash-taskdetail-task-container-contents">
+                  <div className="dash-taskdetail-task-container-col col1">
+                    {task.taskName}
+                  </div>
+                  <div className="dash-taskdetail-task-container-col col2">
+                    {task.taskDescription}
+                  </div>
+                  <div
+                    className={`dash-taskdetail-task-container-col col3 ${
+                      task.status ? "active" : "not-active"
+                    }`}
+                  >
+                    {task.status ? "Active" : "Not Active"}
+                  </div>
+                  <div className="dash-taskdetail-task-container-col col4">
+                    {dateHandler(task.dueDate)}
+                  </div>
+                  <div className="dash-taskdetail-task-container-col col5">
+                    {auth.userType === "client"
+                      ? projectDetails.veName || "Not Assigned"
+                      : task.assignUserName || "Not Assigned"}
+                  </div>
                 </div>
-                <div className="dash-taskdetail-task-container-col col2">
-                  {taskList[id].taskDescription}
-                </div>
-                <div
-                  className={`dash-taskdetail-task-container-col col3 ${
-                    taskList[id].status ? "active" : "not-active"
-                  }`}
-                >
-                  {taskList[id].status ? "Active" : "Not Active"}
-                </div>
-                <div className="dash-taskdetail-task-container-col col4">
-                  {dateHandler(taskList[id].dueDate)}
-                </div>
-                <div className="dash-taskdetail-task-container-col col5">
-                  {auth.userType === "client"
-                    ? taskList[id].assigned_VE_Name
-                      ? taskList[id].assigned_VE_Name
-                      : "Not Assigned"
-                    : taskList[id].assignUserName
-                    ? taskList[id].assignUserName
-                    : "Not Assigned"}
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
-          <div className="dash-taskcomment-container">
-            <div className="dash-taskcomment-heading">
-              <span>Start Converstation</span>
+        </div>
+        <div className="dash-taskcomment-container">
+          <div className="dash-taskcomment-heading">
+            <span>Start Converstation</span>
+          </div>
+          <div className="dash-taskcomment-comment-container">
+            <div className="dash-taskcomment-table-head">
+              <span>User</span>
+              <span>Comment</span>
+              <span style={{ textAlign: "center" }}>Time</span>
             </div>
-            <div className="dash-taskcomment-comment-container">
-              <div className="dash-taskcomment-table-head">
-                <span>User</span>
-                <span>Comment</span>
-                <span style={{ textAlign: "center" }}>Time</span>
-              </div>
-              <div className="dash-taskcomment-table-body">
-                {taskList[id].taskComments.map((comments, index) => {
+            <div className="dash-taskcomment-table-body">
+              {projectDetails &&
+                projectDetails.comments.map((comments, index) => {
                   return (
                     <div className="dash-taskcomment-comment">
                       <div className="dash-taskcomment-comment-col col1">
@@ -178,42 +178,41 @@ const TaskDetail = () => {
                     </div>
                   );
                 })}
-              </div>
-              <div className="dash-taskComment-addComment">
-                <Formik initialValues={{ comment: "" }} onSubmit={onSubmit}>
-                  {({ submitForm, isSubmitting }) => (
-                    <Form>
-                      <div className="formContainer">
-                        <div className="dash-addComment">
-                          <Field
-                            component={TextField}
-                            name="comment"
-                            type="text"
-                            fullWidth
-                            label="Add a comment"
-                          />
-                        </div>
-                        {isLoading && <LinearProgress color="secondary" />}
-                        <Box margin={1}>
-                          <Button
-                            variant="contained"
-                            color="primary"
-                            disabled={isSubmitting}
-                            onClick={submitForm}
-                            style={{ margin: "10px 0 0 0" }}
-                          >
-                            Comment
-                          </Button>
-                        </Box>
+            </div>
+            <div className="dash-taskComment-addComment">
+              <Formik initialValues={{ comment: "" }} onSubmit={onSubmit}>
+                {({ submitForm, isSubmitting }) => (
+                  <Form>
+                    <div className="formContainer">
+                      <div className="dash-addComment">
+                        <Field
+                          component={TextField}
+                          name="comment"
+                          type="text"
+                          fullWidth
+                          label="Add a comment"
+                        />
                       </div>
-                    </Form>
-                  )}
-                </Formik>
-              </div>
+                      {isLoading && <LinearProgress color="secondary" />}
+                      <Box margin={1}>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          disabled={isSubmitting}
+                          onClick={submitForm}
+                          style={{ margin: "10px 0 0 0" }}
+                        >
+                          Comment
+                        </Button>
+                      </Box>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
             </div>
           </div>
-        </>
-      )}
+        </div>
+      </>
     </div>
   );
 };
