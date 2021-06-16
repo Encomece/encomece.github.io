@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Formik, Form, Field } from "formik"; //Using Formik
 import { TextField } from "formik-material-ui";
+import CancelIcon from "@material-ui/icons/Cancel";
 //Material-ui-core components
 import { LinearProgress, Box, Button } from "@material-ui/core";
 
@@ -102,9 +103,71 @@ const TaskDetail = () => {
     history.push("/dash/workspace");
   };
 
+  const [openModal, setOpenModal] = useState(false);
+
+  //post request for adding task
+  const handleTaskSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    formData.append("projectId", projectDetails.projectId);
+    formData.append("userId", auth.userId);
+    setTimeout(async () => {
+      try {
+        const response = await sendRequest(
+          process.env.REACT_APP_BASE_URL + "/dashboard/workspace/project/task",
+          "POST",
+          formData
+        );
+        console.log(response);
+        if (response.ok) {
+          console.log(response.message);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }, 500);
+  };
+
   return (
-    <div className="dash-taskdetail-container">
-      <>
+    <>
+      {openModal && (
+        <form onSubmit={handleTaskSubmit}>
+          <div className="modal__container">
+            <div className="modal__content">
+              <div style={{ textAlign: "right" }}>
+                <CancelIcon
+                  size={32}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setOpenModal(false)}
+                />
+              </div>
+              <h1 style={{ textAlign: "center" }}>Project Work 1</h1>
+              <p>Task Name</p>
+              <input
+                type="text"
+                placeholder="Enter task details"
+                name="taskName"
+              />
+              <p>Task Description</p>
+              <input
+                type="text"
+                placeholder="Enter task details"
+                name="taskDescription"
+              />
+              <p>Add Attachment</p>
+              <input
+                type="file"
+                accept=".png, .jpeg, .jpg , .png"
+                placeholder="Add an attachment here"
+                name="attachment"
+              />
+              <hr />
+              <button type="submit">Add Task</button>
+            </div>
+          </div>
+        </form>
+      )}
+      <div className="dash-taskdetail-container">
         <div className="dash-taskdetail-heading">
           <span>
             <img src={BackLogo} alt="back" onClick={goBackHandler} />
@@ -122,34 +185,36 @@ const TaskDetail = () => {
             </span>
           </div>
           <div className="dash-taskdetail-task-container">
-            {taskList.map((task, index) => {
-              return (
-                <div className="dash-taskdetail-task-container-contents">
-                  <div className="dash-taskdetail-task-container-col col1">
-                    {task.taskName}
+            {taskList &&
+              taskList.map((task, index) => {
+                return (
+                  <div className="dash-taskdetail-task-container-contents">
+                    <div className="dash-taskdetail-task-container-col col1">
+                      {task.taskName}
+                    </div>
+                    <div className="dash-taskdetail-task-container-col col2">
+                      {task.taskDescription}
+                    </div>
+                    <div
+                      className={`dash-taskdetail-task-container-col col3 ${
+                        task.status ? "active" : "not-active"
+                      }`}
+                    >
+                      {task.status ? "Active" : "Not Active"}
+                    </div>
+                    <div className="dash-taskdetail-task-container-col col4">
+                      {dateHandler(task.dueDate)}
+                    </div>
+                    <div className="dash-taskdetail-task-container-col col5">
+                      {auth.userType === "client"
+                        ? projectDetails.veName || "Not Assigned"
+                        : task.assignUserName || "Not Assigned"}
+                    </div>
                   </div>
-                  <div className="dash-taskdetail-task-container-col col2">
-                    {task.taskDescription}
-                  </div>
-                  <div
-                    className={`dash-taskdetail-task-container-col col3 ${
-                      task.status ? "active" : "not-active"
-                    }`}
-                  >
-                    {task.status ? "Active" : "Not Active"}
-                  </div>
-                  <div className="dash-taskdetail-task-container-col col4">
-                    {dateHandler(task.dueDate)}
-                  </div>
-                  <div className="dash-taskdetail-task-container-col col5">
-                    {auth.userType === "client"
-                      ? projectDetails.veName || "Not Assigned"
-                      : task.assignUserName || "Not Assigned"}
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
+          <button onClick={() => setOpenModal(true)}>Add task</button>
         </div>
         <div className="dash-taskcomment-container">
           <div className="dash-taskcomment-heading">
@@ -163,6 +228,8 @@ const TaskDetail = () => {
             </div>
             <div className="dash-taskcomment-table-body">
               {projectDetails &&
+                projectDetails.comments &&
+                projectDetails.comments.map &&
                 projectDetails.comments.map((comments, index) => {
                   return (
                     <div className="dash-taskcomment-comment">
@@ -212,8 +279,8 @@ const TaskDetail = () => {
             </div>
           </div>
         </div>
-      </>
-    </div>
+      </div>
+    </>
   );
 };
 
