@@ -30,7 +30,7 @@ module.exports.get_tasks = async (req, res) => {
       userId: userId,
       "projects.projectId": projectId,
     });
-    if (getTasks) res.json(getTasks.tasks);
+    if (getTasks) res.json(getTasks.projects[0]);
     else res.json({ message: "No Task Added", ok: false });
   } catch (err) {
     res.json(err);
@@ -46,7 +46,7 @@ module.exports.post_project = async (req, res) => {
       projectType,
     };
 
-    const existingUser = await user.findOneAndUpdate(
+    const existingUser = await Workspace.findOneAndUpdate(
       { userId },
       {
         $push: {

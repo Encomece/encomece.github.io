@@ -10,14 +10,9 @@ const router = Router();
 //Base url -->  /api/dashboard/workspace
 
 router.get("/allProjects/:userId", workspaceController.get_projects);
-router.get("/allTasks/:userId", workspaceController.get_tasks); //for sending the list of tasks to client
-router.post("/project/comments", workspaceController.post_comment); //for adding a new comment to a task
+router.get("/projectDetails/:token", workspaceController.get_tasks); //for sending the list of tasks to client
 router.post("/project", workspaceController.post_project);
-router.post(
-  "/project/task",
-  fileUpload.single("file"),
-  workspaceController.post_tasks
-); //for adding a new task
+router.post("/project/comments", workspaceController.post_comment); //for adding a new comment to a task
 router.get("/allUsers", workspaceController.get_allUsers); //Getting all user
 router.get("/allUsers/:userId", workspaceController.get_userById); //Getting user by id
 router.post("/sendTask", workspaceController.send_Task_to_VE); //sending taskDetails to VE
