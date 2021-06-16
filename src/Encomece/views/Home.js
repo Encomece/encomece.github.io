@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import Carousel from "react-bootstrap/Carousel";
-
+import {Link} from "react-router-dom"
 //Components
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -21,7 +21,7 @@ import SupervisorAccountTwoToneIcon from "@material-ui/icons/SupervisorAccountTw
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import HowToRegIcon from "@material-ui/icons/HowToReg";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
-
+import {Link as ScrollLink } from "react-scroll";
 const Home = () => {
   return (
     <>
@@ -37,7 +37,16 @@ const Home = () => {
             </h1>
           </div>
           <div className={classes.tsec2}>
-            <button>Explore Now</button>
+            <ScrollLink
+              to="services"
+              active="nav__activelink"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              style={{ cursor: "pointer", color: "white" }}
+            >
+              <button>Explore Now</button>
+            </ScrollLink>
           </div>
         </div>
       </div>
@@ -187,7 +196,9 @@ const Home = () => {
             Cupiditate?
           </p>
 
-          <button className={classes.join_now}>Join Us Now</button>
+          <Link to="/auth">
+            <button className={classes.join_now}>Join Us Now</button>
+          </Link>
           <div id="services"></div>
         </div>
         <div className={classes.sec42}></div>

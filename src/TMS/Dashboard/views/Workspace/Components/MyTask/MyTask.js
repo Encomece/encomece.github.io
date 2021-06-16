@@ -30,12 +30,13 @@ const MyTask = () => {
     var reqLink =
       process.env.REACT_APP_BASE_URL +
       "/dashboard/workspace/" +
-      (auth.userType === "client" ? "allTasks/" : "VE/task/") +
+      (auth.userType === "client" ? "allProjects/" : "VE/task/") +
       auth.userId;
     sendRequest(reqLink)
       .then((response) => {
         if (mounted) {
           setTasksList(response);
+          console.log(response);
         }
       })
       .catch((err) => console.log(err));
@@ -45,7 +46,7 @@ const MyTask = () => {
   const onClickHandler = (id) => {
     histoty.push(`/dash/${id}`);
   };
-
+console.log(taskList)
   return (
     <div className="dash-tasklist-container">
       <div className="dash-tasklist-heading">

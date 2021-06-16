@@ -32,15 +32,15 @@ const FormContainer = () => {
 
   //form initial-values
   const initialValues = {
-    taskName: "",
-    taskType: "none",
+    projectName: "",
+    projectType: "none",
     taskDescription: "",
     dueDate: new Date(),
   };
 
   //Vaidation the input
   const validationSchema = Yup.object().shape({
-    taskName: Yup.string().required("Add a task"),
+    projectName: Yup.string().required("Add a Project"),
   });
 
   //Submitting the form
@@ -55,14 +55,14 @@ const FormContainer = () => {
         userId: auth.userId,
         userName: auth.userName,
         userEmail: auth.userEmail,
-        taskId: id,
+        projectId: id,
       };
       data = { ...data, ...extraData };
       data = JSON.stringify(data);
       console.log(data);
       try {
         const response = await sendRequest(
-          process.env.REACT_APP_BASE_URL + "/dashboard/workspace/task",
+          process.env.REACT_APP_BASE_URL + "/dashboard/workspace/project",
           "POST",
           data,
           {
@@ -94,7 +94,7 @@ const FormContainer = () => {
               <div className="dash-createTask-feild">
                 <Field
                   component={TextField}
-                  name="taskName"
+                  name="projectName"
                   type="text"
                   label="Task Heading"
                   style={{ width: "40%" }}
@@ -103,13 +103,13 @@ const FormContainer = () => {
               <div className="dash-createTask-feild">
                 <Field
                   component={Autocomplete}
-                  name="taskType"
+                  name="projectType"
                   options={TaskType}
                   style={{ width: "40%" }}
                   renderInput={(params) => (
                     <MuiTextField
                       {...params}
-                      helperText={touched["taskType"] && errors["taskType"]}
+                      helperText={touched["projectType"] && errors["projectType"]}
                       label="Task Type"
                     />
                   )}
