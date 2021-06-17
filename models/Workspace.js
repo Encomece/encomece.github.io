@@ -15,6 +15,10 @@ const workspaceSchema = new mongoose.Schema({
       veId: String,
       veName: String,
       veEmail: String,
+      status: {
+        type: Boolean,
+        default: false,
+      },
       tasks: [
         {
           taskId: {
@@ -24,10 +28,6 @@ const workspaceSchema = new mongoose.Schema({
           taskName: String,
           taskDescription: String,
           attachment: String,
-          status: {
-            type: Boolean,
-            default: false,
-          },
         },
       ],
       comments: [

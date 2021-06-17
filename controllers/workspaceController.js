@@ -107,7 +107,11 @@ module.exports.post_tasks = async (req, res) => {
     };
     getProject.projects[reqProjectIdx].tasks.push(newTask);
     getProject.save();
-    res.status(201).json({ message: "Task created successfully", ok: true });
+    res.status(201).json({
+      message: "Task created successfully",
+      ok: true,
+      tasks: getProject.projects[reqProjectIdx].tasks,
+    });
   } catch (err) {
     console.log(err);
     res.json({ message: "Task Creation Failed", error: { ...err }, ok: false });
@@ -124,6 +128,7 @@ module.exports.post_comment = async (req, res) => {
       comment: comment,
       time: Date.now(),
     };
+
     try {
       const VEcomments = await VE_Workspace.findOneAndUpdate(
         { userId: userId, "projects.projectId": projectId },
@@ -144,39 +149,51 @@ module.exports.post_comment = async (req, res) => {
         },
         { returnOriginal: true }
       );
-      res.json({ message: "New Comment Added", comments: VEcomments });
+      res.json({
+        message: "New Comment Added",
+        comments: VEcomments,
+        ok: true,
+      });
     } catch (err) {
       console.log(err);
       res.json(err);
     }
   } else if (type === "client") {
-    const { comment, projectId, userId, assigned_VE_Id, person } = req.body;
+    const { comment, projectId, userId, veId, person } = req.body;
     const newComment = {
       person: person,
       comment: comment,
       time: Date.now(),
     };
     try {
-      const clientComments = await Workspace.findOneAndUpdate(
-        { userId: userId, "projects.projectId": projectId },
-        {
-          $push: {
-            "projects.comments": newComment,
-          },
-        }
-      );
-      await VE_Workspace.findOneAndUpdate(
-        { userId: assigned_VE_Id, "projects.projectId": projectId },
-        {
-          $push: {
-            "projects.comments": newComment,
-          },
-        }
-      );
-      res.json({ message: "New Comment Added", comments: clientComments });
+      const getUser = await Workspace.findOne({ userId });
+      const reqProjectIdx = getUser.projects
+        .map((project) => project.projectId)
+        .indexOf(projectId);
+      getUser.projects[reqProjectIdx].comments.push(newComment);
+      getUser.save();
+      res.json({
+        message: "New Comment Added",
+        ok: true,
+        comments: getUser.projects[reqProjectIdx].comments,
+      });
+
+      // if(veId){
+      //   const getVE = await VE_Workspace.findOne({userId:veId}) ;
+      //   const reqVEProjectIdx = getVE.projects
+      //   .map((project) => project.projectId)
+      //   .indexOf(projectId);
+      // getVE.projects[reqProjectIdx].comments.push(newComment);
+      // getUser.save();
+      // res.json({
+      //   message: "New Comment Added",
+      //   ok: true,
+      //   comments: getUser.projects[reqProjectIdx].comments,
+      // });
+      // }
     } catch (err) {
       console.log(err);
-      res.json(err);
+      res.json({ ...err, ok: false });
     }
   }
 };
@@ -269,13 +286,11 @@ module.exports.send_Task_to_VE = async (req, res, next) => {
     name,
     userId,
     email,
-    assignUserId,
-    assignUserName,
-    assignUserEmail,
-    taskName,
-    taskType,
-    taskId,
-    taskDescription,
+    clientId,
+    clientName,
+    projectName,
+    projectType,
+    projectId,
   } = req.body;
   try {
     await sendEmail(
@@ -283,24 +298,19 @@ module.exports.send_Task_to_VE = async (req, res, next) => {
       emailTemplates.taskDetailsToVE(
         name,
         userId,
-        assignUserId,
-        assignUserName,
-        taskName,
-        taskType,
-        taskId,
-        taskDescription
+        clientId,
+        clientName,
+        projectName,
+        projectType,
+        projectId
       )
     );
-
-    await Workspace.findOneAndUpdate(
-      { userId: userId, "tasks.taskId": taskId },
-      {
-        $set: {
-          "tasks.$.status": true,
-        },
-      },
-      { returnOriginal: false }
-    );
+    const getUser = await Workspace.findOne({ userId: clientId });
+    const reqProjectIdx = getUser.projects
+      .map((project) => project.projectId)
+      .indexOf(projectId);
+    getUser.projects[reqProjectIdx].status = true;
+    getUser.save();
     res.json({ message: "Task Assigned", ok: true });
   } catch (error) {
     console.log(error);
@@ -310,84 +320,31 @@ module.exports.send_Task_to_VE = async (req, res, next) => {
 
 //Adding task of VE
 module.exports.add_VE_task = async (req, res, next) => {
-  const { userId, assignUserId, assignTaskId } = req.body;
+  const { clientId, projectId, userId } = req.body;
   try {
     const VE_details = await UsersModel.User.findById(userId);
+    const getClient = await Workspace.findOne({ userId: clientId });
+    const reqProjectIdx = getClient.projects
+      .map((project) => project.projectId)
+      .indexOf(projectId);
 
-    await Workspace.findOneAndUpdate(
-      { userId: assignUserId, "tasks.taskId": assignTaskId },
-      {
-        $set: {
-          "tasks.$.assigned_VE_Name": VE_details.local.name,
-          "tasks.$.assigned_VE_Email": VE_details.local.email,
-          "tasks.$.assigned_VE_Id": userId,
-          "tasks.$.status": true,
-        },
-      },
-      { returnOriginal: false }
-    );
-    const assignUser = await Workspace.findOne({
-      userId: assignUserId,
-      "tasks.taskId": assignTaskId,
-    });
-    let task;
-    if (assignUser) {
-      let taskArray = assignUser.tasks;
-      const tasks = taskArray.filter((task) => task.taskId === assignTaskId);
-      task = tasks[0];
-    } else {
-      res.json({ message: "Not found", ok: false });
-    }
+    const getProject = getClient.projects[reqProjectIdx];
 
-    const existingVE = await VE_Workspace.findOne({ userId: userId });
-    var totalTask = 0;
-    if (existingVE) {
-      totalTask = existingVE.tasks.length;
-    }
-    const newTask = {
-      id: totalTask + 1,
-      assignUserId: assignUserId,
-      assignUserName: assignUser.userName,
-      assignUserEmail: assignUser.userEmail,
-      assignedOn: Date.now(),
-      taskId: assignTaskId,
-      taskName: task.taskName,
-      taskType: task.taskType,
-      taskDescription: task.taskDescription,
-      dueDate: task.dueDate,
-      taskComments: task.taskComments,
-    };
-    const updatingTaskList = await VE_Workspace.findOneAndUpdate(
-      {
-        userId: userId,
-      },
-      {
-        $push: {
-          tasks: newTask,
-        },
-      },
-      { returnOriginal: false }
-    );
-    if (updatingTaskList) {
-      res.status(201).json({
-        task: updatingTaskList.tasks,
-        message: "New Task Added",
-        ok: true,
-      });
+    const getVE = await VE_Workspace.findOne({ userId: userId });
+    if (getVE) {
+      getVE.projects.push(getProject);
+      getVE.save();
+      res.json({ message: "Project Accepted", ok: true });
     } else {
-      //Creating newUser Workspace model and the storing task to tasks array
-      if (VE_details) {
-        const newTaskList = await new VE_Workspace({
-          userId: userId,
-          userName: VE_details.local.name,
-          userEmail: VE_details.local.email,
-          tasks: [newTask],
-        });
-        await newTaskList.save();
-        res.status(201).json({ message: "Task added to your list", ok: true });
-      } else {
-        res.json({ message: "VE data not available" });
-      }
+      const newVEDetails = {
+        userId,
+        userName: VE_details.local.name,
+        userEmail: VE_details.local.email,
+        projects: [getProject],
+      };
+      const newVE = await VE_Workspace.create(newVEDetails);
+      await newVE.save();
+      res.json({ message: "Project Accepted", ok: true });
     }
   } catch (err) {
     console.log(err);

@@ -4,34 +4,39 @@ const VE_WorkspaceSchema = new mongoose.Schema({
   userId: String,
   userName: String,
   userEmail: String,
-  tasks: [
+  projects: [
     {
-      id: Number,
-      assignUserId: String,
-      assignUserName: String,
-      assignUserEmail: String,
-      assignedOn: Date,
-      taskId: String,
-      taskName: String,
-      taskType: Object,
-      taskDescription: String,
-      dueDate: Date,
-      status: {
-        type: Boolean,
-        default: false,
+      projectId: {
+        type: mongoose.Schema.Types.ObjectId,
+        auto: true,
       },
-      taskComments: [
+      projectName: String,
+      projectType: String,
+      clientId: String,
+      clientName: String,
+      clientEmail: String,
+      tasks: [
+        {
+          taskId: {
+            type: mongoose.Schema.Types.ObjectId,
+            auto: true,
+          },
+          taskName: String,
+          taskDescription: String,
+          attachment: String,
+        },
+      ],
+      comments: [
         {
           person: String,
           comment: String,
-          time: {
-            type: Date,
-          },
+          time: Date,
         },
       ],
     },
   ],
 });
+
 const VE_Workspace = mongoose.model("ve_workspace", VE_WorkspaceSchema);
 
 module.exports = VE_Workspace;

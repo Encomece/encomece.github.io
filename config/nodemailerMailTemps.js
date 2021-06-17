@@ -43,22 +43,20 @@ module.exports = {
   taskDetailsToVE: (
     name,
     userId,
-    assignUserId,
-    assignUserName,
-    taskName,
-    taskType,
-    taskId,
-    taskDescription
+    clientId,
+    clientName,
+    projectName,
+    projectType,
+    projectId
   ) => ({
     subject: "You have been assigned a task",
     html: `
      <h2>Hello, ${name}</h2>
-     <p>A task is assigned to you by ${assignUserName}.</p>
+     <p>A task is assigned to you by ${clientName}.</p>
      <h3>TASK DETAILS</h3>
-     <p>Task Name: ${taskName}</p>
-     <p>Task Type: ${taskType}</p>
-     <p>Task Description: ${taskDescription}</p>
-     <p><a href="${client_origin}/VE/dash/${assignUserId}=${taskId}=${userId}">CLICK HERE </a> to add this task on your dashboard <br/> or copy and paste this below link in your browser window.<br/>${client_origin}/VE/dash/${assignUserId}=${taskId}=${userId}</p>
+     <p>Task Name: ${projectName}</p>
+     <p>Task Type: ${projectType}</p>
+     <p><a href="${client_origin}/VE/dash/${clientId}=${projectId}=${userId}">CLICK HERE </a> to add this task on your dashboard <br/> or copy and paste this below link in your browser window.<br/>${client_origin}/VE/dash/${clientId}=${projectId}=${userId}</p>
     `,
   }),
 
