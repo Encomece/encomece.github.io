@@ -244,6 +244,18 @@
   padding: 0 1% 1% 1%;
 }
 
+.dash-taskComment-addComment-input {
+  width: 98%;
+  padding: 10px 0 10px 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 2px solid black;
+}
+.dash-taskComment-addComment-input:focus {
+  outline: none;
+}
+
 .dash-myTasks-task-container-img {
   width: 40px;
   object-fit: contain;

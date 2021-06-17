@@ -4,7 +4,7 @@ import { Formik, Form, Field } from "formik"; //Using Formik
 import { TextField } from "formik-material-ui";
 import CancelIcon from "@material-ui/icons/Cancel";
 //Material-ui-core components
-import { LinearProgress, Box, Button } from "@material-ui/core";
+import { CircularProgress, Box, Button } from "@material-ui/core";
 
 import BackLogo from "../../../../../assets/img/backLogo.svg";
 
@@ -26,8 +26,9 @@ const TaskDetail = () => {
 
   //States
   const [taskList, setTasksList] = useState([]);
+  const [comments, setComments] = useState([]);
   const [projectDetails, setProjectDetails] = useState(null);
-
+  const [newComment, setNewComment] = useState("");
   //Custom hook for all http work
   const { sendRequest, isLoading } = useHttpClient();
 
@@ -49,55 +50,107 @@ const TaskDetail = () => {
     sendRequest(reqLink)
       .then((response) => {
         if (mounted) {
-          console.log(response);
           setProjectDetails(response);
           setTasksList(response.tasks);
+          setComments(response.comments);
         }
       })
       .catch((err) => console.log(err));
     return () => (mounted = false);
   }, [taskContext.allTasks, taskContext.allComments]);
 
-  //Post request to mongodb for storing comments
-  const onSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      setSubmitting(false);
-      const formData = JSON.stringify(values, null, 2);
-      var data = JSON.parse(formData);
-      data = {
-        ...data,
+  //comment submitting
+  const commentSubmitHandler = (e) => {
+    e.preventDefault();
+    setTimeout(async () => {
+      var data = {
+        comment: newComment,
+        type: auth.userType,
         userId: auth.userId,
         person: auth.userName,
         projectId: projectDetails.projectId,
-        userId: auth.userId,
+        veId: projectDetails.veId,
       };
-      if (auth.userType == "client") {
-        data = {
-          ...data,
-          assigned_VE_Id: projectDetails.veId,
-          type: "client",
-        };
-      } else {
-        data = {
-          ...data,
-          assignUserId: projectDetails.assignUserId,
-          type: "ve",
-        };
-      }
       data = JSON.stringify(data);
-      console.log(data);
-      sendRequest(
-        process.env.REACT_APP_BASE_URL + "/dashboard/workspace/task/comments",
-        "POST",
-        data,
-        {
+      const reqLink =
+        process.env.REACT_APP_BASE_URL +
+        "/dashboard/workspace/project/comments";
+      try {
+        const response = await sendRequest(reqLink, "POST", data, {
           "Content-Type": "application/json",
+        });
+        console.log(response);
+        if (response.ok) {
+          console.log(response.comments);
+          taskContext.commentsHandler(response.comments);
         }
-      )
-        .then((response) => taskContext.commentsHandler(response.comments))
-        .catch((err) => console.log(err));
+      } catch (error) {
+        console.log(error);
+      }
     }, 500);
+    // const formData = new FormData(e.target);
+    // setTimeout(async () => {
+    //   const data = {};
+    //   formData.append("type", auth.userType);
+    //   formData.append("userId", auth.userId);
+    //   formData.append("person", auth.userName);
+    //   formData.append("projectId", projectDetails.projectId);
+    //   formData.append("veId", projectDetails.veId);
+    //   const reqLink =
+    //     process.env.REACT_APP_BASE_URL +
+    //     "/dashboard/workspace/project/comments";
+    //   try {
+    //     const response = await sendRequest(reqLink, "POST", formData);
+    //     console.log.apply(response);
+    //     if (response.ok) {
+    //       taskContext.commentsHandler(response.comment);
+    //     }
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }, 500);
   };
+
+  //Post request to mongodb for storing comments
+  // const onSubmit = (values, { setSubmitting }) => {
+  //   setTimeout(() => {
+  //     setSubmitting(false);
+  //     const formData = JSON.stringify(values, null, 2);
+  //     var data = JSON.parse(formData);
+  //     data = {
+  //       ...data,
+  //       userId: auth.userId,
+  //       person: auth.userName,
+  //       projectId: projectDetails.projectId,
+  //       userId: auth.userId,
+  //     };
+  //     if (auth.userType == "client") {
+  //       data = {
+  //         ...data,
+  //         assigned_VE_Id: projectDetails.veId,
+  //         type: "client",
+  //       };
+  //     } else {
+  //       data = {
+  //         ...data,
+  //         assignUserId: projectDetails.assignUserId,
+  //         type: "ve",
+  //       };
+  //     }
+  //     data = JSON.stringify(data);
+  //     console.log(data);
+  //     sendRequest(
+  //       process.env.REACT_APP_BASE_URL + "/dashboard/workspace/task/comments",
+  //       "POST",
+  //       data,
+  //       {
+  //         "Content-Type": "application/json",
+  //       }
+  //     )
+  //       .then((response) => taskContext.commentsHandler(response.comments))
+  //       .catch((err) => console.log(err));
+  //   }, 500);
+  // };
 
   const goBackHandler = () => {
     history.push("/dash/workspace");
@@ -120,7 +173,7 @@ const TaskDetail = () => {
         );
         console.log(response);
         if (response.ok) {
-          console.log(response.message);
+          taskContext.setAllTasksHandler(response.tasks);
         }
       } catch (error) {
         console.log(error);
@@ -179,7 +232,7 @@ const TaskDetail = () => {
             <span>Task Name</span>
             <span>Description</span>
             <span className="dash-taskdetail-tablehead-col3">Status</span>
-            <span style={{ textAlign: "center" }}>Due Date</span>
+            <span style={{ textAlign: "center" }}>Attachment</span>
             <span style={{ textAlign: "center" }}>
               Assigned {auth.userType === "client" ? "To" : "By"}
             </span>
@@ -203,7 +256,12 @@ const TaskDetail = () => {
                       {task.status ? "Active" : "Not Active"}
                     </div>
                     <div className="dash-taskdetail-task-container-col col4">
-                      {dateHandler(task.dueDate)}
+                      <a
+                        target="#"
+                        href={`${process.env.REACT_APP_CLOUDINARY_URL_ATTACHMENT}${task.attachment}`}
+                      >
+                        View
+                      </a>
                     </div>
                     <div className="dash-taskdetail-task-container-col col5">
                       {auth.userType === "client"
@@ -214,7 +272,14 @@ const TaskDetail = () => {
                 );
               })}
           </div>
-          <button onClick={() => setOpenModal(true)}>Add task</button>
+          <Button
+            style={{ margin: "10px 0 0 0" }}
+            variant="contained"
+            color="primary"
+            onClick={() => setOpenModal(true)}
+          >
+            Add task
+          </Button>
         </div>
         <div className="dash-taskcomment-container">
           <div className="dash-taskcomment-heading">
@@ -227,27 +292,45 @@ const TaskDetail = () => {
               <span style={{ textAlign: "center" }}>Time</span>
             </div>
             <div className="dash-taskcomment-table-body">
-              {projectDetails &&
-                projectDetails.comments &&
-                projectDetails.comments.map &&
-                projectDetails.comments.map((comments, index) => {
+              {comments.map &&
+                comments.map((comment, index) => {
                   return (
                     <div className="dash-taskcomment-comment">
                       <div className="dash-taskcomment-comment-col col1">
-                        {comments.person}
+                        {comment.person}
                       </div>
                       <div className="dash-taskcomment-comment-col col2">
-                        {comments.comment}
+                        {comment.comment}
                       </div>
                       <div className="dash-taskcomment-comment-col col3">
-                        {dateHandler(comments.time)}
+                        {dateHandler(comment.time)}
                       </div>
                     </div>
                   );
                 })}
             </div>
             <div className="dash-taskComment-addComment">
-              <Formik initialValues={{ comment: "" }} onSubmit={onSubmit}>
+              <form>
+                <input
+                  type="text"
+                  placeholder="Add a comment"
+                  name="comment"
+                  className="dash-taskComment-addComment-input"
+                  onChange={(e) => setNewComment(e.target.value)}
+                />
+                <div style={{ display: "flex" }}>
+                  {isLoading && <CircularProgress color="secondary" />}
+                </div>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  style={{ margin: "10px 0 0 0" }}
+                  onClick={commentSubmitHandler}
+                >
+                  Comment
+                </Button>
+              </form>
+              {/* <Formik initialValues={{ comment: "" }} onSubmit={onSubmit}>
                 {({ submitForm, isSubmitting }) => (
                   <Form>
                     <div className="formContainer">
@@ -275,7 +358,7 @@ const TaskDetail = () => {
                     </div>
                   </Form>
                 )}
-              </Formik>
+              </Formik> */}
             </div>
           </div>
         </div>

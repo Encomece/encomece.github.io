@@ -62,28 +62,28 @@ const global_routes = [
     component: StartupProgram,
   },
   {
-    path: "/auth",
-    component: Authentication,
-  },
-  {
     path: "/auth/reset/:resetToken",
     component: ResetPswd,
-  },
-  {
-    path: "/auth/:token",
-    component: GoogleLogin,
   },
   {
     path: "/auth/confirm/:id",
     component: ConfirmEmail,
   },
   {
-    path: "/admin",
-    component: AdminPanel,
+    path: "/auth/:token",
+    component: GoogleLogin,
   },
   {
     path: "/admin/:userId",
     component: AdminTaskTable,
+  },
+  {
+    path: "/auth",
+    component: Authentication,
+  },
+  {
+    path: "/admin",
+    component: AdminPanel,
   },
   {
     path: "/VE/dash/:id",

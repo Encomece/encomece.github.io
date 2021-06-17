@@ -24,7 +24,6 @@ import { Suspense } from "react";
 
 // const Notifications= React.lazy(()=>import("react-notify-toast")); //For pop-up notification
 
-
 const App = () => {
   //Context
   const {
@@ -45,6 +44,8 @@ const App = () => {
     allUsers,
     setAllUsersHandler,
     VE_details,
+    setAllProjectsHandler,
+    allProjects,
   } = useTaskHook();
 
   //Routes
@@ -88,14 +89,15 @@ const App = () => {
             allUsers,
             VE_details,
             setAllUsersHandler,
+            setAllProjectsHandler,
+            allProjects,
           }}
         >
           <main>
             <Router>
-            <Suspense fallback={<div>Page is Loading...</div>}>
-
-              <Switch>{routes}</Switch>
-            </Suspense>
+              <Suspense fallback={<div>Page is Loading...</div>}>
+                <Switch>{routes}</Switch>
+              </Suspense>
             </Router>
           </main>
         </TaskContext.Provider>

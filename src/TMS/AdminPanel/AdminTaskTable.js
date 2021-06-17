@@ -19,7 +19,7 @@ import { TaskContext } from "../context/taskContext";
 
 const AdminTaskTable = () => {
   const { userId } = useParams();
-  const [tasks, setTasks] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [assignedValue, setAssignedValue] = useState(null);
   const [userName, setUserName] = useState();
   const [userEmail, setUserEmail] = useState();
@@ -36,12 +36,14 @@ const AdminTaskTable = () => {
           userId
       );
       const json = await response.json();
+      console.log(json);
       if (json) {
-        json.tasks.map &&
-          json.tasks.map((task) => {
-            return (task.dueDate = dateHandler(task.dueDate));
-          });
-        setTasks(json.tasks);
+        const newData = json.projects;
+        newData.map((data, index) => {
+          data.id = index + 1;
+          return data;
+        });
+        setProjects(newData);
         setUserName(json.userName);
         setUserEmail(json.userEmail);
       }
@@ -49,20 +51,19 @@ const AdminTaskTable = () => {
     cb();
   }, []);
 
-  const sendTaskDetails = async () => {
+  const sendProjectDetails = async () => {
     console.log(select[0]);
-    const getTaskDetails = tasks.filter((task) => {
+    const getProjectDetails = projects.filter((task) => {
       return select[0] == task.id;
     });
 
     const data = {
       ...assignedValue,
-      ...getTaskDetails[0],
-      assignUserId: userId,
-      assignUserName: userName,
-      assignUserEmail: userEmail,
+      ...getProjectDetails[0],
+      clientId: userId,
+      clientName: userName,
+      clientEmail: userEmail,
     };
-    console.log(data);
     try {
       const response = await sendRequest(
         process.env.REACT_APP_BASE_URL + "/dashboard/workspace/sendTask",
@@ -78,23 +79,11 @@ const AdminTaskTable = () => {
     }
   };
 
-  //Converting Date-String to human readable
-  const dateHandler = (dateString) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
-  };
-
   const columns = [
     { field: "id", headerName: "Sl.No", width: 100 },
-    { field: "taskName", headerName: "Task Name", width: 330 },
-    { field: "taskType", headerName: "Task Type", width: 330 },
-    { field: "taskDescription", headerName: "Task Description", width: 350 },
-    {
-      field: "dueDate",
-      headerName: "Due Date",
-      width: 330,
-    },
-    { field: "assigned_VE_Name", headerName: "Assigned To", width: 300 },
+    { field: "projectName", headerName: "Task Name", width: 330 },
+    { field: "projectType", headerName: "Task Type", width: 330 },
+    { field: "VEName", headerName: "Assigned To", width: 300 },
   ];
 
   return (
@@ -108,7 +97,7 @@ const AdminTaskTable = () => {
       <br />
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
-          rows={tasks}
+          rows={projects}
           columns={columns}
           pageSize={5}
           checkboxSelection
@@ -142,7 +131,7 @@ const AdminTaskTable = () => {
           <Button
             color="secondary"
             style={{ marginTop: "10px" }}
-            onClick={sendTaskDetails}
+            onClick={sendProjectDetails}
             variant="outlined"
           >
             Assign

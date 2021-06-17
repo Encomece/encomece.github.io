@@ -5,9 +5,9 @@ import { AuthContext } from "../context/authContext";
 
 import "./AdminPanel.css";
 
-import DummyImage from  "../assets/img/Image 6.webp";
+import DummyImage from "../assets/img/Image 6.webp";
 
-import BrandLogo  from "../assets/img/logo.png";
+import BrandLogo from "../assets/img/logo.png";
 
 const AdminPanel = () => {
   const { allUsers, setAllUsersHandler } = useContext(TaskContext);
@@ -19,8 +19,8 @@ const AdminPanel = () => {
       const response = await fetch(
         process.env.REACT_APP_BASE_URL + "/dashboard/workspace/allUsers"
       );
-      const json = await response.json();
-      setAllUsersHandler(json);
+      const data = await response.json();
+      setAllUsersHandler(data);
     };
     cb();
   }, []);
@@ -94,7 +94,7 @@ const AdminPanel = () => {
                         className="dash-myTasks-task-container-col col2"
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                        {user.tasks.length}
+                        {user.projects.length}
                       </div>
                       <div
                         className="dash-myTasks-task-container-col col4"

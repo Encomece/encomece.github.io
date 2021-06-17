@@ -10,8 +10,8 @@ const VE_Workspace = () => {
   const { id } = useParams();
   const ids = id.split("=");
   const [taskData, setTaskData] = useState({
-    assignUserId: ids[0],
-    assignTaskId: ids[1],
+    clientId: ids[0],
+    projectId: ids[1],
     userId: ids[2],
   });
 
@@ -35,7 +35,7 @@ const VE_Workspace = () => {
       .catch((err) => console.log(err));
   }, [taskData]);
 
-  return <div>VE Workspace</div>;
+  return <div>Redirecting.....</div>;
 };
 
 export default VE_Workspace;

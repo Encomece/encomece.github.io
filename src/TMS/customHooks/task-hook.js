@@ -9,11 +9,16 @@ export const useTaskHook = () => {
   const [allComments, setAllComments] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [VE_details, setVE_details] = useState([]);
+  const [allProjects, setAllProjects] = useState([]);
 
   useEffect(() => {
     sendRequest(process.env.REACT_APP_BASE_URL + "/dashboard/workspace/VE/data")
       .then((res) => setVE_details(res))
       .catch((err) => console.log(err));
+  }, []);
+
+  const setAllProjectsHandler = useCallback((projects) => {
+    setAllProjects(projects);
   }, []);
 
   const setAllTasksHandler = useCallback((tasks) => {
@@ -36,5 +41,7 @@ export const useTaskHook = () => {
     allUsers,
     VE_details,
     setAllUsersHandler,
+    allProjects,
+    setAllProjectsHandler,
   };
 };
