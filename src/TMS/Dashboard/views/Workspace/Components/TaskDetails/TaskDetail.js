@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { Formik, Form, Field } from "formik"; //Using Formik
-import { TextField } from "formik-material-ui";
 import CancelIcon from "@material-ui/icons/Cancel";
 //Material-ui-core components
-import { CircularProgress, Box, Button } from "@material-ui/core";
+import { CircularProgress, Button } from "@material-ui/core";
 
 import BackLogo from "../../../../../assets/img/backLogo.svg";
 
@@ -27,7 +25,7 @@ const TaskDetail = () => {
   //States
   const [taskList, setTasksList] = useState([]);
   const [comments, setComments] = useState([]);
-  const [projectDetails, setProjectDetails] = useState(null);
+  const [projectDetails, setProjectDetails] = useState({});
   const [newComment, setNewComment] = useState("");
   //Custom hook for all http work
   const { sendRequest, isLoading } = useHttpClient();
@@ -45,11 +43,14 @@ const TaskDetail = () => {
     const token = auth.userId + "=" + projectId;
     var reqLink =
       process.env.REACT_APP_BASE_URL +
-      "/dashboard/workspace/projectDetails/" +
+      "/dashboard/workspace/" +
+      auth.userType +
+      "/projectDetails/" +
       token;
     sendRequest(reqLink)
       .then((response) => {
         if (mounted) {
+          console.log(response);
           setProjectDetails(response);
           setTasksList(response.tasks);
           setComments(response.comments);
@@ -69,7 +70,7 @@ const TaskDetail = () => {
         userId: auth.userId,
         person: auth.userName,
         projectId: projectDetails.projectId,
-        veId: projectDetails.veId,
+        veId: projectDetails.veId || projectDetails.clientId,
       };
       data = JSON.stringify(data);
       const reqLink =
@@ -266,7 +267,7 @@ const TaskDetail = () => {
                     <div className="dash-taskdetail-task-container-col col5">
                       {auth.userType === "client"
                         ? projectDetails.veName || "Not Assigned"
-                        : task.assignUserName || "Not Assigned"}
+                        : projectDetails.clientName || "Not Assigned"}
                     </div>
                   </div>
                 );

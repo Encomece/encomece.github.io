@@ -40,13 +40,12 @@ const LeftSidebar = () => {
   const userInfo = {
     FirstName: profileDetails.firstName || auth.userName,
     LastName: profileDetails.lastName || "",
-    Description:
-      profileDetails.description ||
-      " Lorem ipsum dolor sit amet, conse tetur sadipscing elitr, sed diamnonumy eirmod tempor invidunt ut labore et dol ore magna aliquyamerat, sed diam vol uptua. At vero eos et accusam et justo duo dolores",
+    Description: profileDetails.description || "Add your brief description",
     company: profileDetails.company,
     publicId:
+      profileDetails.cloudinary_id &&
       "https://res.cloudinary.com/modassir123/image/upload/v1623093599/" +
-      profileDetails.cloudinary_id,
+        profileDetails.cloudinary_id,
   };
 
   const updateProfileBtn = () => {
@@ -61,12 +60,14 @@ const LeftSidebar = () => {
         </button>
       </div>
       <div className="dash-avatarImg">
-        {<img src={userInfo.publicId} alt="person-img" /> || (
-          <Avatar
-            src="/broken-image.jpg"
-            style={{ height: "150px", width: "150px" }}
-          />
-        )}
+        <Avatar
+          src={userInfo.publicId}
+          style={{
+            height: "150px",
+            width: "150px",
+            backgroundColor: "#15124f",
+          }}
+        />
       </div>
       <div className="dash-client-name">
         {userInfo.FirstName + " " + userInfo.LastName}

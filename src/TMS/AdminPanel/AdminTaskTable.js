@@ -83,7 +83,7 @@ const AdminTaskTable = () => {
     { field: "id", headerName: "Sl.No", width: 100 },
     { field: "projectName", headerName: "Task Name", width: 330 },
     { field: "projectType", headerName: "Task Type", width: 330 },
-    { field: "VEName", headerName: "Assigned To", width: 300 },
+    { field: "veName", headerName: "Assigned To", width: 300 },
   ];
 
   return (
@@ -99,7 +99,7 @@ const AdminTaskTable = () => {
         <DataGrid
           rows={projects}
           columns={columns}
-          pageSize={5}
+          pageSize={100}
           checkboxSelection
           hideFooterPagination
           hideFooterRowCount

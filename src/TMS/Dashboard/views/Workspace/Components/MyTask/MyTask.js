@@ -30,7 +30,8 @@ const MyTask = () => {
     var reqLink =
       process.env.REACT_APP_BASE_URL +
       "/dashboard/workspace/" +
-      (auth.userType === "client" ? "allProjects/" : "VE/task/") +
+      auth.userType +
+      "/allProjects/" +
       auth.userId;
     sendRequest(reqLink)
       .then((response) => {
@@ -59,35 +60,19 @@ const MyTask = () => {
         <div className="dash-tasklist-task-container">
           {taskList.map &&
             taskList.map((task, index) => {
-              if (index + 1 == taskList.length) {
-                return (
-                  <div
-                    className="dash-tasklist-task last"
-                    onClick={() => onClickHandler(task.projectId)}
-                  >
-                    <img
-                      src={ProjectIcon}
-                      alt="project-icon"
-                      className="dash-myTasks-task-container-img"
-                    />
-                    <span>{task.projectName}</span>
-                  </div>
-                );
-              } else {
-                return (
-                  <div
-                    className="dash-tasklist-task"
-                    onClick={() => onClickHandler(index)}
-                  >
-                    <img
-                      src={ProjectIcon}
-                      alt="project-icon"
-                      className="dash-myTasks-task-container-img"
-                    />
-                    <span>PROJECT {index + 1}</span>
-                  </div>
-                );
-              }
+              return (
+                <div
+                  className="dash-tasklist-task last"
+                  onClick={() => onClickHandler(task.projectId)}
+                >
+                  <img
+                    src={ProjectIcon}
+                    alt="project-icon"
+                    className="dash-myTasks-task-container-img"
+                  />
+                  <span>{task.projectName}</span>
+                </div>
+              );
             })}
         </div>
       )}

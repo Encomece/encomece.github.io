@@ -42,12 +42,12 @@ const secure_routes = [
     component: VE_Workspace,
   },
   {
-    path: "/admin",
-    component: AdminPanel,
-  },
-  {
     path: "/admin/:userId",
     component: AdminTaskTable,
+  },
+  {
+    path: "/admin",
+    component: AdminPanel,
   },
 ];
 
