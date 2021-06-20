@@ -4,7 +4,7 @@
   "description": "Backend For Encomece in NodeJS",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "Encomece",
   "license": "ISC",
