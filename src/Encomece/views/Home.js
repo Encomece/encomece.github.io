@@ -60,11 +60,13 @@ const Home = () => {
                   <SupervisorAccountTwoToneIcon
                     style={{ fontSize: "100px", color: "orange" }}
                   />
-                  <h4>Dedicated Teams</h4>
+                  <h4>You get a dedicated working team</h4>
                   <br />
                   <p>
-                    We at Encomece ensure the quality of work and
-                    confidentiality of information.
+                    One needs a great team of employees so as to expect quality
+                    work from them. This is exactly what one gets after they
+                    hire pro virtual employees to help them with their business
+                    activities.
                   </p>
                 </div>
               </div>
@@ -73,39 +75,52 @@ const Home = () => {
                   <QuestionAnswerIcon
                     style={{ fontSize: "100px", color: "blue" }}
                   />
-                  <h4>Best Consulation</h4>
+                  <h4>You get the best consultation</h4>
                   <br />
                   <p>
-                    We provide the best consultation and suggest you the best
-                    possible thing to start with.
+                    When starting a business, one may have an idea that they
+                    want to have implemented but how one frames that idea, so as
+                    to make it work, is the main challenge. This is where these
+                    trained virtual employees come in and save your day.
                   </p>
                 </div>
               </div>
             </div>
-            <div className={classes.col2} style={{ padding: "0 1.5% 0 1.5%" }}>
+            <div
+              className={classes.col2}
+              style={{ padding: "0% 1.5% 2% 1.5%" }}
+            >
               <br />
               <br />
               <h1>About Us</h1>
               <br />
               <h3>Best resources for the best idea</h3>
               <p>
-                We welcome young and bright minds brimming with innovative ideas
-                and help them make it real. Our goal is to walk alongside
-                startups and provide them with guidance at every step to
-                success. We believe every idea is the best idea and, best ideas
-                need the best resources. If you are a new startup or having an
-                idea that holds potential, we are here to help you.
+                Encomece blends a myriad of services that suit the current
+                market trends. Besides helping startups identify and hire the
+                right talent, we provide professional advice to help
+                entrepreneurs realize their business objectives. However, we
+                have set up a highly-skilled team of professionals dedicated to
+                supporting large, medium, and small-sized enterprises to
+                actualize their business plans. Our State of Art Virtual
+                Assistant Technology, coupled with experienced experts, makes us
+                stand out in the game. Based in Banglore, Karnataka, India,
+                Encomece has highly equipped staff committed to providing
+                cutting-edge consultation and technological support to
+                entrepreneurs Worldwide.
               </p>
             </div>
             <div className={classes.col1}>
               <div className={classes.collayout}>
                 <div className={classes.logo}>
                   <HowToRegIcon style={{ fontSize: "100px", color: "red" }} />
-                  <h4>Trained Experts</h4>
+                  <h4>Your management stress is relieved</h4>
                   <br />
                   <p>
-                    Our trained professionals will support you in every task to
-                    accelerate your startup growth.
+                    Having to deal with issues regarding employees, salaries,
+                    and resources can be a tiring job. Getting one to handle
+                    some of your duties while you attend to others will play as
+                    a stress-reliever for you.
                   </p>
                 </div>
               </div>
@@ -114,11 +129,13 @@ const Home = () => {
                   <VerifiedUserIcon
                     style={{ fontSize: "100px", color: "green" }}
                   />
-                  <h4>Assurance</h4>
+                  <h4>Assurance of quality work</h4>
                   <br />
                   <p>
-                    We guarantee the utmost confidentiality and quality of your
-                    work with the best results possible.
+                    Being professional, means being good at what you do. May it
+                    be meeting deadlines, writing perfect articles or even
+                    skiing, if one is a pro at what they do, then that’s an
+                    assurance of quality performance.
                   </p>
                 </div>
               </div>
@@ -142,10 +159,19 @@ const Home = () => {
                   </h1>
                 </center>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  illum, quisquam, tempora earum saepe cum aperiam amet,
-                  pariatur nisi non repudiandae molestiae eligendi porro
-                  obcaecati.
+                  Encomece matches clients Worldwide with suitable Virtual
+                  Assistants. As demand for remote staff grows, we continue to
+                  scale up operations to provide more efficient VA services to
+                  our clients. Our rigorous recruitment drive ensures VAs hired
+                  meet our stipulated quality standards. As such, customer
+                  satisfaction remains our top priority. Our specialized
+                  approach to different fields makes it easier for us to deliver
+                  quality services that exceed client expectations. Ranging from
+                  bookkeeping, admin support, digital communication, or any
+                  other skillset that clients lack in an organization, our team
+                  of consultants is always ready to help. Regardless of the
+                  timeframe, we work round the clock to deliver excellent VA
+                  support to every client around the World.
                 </p>
                 <center>
                   <NavLink to="/ve_program" className={classes.link}>
@@ -167,10 +193,15 @@ const Home = () => {
                   </h1>
                 </center>
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-                  illum, quisquam, tempora earum saepe cum aperiam amet,
-                  pariatur nisi non repudiandae molestiae eligendi porro
-                  obcaecati.
+                  Encomece fully understands the challenges startups go through.
+                  In that regard, we have established a robust startup program
+                  that helps startups realize their potential. The main
+                  objective of the start program is to convert every idea into
+                  reality. We make it simple to plan and execute any business
+                  idea that a client may be struggling to implement. Besides
+                  follow-up, consultation, and advice, our team of experts
+                  ensures your concept is actualized.
+                  <br /> <br /> <br /> <br /> <br /> <br />
                 </p>
                 <center>
                   <NavLink to="/startup_program" className={classes.link}>
@@ -187,13 +218,14 @@ const Home = () => {
 
       <div className={classes.sec4}>
         <div className={classes.sec41}>
-          <h1>Didn't get what you are looking for?</h1>
+          <h1>Why work with us?</h1>
 
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
-            incidunt amet libero ratione, qui debitis ea officiis alias ex fuga
-            esse vitae dicta dolore consectetur nam illum autem unde.
-            Cupiditate?
+            Encomece has highly skilled experts in various fields committed to
+            helping every customer achieve what they want. We not only guarantee
+            quality services but also deliver services that meet our client's
+            expectations. A blend of current technological trends with highly
+            experienced experts is what makes us stand out among others.
           </p>
 
           <Link to="/auth">
@@ -204,7 +236,7 @@ const Home = () => {
         <div className={classes.sec42}></div>
       </div>
       <div className={classes.toolsandR}>
-        <h1>Tools And Resources</h1>
+        <h1>What we offer?</h1>
 
         <div>
           <Carousel fade indicators={false}>
@@ -229,8 +261,12 @@ const Home = () => {
                   </div>
                   <h4>Lorem ipsum dolor sit amet consectetur.</h4>
                   <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit.....
+                    Brand visibility plays a crucial role in a competitive
+                    World. As such, we help with various aspects of design work
+                    that are essential in brand visibility. Our experienced
+                    experts help out with the entire branding process to give a
+                    new company an outlook that helps the target audience
+                    identify it, among others......
                     <a className={classes.link} href="">
                       Read More
                     </a>
@@ -273,8 +309,12 @@ const Home = () => {
                   </div>
                   <h4>Lorem ipsum dolor sit amet consectetur.</h4>
                   <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit.....
+                    Content is king in every communication and marketing
+                    strategy. In this case, we have a highly experienced team of
+                    content producers that help clients with their content
+                    needs. Whether you need web copy, sales copy, SEO content,
+                    newsletter, or any other content you may need for your
+                    company, we have your back......
                     <a className={classes.link} href="">
                       Read More
                     </a>
