@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useHistory, NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
-
 import { AuthContext } from "../../TMS/context/authContext";
 import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
 //css
@@ -29,10 +28,11 @@ const Navbar1 = () => {
 
   //Login Handler
   const loginHandler = () => {
-    if (auth.isLoggedIn) {
-      auth.logout();
-    } else history.push("/auth");
+    if (auth.isLoggedIn) auth.logout();
+    else history.push("/auth");
   };
+
+  console.log(auth.isLoggedIn);
 
   return (
     <section className={`navigation ${!active ? "hide" : ""}`}>
@@ -128,9 +128,8 @@ const Navbar1 = () => {
             <li>
               <Link
                 to="#"
-                onClick={loginHandler}
                 style={{ cursor: "pointer", color: "white" }}
-                onClick={mobileMenuHandler}
+                onClick={loginHandler}
               >
                 {auth.isLoggedIn ? "LOGOUT" : "LOGIN"}
               </Link>
