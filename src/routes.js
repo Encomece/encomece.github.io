@@ -12,47 +12,12 @@ import VE_Workspace from "./TMS/Dashboard/views/Workspace/VE_Workspace";
 import AdminPanel from "./TMS/AdminPanel/AdminPanel";
 import AdminTaskTable from "./TMS/AdminPanel/AdminTaskTable";
 
-//-------------------------------------------------------------------------------------------------
-
 //Encomecs views----------------------------------------------------------
 import Home from "./Encomece/views/Home";
 import StartupProgram from "./Encomece/views/StartupProgram";
 import VEProgram from "./Encomece/views/VEProgram";
 
-//only signed up user can access
-const secure_routes = [
-  {
-    path: "/",
-    component: Home,
-  },
-  {
-    path: "/ve_program",
-    component: VEProgram,
-  },
-  {
-    path: "/startup_program",
-    component: StartupProgram,
-  },
-  {
-    path: "/dash",
-    component: DashLayout,
-  },
-  {
-    path: "/VE/dash/:id",
-    component: VE_Workspace,
-  },
-  {
-    path: "/admin/:userId",
-    component: AdminTaskTable,
-  },
-  {
-    path: "/admin",
-    component: AdminPanel,
-  },
-];
-
-//anyone can access
-const global_routes = [
+const routes = [
   {
     path: "/ve_program",
     component: VEProgram,
@@ -90,9 +55,13 @@ const global_routes = [
     component: VE_Workspace,
   },
   {
+    path: "/dash",
+    component: DashLayout,
+  },
+  {
     path: "/",
     component: Home,
   },
 ];
 
-export { secure_routes, global_routes };
+export default routes;

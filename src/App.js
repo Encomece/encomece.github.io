@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  // Redirect,
+  Redirect,
 } from "react-router-dom";
 
 import Notifications from "react-notify-toast"; //For pop-up notification
@@ -18,11 +18,11 @@ import { TaskContext } from "./TMS/context/taskContext";
 import { useAuth } from "./TMS/customHooks/auth-hook";
 import { useTaskHook } from "./TMS/customHooks/task-hook";
 
-//routes
-import { global_routes, secure_routes } from "./routes";
-import { Suspense } from "react";
+import LoadingPage from "./TMS/Dashboard/assets/jss/LoadingPage";
 
-// const Notifications= React.lazy(()=>import("react-notify-toast")); //For pop-up notification
+//routes
+import routes from "./routes";
+import { Suspense } from "react";
 
 const App = () => {
   //Context
@@ -49,19 +49,10 @@ const App = () => {
   } = useTaskHook();
 
   //Routes
-  let routes = !!token
-    ? secure_routes.map((prop) => {
-        if (prop.path == "/") {
-          return <Route path={prop.path} component={prop.component} exact />;
-        }
-        return <Route path={prop.path} component={prop.component} />;
-      })
-    : global_routes.map((prop) => {
-        if (prop.path == "/") {
-          return <Route path={prop.path} component={prop.component} exact />;
-        }
-        return <Route path={prop.path} component={prop.component} />;
-      });
+  let allRoutes = routes.map((route) => {
+    if (route.path === "/dash" && !token) return;
+    return <Route path={route.path} component={route.component} />;
+  });
 
   //Render
   return (
@@ -95,8 +86,11 @@ const App = () => {
         >
           <main>
             <Router>
-              <Suspense fallback={<div>Page is Loading...</div>}>
-                <Switch>{routes}</Switch>
+              <Suspense fallback={<LoadingPage />}>
+                <Switch>
+                  {allRoutes}
+                  <Redirect to="/" />
+                </Switch>
               </Suspense>
             </Router>
           </main>
