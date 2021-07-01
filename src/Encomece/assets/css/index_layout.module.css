@@ -262,7 +262,6 @@ body {
   background-color: #C055ED;
     min-height: 100vh;
    */
-  
 }
 .cnt {
   position: absolute;
@@ -319,7 +318,7 @@ body {
   margin-top: 42px;
 }
 .tsec2 button {
-  background-color: #A6CE39;
+  background-color: #a6ce39;
   padding: 15px;
   border: none;
   border-radius: 44px;
@@ -333,7 +332,6 @@ body {
   cursor: pointer;
 }
 .aboutus {
-
   background-image: url("../Images/Index_img/Group\ 155.webp");
   background-position: center center;
   background-repeat: no-repeat;
@@ -347,7 +345,7 @@ body {
 }
 .col1 {
   display: inline-block;
-  height: 586px;
+  height: 625px;
   width: 267px;
 }
 .collayout {
@@ -393,7 +391,7 @@ body {
   opacity: 0.8;
 }
 .Programs {
-padding-top: 0px;
+  padding-top: 0px;
 }
 .Programs h1 {
   text-align: center;
@@ -467,7 +465,7 @@ padding-top: 0px;
   color: darkslategray;
 }
 .button {
-  background-color:#A6CE39;
+  background-color: #a6ce39;
 
   padding: 1em 1.5em;
   border: none;
@@ -514,7 +512,7 @@ padding-top: 0px;
   margin-top: 20px;
 }
 .join_now {
-  background-color: #A6CE39;
+  background-color: #a6ce39;
   font-size: 23px;
   color: white;
   font-weight: 300;
