@@ -4,7 +4,7 @@ $breakpoint: 799px;
 $nav-height: 60px;
 $nav-background: #749181;
 $nav-font-color: #ffffff;
-$link-hover-color: #457A83;
+$link-hover-color: #457a83;
 
 // Outer navigation wrapper
 .navigation {
@@ -43,7 +43,6 @@ a {
 .nav-container {
   max-width: $content-width;
   margin: 0 auto;
-  text-transform: uppercase;
 }
 
 // Navigation
@@ -65,7 +64,7 @@ nav {
         color: $nav-font-color;
         text-decoration: none !important;
         font-family: "Ubuntu";
-        font-weight: bold;
+        font-weight: 700;
 
         &:hover {
           background: $link-hover-color;
@@ -73,7 +72,6 @@ nav {
         }
         &:not(:only-child):after {
           padding-left: 4px;
-          content: " ▾";
         }
       } // Dropdown list
       ul li {
@@ -88,39 +86,12 @@ nav {
 }
 
 // Dropdown list binds to JS toggle event
-
-// .nav_dropdown {
-//   position: absolute;
-//   display: none;
-//   z-index: 1;
-//   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-// }
-
-.nav_dropdown{
-  display: none;
-}
-.nav__menu-item:hover .nav_dropdown {
-  display: block;
-}
-
-.nav__menu-item:hover .nav_dropdown {
-  display: block;
-}
-
-.nav_dropdown {
-  font-weight: 300;
-  text-transform: none;
-  display: none;
+.nav-dropdown {
   position: absolute;
-  width: 180px;
-  background-color: #00aeef;
+  display: none;
+  z-index: 1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
-
-.nav_dropdown-item:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-// ##########################
 
 /* Mobile navigation */
 

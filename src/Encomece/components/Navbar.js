@@ -1,27 +1,20 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useHistory } from "react-router";
-import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
-import "./Navbar.scss";
-import { AuthContext } from "../../TMS/context/authContext";
+import { useHistory, NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
-import { NavLink } from "react-router-dom";
+
+import { AuthContext } from "../../TMS/context/authContext";
+import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
+//css
+import "./Navbar.scss";
 
 const Navbar1 = () => {
   //states
   const [active, setActive] = useState(true);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
-  const [openDropDown_Program, setOpenDropDown_Program] = useState(false);
-  const [openDropDown_Services, setOpenDropDown_Services] = useState(false);
 
   //Animation for Hiding the navbar on scroll down
-  const handleScroll = () => {
-    if (window.pageYOffset > 2500) {
-      setActive(false);
-    } else {
-      setActive(true);
-    }
-  };
   useEffect(() => {
+    const handleScroll = () => setActive(window.pageYOffset < 2500);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   });
@@ -40,8 +33,6 @@ const Navbar1 = () => {
       auth.logout();
     } else history.push("/auth");
   };
-
-  // console.log(auth.token);
 
   return (
     <section className={`navigation ${!active ? "hide" : ""}`}>
@@ -67,7 +58,7 @@ const Navbar1 = () => {
             style={{ display: openMobileMenu ? "block" : "none" }}
           >
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">HOME</NavLink>
             </li>
             <li>
               <Link
@@ -77,13 +68,12 @@ const Navbar1 = () => {
                 smooth={true}
                 duration={500}
                 style={{ cursor: "pointer", color: "white" }}
+                onClick={mobileMenuHandler}
               >
-                About us
+                ABOUT US
               </Link>
             </li>
-            
-
-            <li className="nav__menu-item">
+            <li>
               <Link
                 to="programs"
                 active="nav__activelink"
@@ -91,23 +81,21 @@ const Navbar1 = () => {
                 smooth={true}
                 duration={1000}
                 style={{ cursor: "pointer", color: "white" }}
-              > Programs
+                onClick={mobileMenuHandler}
+              >
+                PROGRAMS
               </Link>
 
-              <ul
-                className="nav_dropdown"
-              >
-                <li className="nav_dropdown-item">
+              <ul className="nav-dropdown">
+                <li>
                   <a href="/startup_program">Startup Program</a>
                 </li>
-                <li className="nav_dropdown-item">
+                <li>
                   <a href="/ve_program">Virtual Employee Program</a>
                 </li>
               </ul>
             </li>
-            
-
-            <li className="nav__menu-item">
+            <li>
               <Link
                 to="services"
                 active="nav__activelink"
@@ -115,20 +103,19 @@ const Navbar1 = () => {
                 smooth={true}
                 duration={1500}
                 style={{ cursor: "pointer", color: "white" }}
+                onClick={mobileMenuHandler}
               >
-                Services
+                SERVICES
               </Link>
 
-              <ul
-                className="nav_dropdown"
-              >
-                <li className="nav_dropdown-item">
+              <ul className="nav-dropdown">
+                <li>
                   <a href="#!">Marketing</a>
                 </li>
-                <li className="nav_dropdown-item">
+                <li>
                   <a href="#!">Content Writing</a>
                 </li>
-                <li className="nav_dropdown-item">
+                <li>
                   <a href="#!">Advertisement</a>
                 </li>
               </ul>
@@ -143,8 +130,9 @@ const Navbar1 = () => {
                 to="#"
                 onClick={loginHandler}
                 style={{ cursor: "pointer", color: "white" }}
+                onClick={mobileMenuHandler}
               >
-                {auth.isLoggedIn ? "Logout" : "Login"}
+                {auth.isLoggedIn ? "LOGOUT" : "LOGIN"}
               </Link>
             </li>
           </ul>
