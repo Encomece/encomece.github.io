@@ -6,7 +6,7 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { TextField } from "formik-material-ui";
 //Material-UI
-import { Button, LinearProgress } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import "../Styles/Authentication.css";
 
@@ -102,23 +102,20 @@ const ResetPswd = () => {
                     fullWidth
                   />
                 </div>
-                {isLoading && (
-                  <div>
-                    <br />
-                    <LinearProgress />
-                    <br />
-                  </div>
+                {isLoading ? (
+                  <CircularProgress />
+                ) : (
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    disabled={isSubmitting}
+                    onClick={submitForm}
+                    fullWidth
+                    style={{ margin: "20px 0 10px 0" }}
+                  >
+                    Change Password
+                  </Button>
                 )}
-                <Button
-                  variant="contained"
-                  color="primary"
-                  disabled={isSubmitting}
-                  onClick={submitForm}
-                  fullWidth
-                  style={{ margin: "20px 0 10px 0" }}
-                >
-                  Change Password
-                </Button>
                 <br />
                 {!!successMessage && (
                   <Alert severity="success" style={{ margin: "20px 0 0 0" }}>

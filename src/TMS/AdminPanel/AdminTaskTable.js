@@ -9,7 +9,7 @@ import {
   Typography,
   TextField,
   Button,
-  LinearProgress,
+  CircularProgress,
   Box,
 } from "@material-ui/core";
 
@@ -126,16 +126,19 @@ const AdminTaskTable = () => {
             )}
           />
         </Box>
-        {isLoading && <LinearProgress style={{ width: 400 }} />}
         <Box margin={2}>
-          <Button
-            color="secondary"
-            style={{ marginTop: "10px" }}
-            onClick={sendProjectDetails}
-            variant="outlined"
-          >
-            Assign
-          </Button>
+          {isLoading ? (
+            <CircularProgress />
+          ) : (
+            <Button
+              color="secondary"
+              style={{ marginTop: "10px" }}
+              onClick={sendProjectDetails}
+              variant="outlined"
+            >
+              Assign
+            </Button>
+          )}
         </Box>
       </div>
     </>

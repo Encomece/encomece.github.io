@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import { TextField, Switch } from "formik-material-ui";
 import {
   Button,
-  LinearProgress,
+  CircularProgress,
   Typography,
   Link,
   Grid,
@@ -183,35 +183,36 @@ const AuthForm = () => {
                   fullWidth
                 />
               </div>
-              <div className="auth-feild">
-                <FormControlLabel
-                  control={
-                    <Field
-                      component={Switch}
-                      type="checkbox"
-                      name="VE_Employee"
-                    />
-                  }
-                  label="Check if Encomece V.E"
-                />
-              </div>
-              {isLoading && (
-                <div>
-                  <br />
-                  <LinearProgress />
-                  <br />
+              {!isLoginMode ? (
+                <div className="auth-feild">
+                  <FormControlLabel
+                    control={
+                      <Field
+                        component={Switch}
+                        type="checkbox"
+                        name="VE_Employee"
+                      />
+                    }
+                    label="Check if Encomece V.E"
+                  />
                 </div>
+              ) : (
+                <br />
               )}
               <div className="auth-feild">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  disabled={isSubmitting}
-                  onClick={submitForm}
-                  fullWidth
-                >
-                  {isLoginMode ? "LOGIN" : "SIGNUP"}
-                </Button>
+                {isLoading ? (
+                  <CircularProgress />
+                ) : (
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    disabled={isSubmitting}
+                    onClick={submitForm}
+                    fullWidth
+                  >
+                    {isLoginMode ? "LOGIN" : "SIGNUP"}
+                  </Button>
+                )}
                 {!!successMessage && (
                   <Alert severity="success" style={{ margin: "20px 0 0 0" }}>
                     {successMessage}
@@ -228,7 +229,6 @@ const AuthForm = () => {
               </div>
             </Form>
             <div className="auth-toogle-text">
-              {" "}
               {isLoginMode ? "Do you" : "Already"} have an account ?{"   "}
               <Link
                 href="#"

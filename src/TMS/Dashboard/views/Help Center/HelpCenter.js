@@ -7,7 +7,7 @@ import {
   Card,
   CardContent,
   Box,
-  LinearProgress,
+  CircularProgress,
   Button,
 } from "@material-ui/core";
 import MuiTextField from "@material-ui/core/TextField";
@@ -109,16 +109,19 @@ const HelpCenter = () => {
                   />
                 </Box>
                 <Box margin={3}>
-                  {isLoading && <LinearProgress />}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    disabled={isSubmitting}
-                    onClick={submitForm}
-                    style={{ margin: "5px 0 0 0" }}
-                  >
-                    Generate Issue
-                  </Button>
+                  {isLoading ? (
+                    <CircularProgress />
+                  ) : (
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      disabled={isSubmitting}
+                      onClick={submitForm}
+                      style={{ margin: "5px 0 0 0" }}
+                    >
+                      Generate Issue
+                    </Button>
+                  )}
                 </Box>
               </Form>
             )}

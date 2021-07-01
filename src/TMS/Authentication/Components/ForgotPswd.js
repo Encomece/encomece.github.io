@@ -3,7 +3,7 @@ import { toast } from "react-toastify"; //For pop-up notification
 import { Formik, Form, Field } from "formik"; //Using Formik
 import * as Yup from "yup";
 //Material-UI
-import { Button, LinearProgress } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 import { TextField } from "formik-material-ui";
 import { Alert } from "@material-ui/lab";
 
@@ -81,23 +81,20 @@ const ResetPswd = () => {
                   fullWidth
                 />
               </div>
-              {isLoading && (
-                <div>
-                  <br />
-                  <LinearProgress />
-                  <br />
-                </div>
+              {isLoading ? (
+                <CircularProgress />
+              ) : (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  disabled={isSubmitting}
+                  onClick={submitForm}
+                  fullWidth
+                  style={{ margin: "20px 0 10px 0" }}
+                >
+                  Reset My Password
+                </Button>
               )}
-              <Button
-                variant="contained"
-                color="primary"
-                disabled={isSubmitting}
-                onClick={submitForm}
-                fullWidth
-                style={{ margin: "20px 0 10px 0" }}
-              >
-                Reset My Password
-              </Button>
               <br />
               {!!successMessage && (
                 <Alert severity="success" style={{ margin: "20px 0 10px 0" }}>

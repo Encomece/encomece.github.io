@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 //Material-ui core componets
-import { Button, LinearProgress } from "@material-ui/core";
+import { Button, CircularProgress } from "@material-ui/core";
 
 //Formik Components
 import { Formik, Form, Field } from "formik"; //Using Formik
@@ -104,51 +104,25 @@ const FormContainer = () => {
                 )}
               />
             </div>
-            {/* <div style={{ paddingLeft: "10px" }}>
-                <input
-                  type="file"
-                  onChange={onFileChangeHandler}
-                  accept=".png, .jpg, .jpeg, .pdf"
-                  name="file"
-                  style={{ display: "none" }}
-                  id="attachment"
-                />
-                <h7 style={{ color: "grey" }}>Add an attachment</h7>
-                <label htmlFor="attachment">
-                  <AttachmentIcon fontSize="large" style={{ color: "grey" }} />
-                </label>
-                {file && (
-                  <div style={{ color: "grey" }}>
-                    <strong>Selected file:</strong>{" "}
-                    {file.name.length > 10
-                      ? file.name.slice(0, 10) + "..."
-                      : file.name}
-                    <ClearIcon onClick={() => setFile(null)} />
-                  </div>
-                )}
-              </div> */}
             <div className="dash-createTask-button">
-              {isLoading && (
-                <>
-                  <br />
-                  <LinearProgress />
-                  <br />
-                </>
+              {isLoading ? (
+                <CircularProgress />
+              ) : (
+                <Button
+                  variant="contained"
+                  color="primary"
+                  disabled={isSubmitting}
+                  onClick={submitForm}
+                  style={{
+                    margin: "5px 0 0 0",
+                    borderRadius: "5px",
+                    width: "130px",
+                    backgroundColor: "#091D55",
+                  }}
+                >
+                  Add Task
+                </Button>
               )}
-              <Button
-                variant="contained"
-                color="primary"
-                disabled={isSubmitting}
-                onClick={submitForm}
-                style={{
-                  margin: "5px 0 0 0",
-                  borderRadius: "5px",
-                  width: "130px",
-                  backgroundColor: "#091D55",
-                }}
-              >
-                Add Task
-              </Button>
             </div>
           </div>
         </Form>
