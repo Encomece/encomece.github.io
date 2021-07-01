@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { notify } from "react-notify-toast"; //For pop-up notification
+import { toast } from "react-toastify"; //For pop-up notification
 import { Formik, Form, Field } from "formik"; //Using Formik
 import * as Yup from "yup";
 //Material-UI
@@ -42,12 +42,14 @@ const ResetPswd = () => {
         );
         if (response.ok) {
           setSuccessMessage(response.message);
-          notify.show(response.message, "success");
-        }
+          toast.success(response.message, { position: "top-right" });
+        } else toast.warn(response.message, { position: "top-right" });
       } catch (err) {
         console.log(err.message);
         setErrorMessage(err.message);
-        notify.show(err.message, "error");
+        toast.error("Something went wrong, Please Try again", {
+          position: "top-right",
+        });
       }
     }, 500);
   };

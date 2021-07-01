@@ -13,7 +13,7 @@ import {
 import MuiTextField from "@material-ui/core/TextField";
 import { AuthContext } from "../../../context/authContext";
 import { useHttpClient } from "../../../customHooks/http-hook";
-import { notify } from "react-notify-toast";
+import { toast } from "react-toastify";
 
 const HelpCenter = () => {
   const auth = useContext(AuthContext);
@@ -55,11 +55,9 @@ const HelpCenter = () => {
           "Content-Type": "application/json",
         }
       );
-      if (response.ok) {
-        notify.show(response.message, "success");
-      } else {
-        notify.show(response.message, "error");
-      }
+      if (response.ok)
+        toast.success(response.message, { position: "top-right" });
+      else toast.warning(response.message, { position: "top-right" });
     }, 500);
   };
 

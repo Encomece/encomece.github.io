@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import { useParams } from "react-router-dom";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import { notify } from "react-notify-toast";
+import { toast } from "react-toastify";
 import {
   AppBar,
   Toolbar,
@@ -73,7 +73,7 @@ const AdminTaskTable = () => {
           "Content-Type": "application/json",
         }
       );
-      notify.show(response.message, "success");
+      toast.success(response.message, { position: "top-right" });
     } catch (err) {
       console.log(err);
     }

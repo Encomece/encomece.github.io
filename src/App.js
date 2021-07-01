@@ -8,7 +8,9 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import Notifications from "react-notify-toast"; //For pop-up notification
+//For pop-up notification
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //Contexts-------------------------------------------
 import { AuthContext } from "./TMS/context/authContext";
@@ -57,7 +59,8 @@ const App = () => {
   //Render
   return (
     <>
-      <Notifications />
+      {/* <Notifications /> */}
+      <ToastContainer />
       <AuthContext.Provider
         value={{
           isLoggedIn: !!token,

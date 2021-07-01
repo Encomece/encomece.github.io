@@ -1,6 +1,6 @@
 import React, { useState, useContext, Fragment } from "react";
 import { useHistory } from "react-router-dom";
-import { notify } from "react-notify-toast"; //For pop-up notification at top
+import { toast } from "react-toastify";
 //Using Formik for rendering Forms
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -60,7 +60,7 @@ const AuthForm = () => {
           );
           if (response.ok) {
             setSuccessMessage(response.message);
-            notify.show(response.message, "success");
+            toast.success(response.message, { position: "top-right" });
             auth.login(
               response.userType,
               response.userName,
@@ -71,11 +71,12 @@ const AuthForm = () => {
             history.push("/dash");
           } else {
             setErrorMessage(response.message);
-            notify.show(response.message, "warning");
+            toast.warning(response.message, { position: "top-right" });
           }
         } catch (error) {
           console.log(error.message);
           setErrorMessage(error.message);
+          toast.error("Something went wrong", { position: "top-right" });
         }
       } else {
         //Signup Form
@@ -92,14 +93,15 @@ const AuthForm = () => {
           );
           if (response.ok) {
             setSuccessMessage(response.message);
-            notify.show(response.message, "success");
+            toast.success(response.message, { position: "top-right" });
           } else {
             setErrorMessage(response.message);
-            notify.show(response.message, "error");
+            toast.warning(response.message, { position: "top-right" });
           }
         } catch (error) {
           console.log(error.message);
           setErrorMessage(error.message);
+          toast.error("Something went wrong", { position: "top-right" });
         }
       }
     }, 500);

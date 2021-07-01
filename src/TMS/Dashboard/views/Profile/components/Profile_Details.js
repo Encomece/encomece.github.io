@@ -3,10 +3,11 @@ import Dropzone from "react-dropzone";
 import { Form, Col, Button } from "react-bootstrap";
 import "./Profile_Details.css";
 import { Avatar } from "@material-ui/core";
-import { notify } from "react-notify-toast";
+import { toast } from "react-toastify";
 import { AuthContext } from "../../../../context/authContext";
 import { useHttpClient } from "../../../../customHooks/http-hook";
 import ClearIcon from "@material-ui/icons/Clear";
+import { CircularProgress } from "@material-ui/core";
 
 const Profile_Details = () => {
   const [file, setFile] = useState(null); // state for storing actual image
@@ -17,7 +18,7 @@ const Profile_Details = () => {
   const dropRef = useRef(); // React ref for managing the hover state of droppable area
   //context
   const auth = useContext(AuthContext);
-  const { sendRequest } = useHttpClient();
+  const { sendRequest, isLoading } = useHttpClient();
 
   const onDrop = (files) => {
     const [uploadedFile] = files;
@@ -57,12 +58,14 @@ const Profile_Details = () => {
         data
       )
         .then((res) => {
-          if (res.ok === true) notify.show(res.message, "success");
-          else notify.show(res.message, "error");
+          if (res.ok === true) {
+            toast.success(res.message, { position: "top-right" });
+            window.location.reload();
+          } else toast.warning(res.message, { position: "top-right" });
         })
         .catch((error) => {
           console.log(error);
-          notify.show(error.message, "error");
+          toast.error("Something went wrong", { position: "top-right" });
         });
     }, 500);
   };
@@ -136,9 +139,13 @@ const Profile_Details = () => {
             </div>
           )}
         </div>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
+        {isLoading ? (
+          <CircularProgress />
+        ) : (
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        )}
       </Form>
     </React.Fragment>
   );

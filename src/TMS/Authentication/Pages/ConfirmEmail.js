@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { notify } from "react-notify-toast";
 import { useParams } from "react-router-dom";
 import { CircularProgress, Box } from "@material-ui/core";
+import { toast } from "react-toastify";
 
 //Context
 import { AuthContext } from "../../context/authContext";
@@ -33,7 +33,7 @@ const ConfirmEmail = () => {
         console.log(response);
         if (response.ok) {
           setSuccessMessage(response.message);
-          notify.show(response.message, "success");
+          toast.success(response.message, { position: "top-right" });
           auth.login(
             response.userType,
             response.userName,
@@ -43,11 +43,11 @@ const ConfirmEmail = () => {
           );
         } else {
           setErrorMessage(response.message);
-          notify.show(response.message, "error");
+          toast.warning(response.message, { position: "top-right" });
         }
       } catch (err) {
-        setErrorMessage(err.message);
-        notify.show(err.message, "error");
+        setErrorMessage("Something went wrong");
+        toast.error("Something went wrong", { position: "top-right" });
         setUserId(null);
       }
     };

@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { notify } from "react-notify-toast"; //For pop-up notification at top
+import { toast } from "react-toastify";
 //Formik imports
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -42,12 +42,12 @@ const ResetPswd = () => {
         );
         if (response.ok) {
           setSuccessMessage(response.message);
-          notify.show(response.message, "success");
+          toast.success(response.message, { position: "top-right" });
           history.push("/auth");
-        }
+        } else toast.warning(response.message, { position: "top-right" });
       } catch (err) {
         setErrorMessage(err.message);
-        notify.show(err.message);
+        toast.error("Something went wrong", { position: "top-right" });
         console.log(err);
       }
     }, 500);

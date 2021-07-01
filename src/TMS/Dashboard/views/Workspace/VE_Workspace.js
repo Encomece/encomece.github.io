@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { useHttpClient } from "../../../customHooks/http-hook";
 import { AuthContext } from "../../../context/authContext";
-import { notify } from "react-notify-toast";
+import { toast } from "react-toastify";
+import LoadingPage from "../../assets/jss/LoadingPage";
 
 const VE_Workspace = () => {
   const auth = useContext(AuthContext);
@@ -27,7 +28,7 @@ const VE_Workspace = () => {
       }
     )
       .then((res) => {
-        notify.show(res.message, "success");
+        toast.success(res.message, { position: "top-right" });
         if (res.message) {
           history.push("/dash");
         }
@@ -35,7 +36,11 @@ const VE_Workspace = () => {
       .catch((err) => console.log(err));
   }, [taskData]);
 
-  return <div>Redirecting.....</div>;
+  return (
+    <div>
+      <LoadingPage />
+    </div>
+  );
 };
 
 export default VE_Workspace;
