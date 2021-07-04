@@ -3,8 +3,9 @@ import { NavLink, useHistory } from "react-router-dom";
 import { Link } from "react-scroll";
 import { AuthContext } from "../../TMS/context/authContext";
 import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
+import classnames from "classnames";
 //css
-import "./Navbar.scss";
+import "./Navbar.css";
 
 const Navbar1 = () => {
   //states
@@ -32,10 +33,8 @@ const Navbar1 = () => {
     else history.push("/auth");
   };
 
-  console.log(auth.isLoggedIn);
-
   return (
-    <section className={`navigation ${!active ? "hide" : ""}`}>
+    <section className={classnames("navigation", { hide: !active })}>
       <div className="nav-container">
         <div className="brand">
           <NavLink to="/">
@@ -67,7 +66,7 @@ const Navbar1 = () => {
                 spy={true}
                 smooth={true}
                 duration={500}
-                style={{ cursor: "pointer", color: "white" }}
+                style={{ cursor: "pointer" }}
                 onClick={mobileMenuHandler}
               >
                 ABOUT US
@@ -80,7 +79,7 @@ const Navbar1 = () => {
                 spy={true}
                 smooth={true}
                 duration={1000}
-                style={{ cursor: "pointer", color: "white" }}
+                style={{ cursor: "pointer" }}
                 onClick={mobileMenuHandler}
               >
                 PROGRAMS
@@ -102,7 +101,7 @@ const Navbar1 = () => {
                 spy={true}
                 smooth={true}
                 duration={1500}
-                style={{ cursor: "pointer", color: "white" }}
+                style={{ cursor: "pointer" }}
                 onClick={mobileMenuHandler}
               >
                 SERVICES
@@ -126,11 +125,7 @@ const Navbar1 = () => {
               </li>
             )}
             <li>
-              <Link
-                to="#"
-                style={{ cursor: "pointer", color: "white" }}
-                onClick={loginHandler}
-              >
+              <Link to="#" style={{ cursor: "pointer" }} onClick={loginHandler}>
                 {auth.isLoggedIn ? "LOGOUT" : "LOGIN"}
               </Link>
             </li>
