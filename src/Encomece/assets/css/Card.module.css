@@ -1,0 +1,105 @@
+.container {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow: 3px 7px 23px 0px rgba(0, 0, 0, 0.78);
+  -webkit-box-shadow: 3px 7px 23px 0px rgba(0, 0, 0, 0.78);
+  -moz-box-shadow: 3px 7px 23px 0px rgba(0, 0, 0, 0.78);
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+  max-height: 700px;
+  max-width: 450px;
+  min-width: 340px;
+  transition: transform 0.5s;
+}
+
+.images {
+  width: 100%;
+  height: 50%;
+  padding: 0;
+  border-radius: 30px 30px 0 0;
+}
+
+.content {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 30px 10px 30px;
+}
+
+.headerName {
+  font-size: 1.5rem;
+  color: black;
+  font-family: "Lato";
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.headercontent {
+  font-size: 1.2rem;
+  color: rgb(177, 172, 172);
+  font-family: "Poppins";
+  text-align: center;
+}
+
+.button {
+  background-image: linear-gradient(
+    to right,
+    #56ab2f 0%,
+    #a8e063 51%,
+    #56ab2f 100%
+  );
+}
+.button {
+  margin: 10px;
+  margin-bottom: 20px;
+  padding: 15px 45px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px rgb(226, 221, 221);
+  border-radius: 50px;
+  display: block;
+  font-family: "Lato";
+  font-size: 1.2rem;
+  border: none;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none !important;
+  color: white;
+}
+
+.container:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 400px) {
+  .container {
+    transition: none;
+  }
+  .container:hover {
+    transform: none;
+  }
+  .headerName {
+    font-size: 1.3rem;
+  }
+  .headercontent {
+    font-size: 1rem;
+  }
+  .button {
+    font-size: 1rem;
+  }
+}

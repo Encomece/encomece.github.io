@@ -19,6 +19,8 @@
     "formik-material-ui": "^3.0.1",
     "formik-material-ui-lab": "0.0.8",
     "formik-material-ui-pickers": "0.0.12",
+    "node-sass": "^4.14.1",
+    "npm": "^7.19.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.6.0",

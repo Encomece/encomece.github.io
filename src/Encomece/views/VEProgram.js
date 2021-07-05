@@ -4,14 +4,13 @@ import { useHistory } from "react-router-dom";
 import classes from "../assets/css/layout.module.css";
 
 //Images
-import Image1 from  "../assets/Images/VE_img/Group 268.webp";
+import Image1 from "../assets/Images/VE_img/Group 268.webp";
 import Image2 from "../assets/Images/VE_img/Mask Group 21.webp";
-import Image3 from  "../assets/Images/VE_img/avatar-circle-human-male-4-512 .webp";
+import Image3 from "../assets/Images/VE_img/avatar-circle-human-male-4-512 .webp";
 
 //Components
-const Navbar = React.lazy(()=> import( "../components/Navbar"));
-const Footer = React.lazy(()=> import("../components/Footer"));
-
+const Navbar = React.lazy(() => import("../components/Navbar"));
+const Footer = React.lazy(() => import("../components/Footer"));
 
 const VEProgram = () => {
   const history = useHistory();
@@ -31,11 +30,15 @@ const VEProgram = () => {
               eveniet quasi corrupti id! Labore quisquam porro possimus.
             </li>
 
-            <button id={classes.button} onClick={()=>{
-              console.log("CLICKED!");
-              history.push('/auth');
-            }
-            }>Register</button>
+            <button
+              id={classes.button}
+              onClick={() => {
+                console.log("CLICKED!");
+                history.push("/auth");
+              }}
+            >
+              Register
+            </button>
           </div>
           <div className={classes.header_sec2}>
             <img src={Image1} width="100%" alt="Image1" />
@@ -43,7 +46,7 @@ const VEProgram = () => {
         </div>
       </div>
 
-      <div className={classes.vp_Sec2} >
+      <div className={classes.vp_Sec2}>
         <div className={classes.vp_sec2p1}>
           <img src={Image2} alt="Image2" />
         </div>
@@ -76,73 +79,6 @@ const VEProgram = () => {
           </p>
         </div>
       </div>
-
-      {/* <div className={classes.vp_Sec3}>
-        <div className={classes.vp_Sec3p1}>
-          <h1>Over View</h1>
-          <button>
-            virtual <span id={classes.emp}>employee</span>
-          </button>
-        </div>
-        <div className={classes.vp_Sec3p2}>
-          <div className={classes.vpcards}>
-            <div className={classes.cardsec1}>
-              <div className={classes.cardimg}>
-                <img src={Image3} alt="Image3" />
-              </div>
-              <div className={classes.cardtxt}>
-                <h2>Founder & CEO</h2>
-                <h1>Liam Noah</h1>
-              </div>
-            </div>
-            <div className={classes.cardsec2}>
-              <h2>CEO Approval Rating</h2>
-              <h2>--/100</h2>
-              <span id={classes.emp}>
-                <h2>Weigh in</h2>
-              </span>
-            </div>
-          </div>
-
-          <div className={classes.vpcards} id={classes.two}>
-            <div className={classes.cardsec1}>
-              <div className={classes.cardimg}>
-                <img src={Image3} alt="Image3" />
-              </div>
-              <div className={classes.cardtxt}>
-                <h2>Founder & CEO</h2>
-                <h1>Liam Noah</h1>
-              </div>
-            </div>
-            <div className={classes.cardsec2}>
-              <h2>CEO Approval Rating</h2>
-              <h2>--/100</h2>
-              <span id={classes.emp}>
-                <h2>Weigh in</h2>
-              </span>
-            </div>
-          </div>
-
-          <div className={classes.vpcards} id={classes.one}>
-            <div className={classes.cardsec1}>
-              <div className={classes.cardimg}>
-                <img src={Image3} alt="" />
-              </div>
-              <div className={classes.cardtxt}>
-                <h2>Founder & CEO</h2>
-                <h1>Liam Noah</h1>
-              </div>
-            </div>
-            <div className={classes.cardsec2}>
-              <h2>CEO Approval Rating</h2>
-              <h2>--/100</h2>
-              <span id={classes.emp}>
-                <h2>Weigh in</h2>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <br />
       <br />
       <br />
@@ -152,7 +88,7 @@ const VEProgram = () => {
       <br />
       <br />
       <br />
-      <br /> 
+      <br />
       <br />
       <br />
       <Footer />

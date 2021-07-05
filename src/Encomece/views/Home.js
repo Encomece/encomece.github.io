@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React from "react";
 
 import Carousel from "react-bootstrap/Carousel";
 
@@ -13,187 +12,157 @@ import classes from "../assets/css/index_layout.module.css";
 import "../assets/css/index_layout.module.css";
 
 //Images
-import Image2 from "../assets/Images/Index_img/flat-illustration-blog-content-blogging-commercial-blog-posting-internet-blogging-service_126608-84-removebg-preview.webp";
-import Image1 from "../assets/Images/Index_img/digital-marketing-illustration_1893-2527-removebg-preview.webp";
+import Image2 from "../assets/Images/Index_img/person-using-tablet-min.webp";
+import Image1 from "../assets/Images/Index_img/business-video-call-laptop (1).webp";
 
 //icons
 import SupervisorAccountTwoToneIcon from "@material-ui/icons/SupervisorAccountTwoTone";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import HowToRegIcon from "@material-ui/icons/HowToReg";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
+import Card from "../components/Card";
 
 const Home = () => {
   return (
     <>
-      <div className={classes.bgImg}>
-        <div className={classes.cnt}>
-          <Navbar />
+      <Navbar />
+      <div className={classes.layer1}>
+        <div className={classes.layer1Text}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ratione
+          fuga sequi. Ipsam, voluptate atque.
         </div>
-        <div className={classes.text}>
-          <div className={classes.tsec1}>
-            <h1>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-              ratione fuga sequi. Ipsam, voluptate atque.
-            </h1>
+        <div className={classes.explore}>
+          <button className={classes.exploreBtn}>Explore Now</button>
+        </div>
+      </div>
+
+      <div className={classes.mainsec_aboutus}>
+        <div className={classes.col2_left}>
+          <div className={classes.col2_left1}>
+            <div className={classes.logo}>
+              <SupervisorAccountTwoToneIcon
+                style={{ fontSize: "100px", color: "orange" }}
+              />
+              <div className={classes.col2_heading2} style={{ color: "white" }}>
+                Dedicated Teams
+              </div>
+              <br />
+              <div className={classes.col2_details} style={{ color: "white" }}>
+                We at Encomece ensure the quality of work and confidentiality of
+                information.
+              </div>
+            </div>
           </div>
-          <div className={classes.tsec2}>
-            <button>Explore Now</button>
+          <div className={classes.col2_left2}>
+            <div className={classes.logo}>
+              <QuestionAnswerIcon
+                style={{ fontSize: "100px", color: "blue" }}
+              />
+              <div className={classes.col2_heading2} style={{ color: "white" }}>
+                Best Consulation
+              </div>
+              <br />
+              <div className={classes.col2_details} style={{ color: "white" }}>
+                We provide the best consultation and suggest you the best
+                possible thing to start with.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* middleComponent */}
+        <div className={classes.col2_middle}>
+          <div className={classes.col2_heading}>About Us</div>
+          <div className={classes.col2_content}>
+            <div className={classes.col2_heading2}>
+              Best resources for the best idea
+            </div>
+            <div className={classes.col2_para}>
+              We welcome young and bright minds brimming with innovative ideas
+              and help them make it real. Our goal is to walk alongside startups
+              and provide them with guidance at every step to success. We
+              believe every idea is the best idea and, best ideas need the best
+              resources. If you are a new startup or having an idea that holds
+              potential, we are here to help you.
+            </div>
+          </div>
+        </div>
+        <div className={classes.col2_right}>
+          <div className={classes.col2_right1}>
+            <div className={classes.logo}>
+              <HowToRegIcon style={{ fontSize: "100px", color: "red" }} />
+              <div className={classes.col2_heading2} style={{ color: "white" }}>
+                Trained Experts
+              </div>
+              <br />
+              <div className={classes.col2_details} style={{ color: "white" }}>
+                Our trained professionals will support you in every task to
+                accelerate your startup growth.
+              </div>
+            </div>
+          </div>
+          <div className={classes.col2_right2}>
+            <div className={classes.logo}>
+              <VerifiedUserIcon style={{ fontSize: "100px", color: "green" }} />
+              <div className={classes.col2_heading2} style={{ color: "white" }}>
+                Assurance
+              </div>
+              <br />
+              <div className={classes.col2_details} style={{ color: "white" }}>
+                We guarantee the utmost confidentiality and quality of your work
+                with the best results possible.
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div style={{ paddingTop: "60px" }} id="aboutus">
-        {" "}
-        <div className={classes.aboutus}>
-          <div className={classes.mainsec}>
-            <div className={classes.col1}>
-              <div className={classes.collayout}>
-                <div className={classes.logo}>
-                  <SupervisorAccountTwoToneIcon
-                    style={{ fontSize: "100px", color: "orange" }}
-                  />
-                  <h4>Dedicated Teams</h4>
-                  <br />
-                  <p>
-                    We at Encomece ensure the quality of work and
-                    confidentiality of information.
-                  </p>
-                </div>
-              </div>
-              <div className={classes.collayout}>
-                <div className={classes.logo}>
-                  <QuestionAnswerIcon
-                    style={{ fontSize: "100px", color: "blue" }}
-                  />
-                  <h4>Best Consulation</h4>
-                  <br />
-                  <p>
-                    We provide the best consultation and suggest you the best
-                    possible thing to start with.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className={classes.col2} style={{ padding: "0 1.5% 0 1.5%" }}>
-              <br />
-              <br />
-              <h1>About Us</h1>
-              <br />
-              <h3>Best resources for the best idea</h3>
-              <p>
-                We welcome young and bright minds brimming with innovative ideas
-                and help them make it real. Our goal is to walk alongside
-                startups and provide them with guidance at every step to
-                success. We believe every idea is the best idea and, best ideas
-                need the best resources. If you are a new startup or having an
-                idea that holds potential, we are here to help you.
-              </p>
-            </div>
-            <div className={classes.col1}>
-              <div className={classes.collayout}>
-                <div className={classes.logo}>
-                  <HowToRegIcon style={{ fontSize: "100px", color: "red" }} />
-                  <h4>Trained Experts</h4>
-                  <br />
-                  <p>
-                    Our trained professionals will support you in every task to
-                    accelerate your startup growth.
-                  </p>
-                </div>
-              </div>
-              <div className={classes.collayout}>
-                <div className={classes.logo}>
-                  <VerifiedUserIcon
-                    style={{ fontSize: "100px", color: "green" }}
-                  />
-                  <h4>Assurance</h4>
-                  <br />
-                  <p>
-                    We guarantee the utmost confidentiality and quality of your
-                    work with the best results possible.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="programs" style={{ paddingTop: "70px" }}>
-        {" "}
+
+      <div id="programs">
         <div className={classes.Programs}>
-          <h1>Featured Programs</h1>
-          <div>
-            <div className={classes.vep}>
-              <div className={classes.image}>
-                <img src={Image1} width="75%" alt="" />
-              </div>
-              <div className={classes.content}>
-                <center>
-                  <h1 style={{ marginTop: "19px", fontFamily: "fangsong" }}>
-                    VIRTUAL EMPLOYEE PROGRAM
-                  </h1>
-                </center>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
+          <div className={classes.featuredPrograms}>Featured Programme</div>
+          <div className={classes.featuredProgramsContainer}>
+            <Card
+              imagePath={Image1}
+              headerName="VIRTUAL EMPLOYEE PROGRAM"
+              headercontent="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
                   illum, quisquam, tempora earum saepe cum aperiam amet,
                   pariatur nisi non repudiandae molestiae eligendi porro
-                  obcaecati.
-                </p>
-                <center>
-                  <NavLink to="/ve_program" className={classes.link}>
-                    <button className={classes.button}>
-                      Learn More &nbsp;
-                    </button>
-                  </NavLink>
-                </center>
-              </div>
-            </div>
-            <div className={classes.sp}>
-              <div className={classes.image}>
-                <img src={Image2} width="87%" alt="" />
-              </div>
-              <div className={classes.content}>
-                <center>
-                  <h1 style={{ marginTop: "19px", fontFamily: "fangsong" }}>
-                    STARTUP PROGRAM
-                  </h1>
-                </center>
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
+                  obcaecati."
+              route="/ve_program"
+            />
+            <Card
+              imagePath={Image2}
+              headerName="STARTUP PROGRAM"
+              headercontent="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
                   illum, quisquam, tempora earum saepe cum aperiam amet,
                   pariatur nisi non repudiandae molestiae eligendi porro
-                  obcaecati.
-                </p>
-                <center>
-                  <NavLink to="/startup_program" className={classes.link}>
-                    <button className={classes.button}>
-                      Learn More &nbsp;
-                    </button>
-                  </NavLink>
-                </center>
-              </div>
-            </div>
+                  obcaecati."
+              route="/startup_program"
+            />
           </div>
         </div>
       </div>
 
       <div className={classes.sec4}>
         <div className={classes.sec41}>
-          <h1>Didn't get what you are looking for?</h1>
+          <div className={classes.col2_heading} style={{ color: "white" }}>
+            Didn't get what you are looking for?
+          </div>
 
-          <p>
+          <div className={classes.col2_para} style={{ color: "white" }}>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
             incidunt amet libero ratione, qui debitis ea officiis alias ex fuga
             esse vitae dicta dolore consectetur nam illum autem unde.
             Cupiditate?
-          </p>
-
-          <button className={classes.join_now}>Join Us Now</button>
+          </div>
+          <br />
+          <button className={classes.buttonGreen}>Join Us Now</button>
           <div id="services"></div>
         </div>
         <div className={classes.sec42}></div>
       </div>
       <div className={classes.toolsandR}>
-        <h1>Tools And Resources</h1>
+        <div className={classes.toolsAndResources}>Tools And Resources</div>
 
         <div>
           <Carousel fade indicators={false}>
@@ -293,7 +262,7 @@ const Home = () => {
       <CarouselMain />
       <div className={classes.blog}>
         <div className={classes.b_heading}>
-          <h1>Blog</h1>
+          <div className={classes.blogHeading}>Blog</div>
         </div>
         <div className={classes.blog_s1}>
           <div className={classes.Mg26}></div>
@@ -337,7 +306,9 @@ const Home = () => {
       <div className={classes.news_letter}>
         <div className={classes.main_sec_blog}>
           <div className={classes.heading_sec}>
-            <h1 style={{ fontWeight: "500" }}>Subscribe to Our Newsletter</h1>
+            <div className={classes.newsLetterHeading}>
+              Subscribe to Our Newsletter
+            </div>
           </div>
           <div className={classes.input_sec}>
             <input type="email" placeholder="Enter Your Email" name="" id="" />

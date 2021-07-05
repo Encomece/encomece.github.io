@@ -17,6 +17,151 @@
   z-index: -5 !important;
 }
 
+.layer1 {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../Images/Index_img/hands-2178566.webp");
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.layer1Text {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-align: center;
+  max-width: 800px;
+  padding: 10px;
+}
+
+.explore {
+  margin-top: 15px;
+}
+
+.exploreBtn {
+  background-image: linear-gradient(
+    to right,
+    #1d976c 0%,
+    #93f9b9 51%,
+    #1d976c 100%
+  );
+}
+.exploreBtn {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgb(68, 67, 67);
+  border-radius: 50px;
+  display: block;
+  border: none;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Lato";
+}
+
+.exploreBtn:hover {
+  background-position: right center; /* change the direction of the change here */
+  text-decoration: none;
+}
+
+.featuredPrograms {
+  font-size: 2.8rem;
+  font-weight: bold;
+  font-family: "Poppins";
+}
+.featuredProgramsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.link {
+  text-decoration: none !important;
+}
+
+.buttonGreen {
+  background-image: linear-gradient(
+    to right,
+    #56ab2f 0%,
+    #a8e063 51%,
+    #56ab2f 100%
+  );
+}
+.buttonGreen {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px rgb(63, 60, 60);
+  border-radius: 50px;
+  display: block;
+  font-family: "Lato";
+  font-size: 1.2rem;
+  border: none;
+  text-decoration: none;
+}
+
+.buttonGreen:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.toolsAndResources {
+  font-size: 3rem;
+  font-family: "Poppins";
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.newsLetterHeading {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Poppins";
+}
+
+.blogHeading {
+  font-size: 3rem;
+  font-weight: bold;
+  font-family: "Poppins";
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .featuredPrograms {
+    font-size: 1.9rem;
+  }
+  .buttonGreen {
+    font-size: 1rem;
+  }
+  .layer1Text {
+    font-size: 1.5rem;
+  }
+  .exploreBtn {
+    font-size: 1.1rem;
+  }
+  .toolsAndResources {
+    font-size: 1.8rem;
+  }
+  .newsLetterHeading {
+    font-size: 1.8rem;
+  }
+  .blog {
+    font-size: 1.8rem;
+  }
+}
+
 @media screen and (max-width: 985px) {
   .topnav a:not(:first-child) {
     display: none;
@@ -89,31 +234,111 @@
     text-align: initial;
   }
 }
+
+.mainsec_aboutus {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../Images/Index_img/Group\ 155.webp");
+  width: 100%;
+  padding: 50px;
+}
+
+.col2_left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  justify-content: space-evenly;
+}
+
+.col2_right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  justify-content: space-evenly;
+}
+
+.col2_middle {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+  width: 500px;
+  border-radius: 50px;
+  border-top: 10px solid rgb(39, 119, 240);
+  padding-top: 50px;
+  box-shadow: 3px 7px 23px 0px rgba(233, 230, 230, 0.78);
+  -webkit-box-shadow: 3px 7px 23px 0px rgba(241, 231, 231, 0.78);
+  -moz-box-shadow: 3px 7px 23px 0px rgba(235, 223, 223, 0.78);
+  margin-top: 40px;
+}
+.col2_heading {
+  font-size: 2.8rem;
+  font-weight: bold;
+  font-family: "Poppins";
+}
+
+.col2_content {
+  margin-top: 30px;
+  width: 90%;
+  padding-bottom: 50px;
+}
+.col2_heading2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  font-family: "Poppins";
+}
+.col2_para {
+  margin-top: 20px;
+  font-size: 1.35rem;
+  font-family: "Lato";
+  color: grey;
+}
+.col2_details {
+  font-size: 1rem;
+  font-family: "Lato";
+  font-weight: bold;
+  color: "white";
+}
+
+@media (max-width: 768px) {
+  .mainsec_aboutus {
+    padding: 20px;
+  }
+  .col2_heading {
+    font-size: 1.8rem;
+  }
+  .col2_heading2 {
+    font-size: 1.3rem;
+  }
+  .col2_para {
+    font-size: 1rem;
+  }
+}
+
 @media screen and (min-width: 929px) {
   .mainsec {
     display: flex;
     place-content: center;
+    height: 70vh;
   }
   .main_sec_blog {
     width: 60%;
   }
-  .col2 {
-    width: 500px;
-    margin-left: 75px;
-    margin-top: 20px;
-    margin-right: 75px;
-    text-align: center;
-    background-image: url("../Images/Index_img/Group\ 84.webp");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+
   .vep {
     width: 30%;
     margin-right: 96px;
   }
   .sp {
-    width: 30%;
+    width: 33%;
   }
   .sec41 {
     width: 50%;
@@ -252,16 +477,12 @@ body {
   letter-spacing: 1px;
 }
 .bgImg {
-  background-image: url("../Images/Index_img/pexels-anthony-shkraba-4348401.jpg");
+  background-image: url("../Images/Index_img/hands-2178566.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 610px;
-  position: relative;
-  /* clip-path: polygon(0 0, 100% 0%, 100% 73%, 0 100%);
-  background-color: #C055ED;
-    min-height: 100vh;
-   */
+  object-fit: contain;
+  min-height: 810px;
 }
 .cnt {
   position: absolute;
@@ -302,16 +523,21 @@ body {
   letter-spacing: 1px;
 }
 .text {
-  position: relative;
-  top: 210px;
-  color: white;
-  padding: 3% 10%;
+  color: black;
   display: flex;
   flex-direction: column;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
 }
 
 .text > .tsec1 {
   text-align: center;
+  max-width: 800px;
+  margin-top: 13%;
+  font-family: "Playfair Display", serif;
+  font-weight: bolder;
 }
 .text > .tsec2 {
   text-align: center;
@@ -399,8 +625,6 @@ body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   letter-spacing: 2px;
-
-  min-height: 80px;
 }
 .Programs > div {
   display: flex;
@@ -409,8 +633,9 @@ body {
   margin-top: 39px;
 }
 .vep {
-  border: 1px solid white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 7px 23px 0px rgba(0, 0, 0, 0.78);
+  -webkit-box-shadow: 3px 7px 23px 0px rgba(0, 0, 0, 0.78);
+  -moz-box-shadow: 3px 7px 23px 0px rgba(0, 0, 0, 0.78);
   transition: 0.3s;
   border-radius: 10px;
 }
@@ -418,8 +643,9 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
 }
 .sp {
-  border: 1px solid white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 7px 23px 0px rgba(0, 0, 0, 0.78);
+  -webkit-box-shadow: 3px 7px 23px 0px rgba(0, 0, 0, 0.78);
+  -moz-box-shadow: 3px 7px 23px 0px rgba(0, 0, 0, 0.78);
   transition: 0.3s;
   border-radius: 10px;
 }
@@ -436,7 +662,6 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
 }
 .vep > .image {
-  background-color: #eea700;
   text-align: center;
   border-radius: 10px;
 }
@@ -449,13 +674,8 @@ body {
   font-weight: 400;
   text-align: center;
   color: darkslategray;
-  margin-top: 10px;
 }
-.sp > .image {
-  background-color: #1a84b8;
-  text-align: center;
-  border-radius: 10px;
-}
+
 .sp > p {
   font-size: 13px;
   padding: 0px;
@@ -463,25 +683,6 @@ body {
   font-weight: 400;
   text-align: center;
   color: darkslategray;
-}
-.button {
-  background-color: #a6ce39;
-
-  padding: 1em 1.5em;
-  border: none;
-  border-radius: 28px;
-  font-size: 0.9em;
-  font-weight: 700;
-  letter-spacing: 1.3px;
-  color: #fff;
-  /* background-color: #ff3f40; */
-  box-shadow: 2px 2px 15px -7px #4c4c4c;
-}
-.button:active {
-  transform: scale(0.97);
-}
-.button:focus {
-  outline: none;
 }
 .sec4 {
   display: flex;
@@ -497,9 +698,15 @@ body {
 }
 .sec42 {
   background-image: url("../Images/Index_img/Mask\ Group\ 21.webp");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+}
+@media (max-width: 1024px) {
+  .sec42 {
+    background-image: none;
+    display: none;
+  }
 }
 .sec41 h1 {
   color: white;
@@ -557,25 +764,22 @@ body {
   margin-bottom: 20px;
 }
 .dev {
-  border: 1px solid white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 13px;
 }
 .des {
-  border: 1px solid white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 13px;
 }
 .man {
-  border: 1px solid white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 13px;
 }
 .dimg {
-  background-image: url("../Images/Index_img/Group\ 163.webp");
+  background-image: url("../Images/Index_img/coded-stuff-screen-min.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -583,7 +787,7 @@ body {
   border-top-right-radius: 13px;
 }
 .deimg {
-  background-image: url("../Images/Index_img/Group\ 161.webp");
+  background-image: url("../Images/Index_img/designer-working-layout.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -591,7 +795,7 @@ body {
   border-top-right-radius: 13px;
 }
 .mimg {
-  background-image: url("../Images/Index_img/Group\ 162.webp");
+  background-image: url("../Images/Index_img/product-design-drawing-website-graphic-min.webp");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -600,23 +804,30 @@ body {
 }
 .t_rcards h3 {
   line-height: 218px;
-  color: white;
+  color: rgb(253, 253, 253);
   text-align: center;
   font-size: 28px;
-  font-weight: 500;
+  font-family: "Lato";
   letter-spacing: 2px;
 }
 .t_rcards h4 {
-  font-size: 15px;
+  font-size: 1.5rem;
   text-align: center;
   padding-top: 19px;
-  font-weight: 500;
+  font-family: "Lato";
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .t_rcards h4 {
+    font-size: 1.3rem;
+  }
 }
 .t_rcards p {
-  font-size: 13px;
+  font-size: 1rem;
   padding-left: 19px;
   padding-top: 12px;
-  opacity: 0.9;
+  font-family: "Lato";
 }
 .link {
   text-decoration: none;

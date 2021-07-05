@@ -1,26 +1,36 @@
 import React, { useEffect, useState, useContext } from "react";
-import { NavLink, useHistory } from "react-router-dom";
-import { Link } from "react-scroll";
-import { AuthContext } from "../../TMS/context/authContext";
+import { useHistory } from "react-router";
 import BrandLogo from "../assets/Images/Index_img/logo_white700.png";
-import classnames from "classnames";
-//css
-import "./Navbar.css";
+import "../assets/css/Navbar.scss";
+import { AuthContext } from "../../TMS/context/authContext";
 
-const Navbar1 = () => {
+const Navbar = () => {
   //states
-  const [active, setActive] = useState(true);
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const [openDropDown_Program, setOpenDropDown_Program] = useState(false);
+  const [openDropDown_Services, setOpenDropDown_Services] = useState(false);
+  const [backgroundTransparent, setBackgroundTransparent] = useState(true);
 
-  //Animation for Hiding the navbar on scroll down
   useEffect(() => {
-    const handleScroll = () => setActive(window.pageYOffset < 2500);
+    const handleScroll = () =>
+      setBackgroundTransparent(window.pageYOffset === 0);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
   //Mobile-Menu-toggler
   const mobileMenuHandler = () => setOpenMobileMenu((prev) => !prev);
+
+  //DropDown-toggler
+  const dropDownOpenHandler = (type) => {
+    if (type === "services") {
+      setOpenDropDown_Program(false);
+      setOpenDropDown_Services((prev) => !prev);
+    } else {
+      setOpenDropDown_Program((prev) => !prev);
+      setOpenDropDown_Services(false);
+    }
+  };
 
   const history = useHistory();
 
@@ -34,12 +44,18 @@ const Navbar1 = () => {
   };
 
   return (
-    <section className={classnames("navigation", { hide: !active })}>
+    <section
+      className="navigation"
+      style={{
+        background: backgroundTransparent ? "transparent" : "#bbbab6",
+        opacity: backgroundTransparent ? "1" : "0.8",
+      }}
+    >
       <div className="nav-container">
         <div className="brand">
-          <NavLink to="/">
+          <a href="/">
             <img src={BrandLogo} alt="logo" width="160" />
-          </NavLink>
+          </a>
         </div>
         <nav>
           <div className="nav-mobile">
@@ -57,35 +73,19 @@ const Navbar1 = () => {
             style={{ display: openMobileMenu ? "block" : "none" }}
           >
             <li>
-              <NavLink to="/">HOME</NavLink>
+              <a href="/">Home</a>
             </li>
             <li>
-              <Link
-                to="aboutus"
-                active="nav__activelink"
-                spy={true}
-                smooth={true}
-                duration={500}
-                style={{ cursor: "pointer" }}
-                onClick={mobileMenuHandler}
-              >
-                ABOUT US
-              </Link>
+              <a href="#!">About</a>
             </li>
             <li>
-              <Link
-                to="programs"
-                active="nav__activelink"
-                spy={true}
-                smooth={true}
-                duration={1000}
-                style={{ cursor: "pointer" }}
-                onClick={mobileMenuHandler}
+              <a href="#!" onClick={() => dropDownOpenHandler("programs")}>
+                Programs
+              </a>
+              <ul
+                className="nav-dropdown"
+                style={{ display: openDropDown_Program ? "block" : "none" }}
               >
-                PROGRAMS
-              </Link>
-
-              <ul className="nav-dropdown">
                 <li>
                   <a href="/startup_program">Startup Program</a>
                 </li>
@@ -95,19 +95,10 @@ const Navbar1 = () => {
               </ul>
             </li>
             <li>
-              <Link
-                to="services"
-                active="nav__activelink"
-                spy={true}
-                smooth={true}
-                duration={1500}
-                style={{ cursor: "pointer" }}
-                onClick={mobileMenuHandler}
+              <ul
+                className="nav-dropdown"
+                style={{ display: openDropDown_Services ? "block" : "none" }}
               >
-                SERVICES
-              </Link>
-
-              <ul className="nav-dropdown">
                 <li>
                   <a href="#!">Marketing</a>
                 </li>
@@ -125,9 +116,9 @@ const Navbar1 = () => {
               </li>
             )}
             <li>
-              <Link to="#" style={{ cursor: "pointer" }} onClick={loginHandler}>
-                {auth.isLoggedIn ? "LOGOUT" : "LOGIN"}
-              </Link>
+              <a href="#" onClick={loginHandler}>
+                {auth.isLoggedIn ? "Logout" : "Login"}
+              </a>
             </li>
           </ul>
         </nav>
@@ -136,4 +127,4 @@ const Navbar1 = () => {
   );
 };
 
-export default Navbar1;
+export default Navbar;
