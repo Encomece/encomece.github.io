@@ -5,20 +5,19 @@
 .head {
     width: 100%;
     padding: 50px 0px; 
-    /* height: 100vh; */
-    background-image: url(/Images/Index_img/Web\ 1920\ –\ 5.png);
+    background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(/Images/Index_img/Web\ 1920\ –\ 5-2.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 .head-1 h2{
-    color: black;
     font-size: 40px;
     padding-top: 70px;
 }
 .head-1 p{
-    color: black;
     font-size: 20px;
     padding-top: 20px;
     padding-right: 10px;
@@ -26,13 +25,12 @@
     word-spacing: 10px;
 }
 .head-1 h4{
-    color: black;
     font-size: 30px;
     padding-top: 20px;
     font-weight: 500;
 }
 .head-1 .primary{
-    color: #3aa6ff;
+    color: #52acf7;
 }
 .head-1 input{
     background:linear-gradient(-130deg, #0c47b4, #67caf1);
@@ -43,14 +41,7 @@
     font-size: 20px;
     width: 150px;
 }
-.head-1{
-    height: 90vh;
- 
-}
-.head-bg{
-    
-    height: 90vh;
-}
+
 
 
 .startup-1{
@@ -58,7 +49,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 500px; */
 
 }
 .startup-1 h1{
@@ -75,20 +65,20 @@
 /* bg layer */
 
 .bg-layer{
-    background-image: url(/Images/SP_img/Mask\ Group\ 33.webp);
+    background-image:linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .7) ), url(/Images/SP_img/Mask\ Group\ 33.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: -31px -31px 1px 1px #9b732c;
+    color: #fff;
+    padding: 100px 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 .bg-layer-2 h4{
-    color:#0f49b6;
     font-weight: 700;
     font-size: 30px;
-    margin: 20px 40px;
+    margin: 60px 40px 0 40px;
 }
 .bg-layer-2 p{
-    color: #3aa6ff;
     font-weight: 500;
     margin: 20px 40px;
 }
@@ -190,12 +180,11 @@ footer h5 {
 }
 
 @media (max-width: 768px) {
-    .bg-nav2 {
-        background: linear-gradient(-130deg, #0c47b4, #67caf1);
-    }
+    
     .head{
         padding: 0px 0px; 
-
+        background-position:left;
+        background-image:linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .7) ), url(/Images/Index_img/Web\ 1920\ –\ 5-2.png);
         }
      
         .head-1 h2{
@@ -211,7 +200,6 @@ footer h5 {
             word-spacing: 0px;
         }
         .head-1 h4{
-            color: black;
             font-size: 20px;
             padding-top: 0px;
             font-weight: 500;
@@ -219,25 +207,19 @@ footer h5 {
         .startup-1 p{
             padding: 40px 50px;
         }
-
         .bg-layer{
-            background-image: url(/Images/SP_img/Mask\ Group\ 33.webp);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            box-shadow: -10px -10px 0px 0px #9b732c;
+            padding: 50px 0;
         }
         .bg-layer-2 h4{
-            color:#0f49b6;
             font-weight: 700;
             font-size: 25px;
-            margin: 10px 10px;
+            margin: 60px 40px 0 40px;
         }
         .bg-layer-2 p{
-            color: #3aa6ff;
             font-weight: 500;
-            margin: 10px 10px;
+            margin: 20px 40px;
         }
+
         .list-social li {
             display: inline;
             padding: 10px;
@@ -252,18 +234,9 @@ footer h5 {
 
 @media (max-width: 576px) {
     .head{
+        background-image:linear-gradient( rgba(0, 0, 0, .8), rgba(0, 0, 0, .8) ), url(/Images/Index_img/Web\ 1920\ –\ 5-2.png);
         padding: 55px 0px; 
-        background-position: center;
-
-        background-image: none;
-
-        }
-        .head-1{
-            height: 300px;
-            background-image: url(/Images/SP_img/Group\ 280.webp);
-            background-position: center;
-            background-size: cover;
-
+        background-position:left;
         }
        .head-bg{
            height:0px;
@@ -285,17 +258,12 @@ footer h5 {
             word-spacing: 0px;
         }
         .head-1 h4{
-            color: black;
             font-size: 20px;
             padding-top: 0px;
             font-weight: 500;
         }
         .startup-1 p{
             padding: 40px 50px;
-        }
-        .bg-layer{
-            
-            box-shadow: -10px -10px 0px 0px #9b732c;
         }
         /* over-view" */
 
@@ -320,11 +288,16 @@ footer h5 {
     font-weight: 500;
     color: #3aa6ff;
     font-size: 15px;
+}.bg-layer-2 h4{
+    font-weight: 700;
+    font-size: 25px;
+    margin: 50px 40px 0 40px;
 }
-        .bg-layer{
-            height: 400px;
-            box-shadow: -10px -10px 0px 0px #9b732c;
-        }
+.bg-layer-2 p{
+    font-weight: 500;
+    font-size: 12px;
+    margin: 20px 40px;
+}
 }
 
 
