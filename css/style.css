@@ -3,23 +3,21 @@
 }
 
 .head {
-    /* background-image: url(/Images/Index_img/Web\ 1920\ –\ 8.png);
+    background-image: url(/Images/Index_img/Group\ 155.webp);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover; */
+    background-size: cover;
     width: 100%;
     padding: 50px 0px; 
-    height: 100vh;
     
 }
 
 .head-1 h2{
-    color: black;
+ 
     font-size: 40px;
     padding-top: 70px;
 }
 .head-1 p{
-    color: black;
     font-size: 20px;
     padding-top: 20px;
     padding-right: 10px;
@@ -27,21 +25,13 @@
     word-spacing: 10px;
 }
 .head-1 h4{
-    color: black;
     font-size: 30px;
     padding-top: 20px;
     font-weight: 500;
   
-}.head-1{
-    height: 90vh;
- 
-}
-.head-bg{
-    background-image: url(/Images/Index_img/Web\ 1920\ –\ 8-1.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 90vh;
+}.head-1{ 
+    background: #00000079;
+    color: #fff;
 }
 
 
@@ -50,7 +40,6 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 500px; */
 
 }
 .startup-1 h1{
@@ -63,40 +52,19 @@
     letter-spacing: 2px;
   
 }
-
-.startup-1-sub{
- font-family: sans-serif;
-}
-.startup-1-sub .card-head{
-    height: 150px;
-}
-.startup-1-sub img{
-   width: 140px;
-   height: 140px;
-}
-.startup-1-sub .card-body{
-    height: 80px;
-    background-color: #fae5aa;
-}
-.startup-1-sub .card-body h4{
-    font-weight: 700;
+.startup-1 .text-bg{
+    background-color: #fadb8786;
+    padding: 20px 7px;
+    border-radius: 10px;
+    color: #fff;
 }
 
 .startup-2{
     background-color: #dfe6ee;
-    /* height: 500px; */
-}
-.startup-2-img{
-    background-image: url(/Images/SP_img/Group\ 276.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 450px;
-    margin-top: 25px;
+
 }
 .startup-2-txt{
-    /* height: 450px; */
-    margin-top: 25px;
+    margin: 25px 0;
 }
 .startup-2-txt h2{
     font-size: 40px;
@@ -105,7 +73,7 @@
 .startup-2-txt p{
     font-size: 25px;
     font-weight: 400;
-    color: #3f3f3f;
+    color: #333232;
 }
 .startup-3{
     height: 400px;
@@ -133,11 +101,10 @@
     color: #ffff;
 }
 .startup-4{
-    background-image: url(/Images/Index_img/Web\ 1920\ –\ 9.png);
+    background-image: url(/Images/SP_img/Path\ 315.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 1000px; */
 }
 .startup-4-txt{
     margin-top: 100px;
@@ -162,6 +129,7 @@
     width: 50%;
 }
 .startup-4 .card{
+    width: 70%;
     border-top-left-radius:20% ;
     border-bottom-right-radius:20% ;
     box-shadow: 17px 25px 12px -1px rgb(0 0 0 / 68%);
@@ -177,16 +145,16 @@
    font-size: 14px;
 }
 
-/* hover section */
+/* carousel section */
 
-.hover-section .c1{
+.carousel-section .c1{
     background-image: url(/Images/SP_img/Group\ 278.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
     }
-    .hover-section .c2{
+    .carousel-section .c2{
         background-image: url(/Images/SP_img/Mask\ Group\ 22.webp);
         background-position: center;
         background-repeat: no-repeat;
@@ -194,42 +162,26 @@
         color: #fff;
         
     }
-    .hover-section .c3{
+    .carousel-section .c3{
         background-image: url(/Images/SP_img/Group\ 277.webp);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         color: #fff;
     }
-    .hover-section p{
-        font-size: 15px;
+    .carousel-section h5{
+        margin: 70px 0;
+        font-size: 35px;
     }
-    .hover-section .card {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        -webkit-transition: .3s ease-in-out;
-        transition: .3s ease-in-out;
-    
+    .carousel-section p{
+        font-size: 25px;
+        margin: 40px 0;
+
+    }
+    .carousel-section .card{
+       margin: 20px;
         box-shadow: 1px 12px 12px 0px rgb(0 0 0 / 40%);
                
-    }
-    
-    .hover-section .card-3{
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-    
-    }
-    
-    .hover-section .card:hover + .card{
-        background: #0c47b4;
-    
-    }
-    .hover-section .card:hover  {
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-        position: absolute;
-        z-index: 1;
-        box-shadow: 1px 12px 12px 0px rgb(0 0 0 / 0%);
     }
         
 
@@ -297,11 +249,8 @@ footer h5 {
     }
     .head{
         padding: 0px 0px; 
-        height: 110vh;
         }
-        .head-1{
-            height: 500px;
-        }
+
         .head-1 h2{
             font-size: 30px;
             padding-top: 0px;
@@ -315,7 +264,6 @@ footer h5 {
             word-spacing: 0px;
         }
         .head-1 h4{
-            color: black;
             font-size: 20px;
             padding-top: 0px;
             font-weight: 500;
@@ -329,8 +277,6 @@ footer h5 {
        
         }
         .startup-2-img{
-     
-            height: 450px;
             margin-top: 25px;
         }
         .startup-2-txt{
@@ -339,12 +285,12 @@ footer h5 {
         }
         .startup-2-txt h2{
             font-size: 30px;
-            font-weight: 800;
+            font-weight: 600;
         }
         .startup-2-txt p{
             font-size: 20px;
             font-weight: 300;
-            color: rgb(63, 63, 63);
+            
         }
         .startup-3{
             height: 340px;
@@ -361,9 +307,10 @@ footer h5 {
         }
 
         .startup-4-txt{
-            margin-top: 100px;
+            margin-top: 40px;
         }
         .startup-4 .card{
+            width: 100%;
             border-top-left-radius:30% ;
             border-bottom-right-radius:30% ;
         }
@@ -397,68 +344,33 @@ footer h5 {
             font-size: small;
         }
 
-        /* hover section */
-
-
-    .hover-section h5{
-        font-size: 15px;
-    }
-    .hover-section p{
-        font-size: 10px;
-    }
-    .hover-section .card {
-        -webkit-transform: scale(.9);
-        transform: scale(.9);
-        -webkit-transition: .3s ease-in-out;
-        transition: .3s ease-in-out;
-    
-        box-shadow: 1px 12px 12px 0px rgb(0 0 0 / 40%);
-               
-    }
-    
-    .hover-section .card-3{
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    
-    }
-    
-    .hover-section .card:hover + .card{
-        background: #0c47b4;
-    
-    }
-    .hover-section .card:hover  {
-        -webkit-transform: scale(1.2);
-        transform: scale(1.2);
-        position: absolute;
-        z-index: 1;
-        box-shadow: 1px 12px 12px 0px rgb(0 0 0 / 0%);
-    }
-    
-    
+        /* carousel section */
+        
+            .carousel-section h5{
+                margin: 30px 0;
+                font-size: 30px;
+            }
+            .carousel-section p{
+                font-size: 17px;
+                margin: 20px 0;
+        
+            }
+         
+            
         
 }
 
 @media (max-width: 576px) {
     .head{
         padding: 55px 0px; 
-        height: 300px;
         background-position: center;
-        height: 55vh;
 
         }
         .head-1{
-            height: 250px;
-            background-image: url(/Images/SP_img/Group\ 280.webp);
             background-position: center;
             background-size: cover;
 
         }
-       .head-bg{
-           height:0px;
-           background-image: none;
-           background-position: none;
-           background-size: none;
-       }
         .head-1 h2{
             font-size: 30px;
             padding-top: 20px;
@@ -473,13 +385,15 @@ footer h5 {
             word-spacing: 0px;
         }
         .head-1 h4{
-            color: black;
             font-size: 20px;
             padding-top: 0px;
             font-weight: 500;
         }
         .startup-1 p{
-            padding: 40px 50px;
+            padding: 40px 10px;
+        }
+        .startup-1 .text-bg h4{
+            font-size: 17px;
         }
         .startup-3{
             height: 340px;
@@ -535,59 +449,18 @@ footer h5 {
             padding: 10px;
         }
 
-        /* hover section */
-
-.hover-section .c1{
-    background-image: url(/Images/SP_img/Group\ 278.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    }
-    .hover-section .c2{
-        background-image: url(/Images/SP_img/Mask\ Group\ 22.webp);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        color: #fff;
+       
+        /* carousel section */
         
-    }
-    .hover-section .c3{
-        background-image: url(/Images/SP_img/Group\ 277.webp);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        color: #fff;
-    }
-    .hover-section p{
-        font-size: 15px;
-    }
-    .hover-section .card {
-        -webkit-transform: none;
-        transform: none;
-        -webkit-transition: none;
-        transition: none;
-        margin-top: 20px;
-               
-    }
+        .carousel-section h5{
+            margin: 20px 0;
+            font-size: 25px;
+        }
+        .carousel-section p{
+            font-size: 13px;
+            margin: 10px 0;
     
-    .hover-section .card-3{
-        -webkit-transform: none;
-        transform: none;
-    
-    }
-    
-    .hover-section .card:hover + .card{
-        background: #0c47b4;
-    
-    }
-    .hover-section .card:hover  {
-        -webkit-transform: none;
-        transform: none;
-        position: unset;
-        z-index: none;
-        box-shadow: 1px 12px 12px 0px rgb(0 0 0 / 20%);
-    }
+        }
         
 
         /* footer */
