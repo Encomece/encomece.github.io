@@ -1,0 +1,511 @@
+.bg-nav {
+    background: linear-gradient(-130deg, #0c47b4, #67caf1);
+}
+
+.head {
+    background-image: url(../Images/Index_img/Group\ 155.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 50px 0px; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.head-1 h2{
+ 
+    font-size: 40px;
+    padding-top: 70px;
+}
+.head-1 p{
+    font-size: 20px;
+    padding-top: 20px;
+    padding-right: 10px;
+    font-weight: 500;
+    word-spacing: 5px;
+}
+.head-1 h4{
+    font-size: 30px;
+    padding-top: 20px;
+    font-weight: 500;
+  
+}.head-1{ 
+    background: #00000079;
+    color: #fff;
+}
+
+
+.startup-1{
+    background-image: url(../Images/SP_img/Group\ 269.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.startup-1 h1{
+    color: #ffff;
+    padding-top: 20px;
+}
+.startup-1 p{
+    color: #ffff;
+    padding: 40px 200px;
+    letter-spacing: 2px;
+  
+}
+.startup-1 .text-bg{
+    background-color: #fadb8786;
+    padding: 20px 7px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.startup-2{
+    background-color: #dfe6ee;
+
+}
+.startup-2-txt{
+    margin: 25px 0;
+}
+.startup-2-txt h2{
+    font-size: 40px;
+    font-weight: 800;
+}
+.startup-2-txt p{
+    font-size: 25px;
+    font-weight: 400;
+    color: #333232;
+}
+.startup-3{
+    height: 400px;
+    background-image: url(../Images/Index_img/Group\ 155.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffff;
+}
+.startup-3-txt{
+    font-size: 30px;
+    font-weight: 500;
+}
+.startup-3 .form-control{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    height: 50px;
+}
+.startup-3 .btn{
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    height: 50px;
+    background:  #396bc7;
+    width: 100px;
+    color: #ffff;
+}
+.startup-4{
+    background-image: url(../Images/SP_img/Path\ 315.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.startup-4-txt{
+    margin-top: 100px;
+}
+.startup-4-txt h3{
+    font-size: 40px;
+    font-weight: 700;
+    word-spacing: 10px;
+
+}
+.startup-4 p{
+    font-size: 25px;
+    font-weight: 5400;
+    padding-top: 10px;
+
+}
+.startup-4 .img{
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.startup-4 .card{
+    width: 70%;
+    border-top-left-radius:20% ;
+    border-bottom-right-radius:20% ;
+    box-shadow: 17px 25px 12px -1px rgb(0 0 0 / 68%);
+            -webkit-box-shadow: 17px 25px 12px -1px rgb(0 0 0 / 60%);
+            -moz-box-shadow: 17px 25px 12px -1px rgba(53, 53, 53, 0.68);
+}
+.startup-4 h4{
+  font-weight: 600;
+    font-size: 28px;
+ }
+.startup-4 .card p{
+   color: #3f3f3f;
+   font-size: 14px;
+}
+
+/* carousel section */
+
+.carousel-section .c1{
+    background-image: url(../Images/SP_img/Group\ 278.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    }
+    .carousel-section .c2{
+        background-image: url(../Images/SP_img/Mask\ Group\ 22.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+        
+    }
+    .carousel-section .c3{
+        background-image: url(../Images/SP_img/Group\ 277.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+    }
+    .carousel-section h5{
+        margin: 70px 0;
+        font-size: 35px;
+    }
+    .carousel-section p{
+        font-size: 25px;
+        margin: 40px 0;
+
+    }
+    .carousel-section .card{
+       margin: 20px;
+        box-shadow: 1px 12px 12px 0px rgb(0 0 0 / 40%);
+               
+    }
+        
+
+/* footer */
+
+.bg-footer {
+    background: #c7c6c6;
+    bottom: 0;
+}
+
+.list-social li {
+    padding: 10px;
+}
+
+.btn-social-icon {
+    padding: 5px;
+    border-radius: 50%;
+    color: #ffff;
+}
+
+.fb {
+    background: #326dda;
+    padding: 3px 12px;
+}
+
+.insta {
+    background: #663e3e;
+    padding: 3px 12px;
+}
+
+.linked {
+    background: #688fd8;
+    padding: 3px 12px;
+}
+
+.twit {
+    background: #326dda;
+    padding: 3px 12px;
+}
+
+.sideline {
+    border-right: 2px solid black;
+}
+
+.gap {
+    padding-top: 100px;
+}
+
+footer a {
+    color: #000;
+}
+
+footer h5 {
+    font-weight: bolder;
+}
+
+
+@media (max-width: 992px) {
+    .bg-nav2 {
+        background: linear-gradient(-130deg, #0c47b4, #67caf1);
+    }
+   
+}
+
+@media (max-width: 768px) {
+    .bg-nav2 {
+        background: linear-gradient(-130deg, #0c47b4, #67caf1);
+    }
+    .head{
+        padding: 0px 0px; 
+        }
+
+        .head-1 h2{
+            font-size: 30px;
+            padding-top: 0px;
+        }
+        .head-1 p{
+          
+            font-size: 15px;
+            padding-top: 0px;
+            padding-right: 0px;
+            font-weight: 500;
+            word-spacing: 0px;
+        }
+        .head-1 h4{
+            font-size: 20px;
+            padding-top: 0px;
+            font-weight: 500;
+        }
+        .startup-1 p{
+            padding: 40px 50px;
+        }
+
+        .startup-2{
+            background-color: #dfe6ee;
+       
+        }
+        .startup-2-img{
+            margin-top: 25px;
+        }
+        .startup-2-txt{
+            height: 300px;
+            
+        }
+        .startup-2-txt h2{
+            font-size: 30px;
+            font-weight: 600;
+        }
+        .startup-2-txt p{
+            font-size: 20px;
+            font-weight: 300;
+            
+        }
+        .startup-3{
+            height: 340px;
+        }
+        .startup-3-txt{
+            font-size: 25px;
+            font-weight: 500;
+        }
+        .startup-3 .form-control{
+            height: 40px;
+        }
+        .startup-3 .btn{
+            height: 40px;
+        }
+
+        .startup-4-txt{
+            margin-top: 40px;
+        }
+        .startup-4 .card{
+            width: 100%;
+            border-top-left-radius:30% ;
+            border-bottom-right-radius:30% ;
+        }
+        .startup-4-txt h3{
+            font-size: 25px;
+            font-weight: 600;
+            word-spacing: 0px;
+        
+        }
+        .startup-4 p{
+            font-size: 15px;
+            font-weight: 300;
+            padding-top: 0px;
+        }
+        .startup-4 .img{
+            width: 50px;
+        }
+    
+        .startup-4 h4{
+          font-weight: 600;
+            font-size: 15px;
+         }
+        .startup-4 .card p{
+           font-size: 10px;
+        }
+        .list-social li {
+            display: inline;
+            padding: 10px;
+        }
+        footer a {
+            font-size: small;
+        }
+
+        /* carousel section */
+        
+            .carousel-section h5{
+                margin: 30px 0;
+                font-size: 30px;
+            }
+            .carousel-section p{
+                font-size: 17px;
+                margin: 20px 0;
+        
+            }
+         
+            
+        
+}
+
+@media (max-width: 576px) {
+    .head{
+        padding: 55px 0px; 
+        background-position: center;
+
+        }
+        .head-1{
+            background-position: center;
+            background-size: cover;
+
+        }
+        .head-1 h2{
+            font-size: 30px;
+            padding-top: 20px;
+   
+        }
+        .head-1 p{
+          
+            font-size: 15px;
+            padding-top: 0px;
+            padding-left: 0px;
+            font-weight: 450;
+            word-spacing: 0px;
+        }
+        .head-1 h4{
+            font-size: 20px;
+            padding-top: 0px;
+            font-weight: 500;
+        }
+        .startup-1 p{
+            padding: 40px 10px;
+        }
+        .startup-1 .text-bg h4{
+            font-size: 17px;
+        }
+        .startup-3{
+            height: 340px;
+        }
+        .startup-3-txt{
+            font-size: 20px;
+            font-weight: 400;
+        }
+        .startup-3 .form-control{
+            height: 40px;
+        }
+        .startup-3 .btn{
+            height: 40px;
+            font-size: 13px;
+        }
+        .startup-4-txt{
+            margin-top: 100px;
+        }
+
+        .startup-4 .card{
+            margin-top: 25px;
+            border-top-left-radius:30% ;
+            border-bottom-right-radius:30% ;
+            box-shadow: 17px 25px 12px -1px rgb(0 0 0 / 68%);
+            -webkit-box-shadow: 17px 25px 12px -1px rgb(0 0 0 / 60%);
+            -moz-box-shadow: 17px 25px 12px -1px rgba(53, 53, 53, 0.68);
+        }
+        .startup-4-txt h3{
+            font-size: 30px;
+            font-weight: 600;
+            word-spacing: 0px;
+        
+        }
+        .startup-4 p{
+            font-size: 20px;
+            font-weight: 400;
+            padding-top: 10px;
+        }
+        .startup-4 .img{
+            width: 90px;
+           
+        }
+    
+        .startup-4 h4{
+          font-weight: 600;
+            font-size: 25px;
+         }
+        .startup-4 .card p{
+           font-size: 15px;
+        }
+        .list-social li {
+            display: inline;
+            padding: 10px;
+        }
+
+       
+        /* carousel section */
+        
+        .carousel-section h5{
+            margin: 20px 0;
+            font-size: 25px;
+        }
+        .carousel-section p{
+            font-size: 13px;
+            margin: 10px 0;
+    
+        }
+        
+
+        /* footer */
+        
+        footer a {
+            font-size: small;
+        }
+}
+
+
+@media (max-width: 330px) {
+   
+}
+
+
+/* event type show and hide*/
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+
+/* registration form */
+
+.bg-linear {
+    background: linear-gradient(-130deg, #0c47b4, #67caf1);
+    /* color: #fff; */
+}
+
+
+/* .bg-linear a{
+    color: #fff;
+  
+}  */
+
+.bg-img {
+   /* background-image: url(images/wp8107903-office-work-wallpapers.jpg);*/
+    background-position: center;
+}
+
+

@@ -1,0 +1,339 @@
+.bg-nav {
+    background: linear-gradient(-130deg, #0c47b4, #67caf1);
+}
+
+.head {
+    width: 100%;
+    padding: 50px 0px; 
+    background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../Images/Index_img/Web\ 1920\ –\ 5-2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.head-1 h2{
+    font-size: 40px;
+    padding-top: 70px;
+}
+.head-1 p{
+    font-size: 20px;
+    padding-top: 20px;
+    padding-right: 10px;
+    font-weight: 500;
+    word-spacing: 10px;
+}
+.head-1 h4{
+    font-size: 30px;
+    padding-top: 20px;
+    font-weight: 500;
+}
+.head-1 .primary{
+    color: #52acf7;
+}
+.head-1 input{
+    background:linear-gradient(-130deg, #0c47b4, #67caf1);
+    border: 0;
+    border-radius: 20px;
+    height: 44px;
+    color: #fff;
+    font-size: 20px;
+    width: 150px;
+}
+
+
+
+.startup-1{
+    background-image: url(../Images/SP_img/Group\ 269.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.startup-1 h1{
+    color: #ffff;
+    padding-top: 20px;
+}
+.startup-1 p{
+    color: #ffff;
+    padding: 40px 200px;
+    letter-spacing: 2px;
+  
+}
+
+/* bg layer */
+
+.bg-layer{
+    background-image:linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .7) ), url(../Images/SP_img/Mask\ Group\ 33.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    padding: 100px 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+.bg-layer-2 h4{
+    font-weight: 700;
+    font-size: 30px;
+    margin: 60px 40px 0 40px;
+}
+.bg-layer-2 p{
+    font-weight: 500;
+    margin: 20px 40px;
+}
+/* over-view" */
+.over-view h4{
+    text-decoration: underline;
+}
+.over-view h5{
+    border:1px solid #3aa6ff;
+    padding:5px 10px;
+    border-radius: 10px;
+}
+.over-view span{
+    color: #3aa6ff;
+
+   
+}
+
+.section_1{
+    background-color: #ececec;
+    color: #797878;
+}
+.section_1 h4{
+    font-weight: 300;
+    font-size: 35px;
+}
+.section_1 p{
+    font-weight: 300;
+    font-size: 20px;
+}
+.section_2{
+    color: #797878;
+}
+.section_2 h4{
+    font-weight: 300;
+    font-size: 25px;
+}
+.section_2 span{
+    font-weight: 500;
+    color: #3aa6ff;
+    font-size: 20px;
+}
+/* footer */
+
+.bg-footer {
+    background: #c7c6c6;
+    bottom: 0;
+}
+
+.list-social li {
+    padding: 10px;
+}
+
+.btn-social-icon {
+    padding: 5px;
+    border-radius: 50%;
+    color: #ffff;
+}
+
+.fb {
+    background: #326dda;
+    padding: 3px 12px;
+}
+
+.insta {
+    background: #663e3e;
+}
+
+.linked {
+    background: #688fd8;
+}
+
+.twit {
+    background: #326dda;
+}
+
+.sideline {
+    border-right: 2px solid black;
+}
+
+.gap {
+    padding-top: 100px;
+}
+
+footer a {
+    color: #000;
+}
+
+footer h5 {
+    font-weight: bolder;
+}
+
+
+@media (max-width: 992px) {
+    .bg-nav2 {
+        background: linear-gradient(-130deg, #0c47b4, #67caf1);
+    }
+   
+}
+
+@media (max-width: 768px) {
+    
+    .head{
+        padding: 0px 0px; 
+        background-position:left;
+        background-image:linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .7) ), url(../Images/Index_img/Web\ 1920\ –\ 5-2.png);
+        }
+     
+        .head-1 h2{
+            font-size: 30px;
+            padding-top: 0px;
+        }
+        .head-1 p{
+          
+            font-size: 15px;
+            padding-top: 0px;
+            padding-right: 0px;
+            font-weight: 500;
+            word-spacing: 0px;
+        }
+        .head-1 h4{
+            font-size: 20px;
+            padding-top: 0px;
+            font-weight: 500;
+        }
+        .startup-1 p{
+            padding: 40px 50px;
+        }
+        .bg-layer{
+            padding: 50px 0;
+        }
+        .bg-layer-2 h4{
+            font-weight: 700;
+            font-size: 25px;
+            margin: 60px 40px 0 40px;
+        }
+        .bg-layer-2 p{
+            font-weight: 500;
+            margin: 20px 40px;
+        }
+
+        .list-social li {
+            display: inline;
+            padding: 10px;
+        }
+
+        .footer a{
+            font-size: small;
+        }
+    
+        
+}
+
+@media (max-width: 576px) {
+    .head{
+        background-image:linear-gradient( rgba(0, 0, 0, .8), rgba(0, 0, 0, .8) ), url(../Images/Index_img/Web\ 1920\ –\ 5-2.png);
+        padding: 55px 0px; 
+        background-position:left;
+        }
+       .head-bg{
+           height:0px;
+           background-image: none;
+           background-position: none;
+           background-size: none;
+       }
+        .head-1 h2{
+            font-size: 30px;
+            padding-top: 20px;
+   
+        }
+        .head-1 p{
+          
+            font-size: 15px;
+            padding-top: 0px;
+            padding-left: 0px;
+            font-weight: 450;
+            word-spacing: 0px;
+        }
+        .head-1 h4{
+            font-size: 20px;
+            padding-top: 0px;
+            font-weight: 500;
+        }
+        .startup-1 p{
+            padding: 40px 50px;
+        }
+        /* over-view" */
+
+.over-view h5{
+    font-size: 15px;
+}
+
+.section_1 h4{
+    font-weight: 300;
+    font-size: 26px;
+}
+.section_1 p{
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.section_2 h4{
+    font-weight: 300;
+    font-size: 20px;
+}
+.section_2 span{
+    font-weight: 500;
+    color: #3aa6ff;
+    font-size: 15px;
+}.bg-layer-2 h4{
+    font-weight: 700;
+    font-size: 25px;
+    margin: 50px 40px 0 40px;
+}
+.bg-layer-2 p{
+    font-weight: 500;
+    font-size: 12px;
+    margin: 20px 40px;
+}
+}
+
+
+@media (max-width: 330px) {
+   
+}
+
+
+/* event type show and hide*/
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+
+/* registration form */
+
+.bg-linear {
+    background: linear-gradient(-130deg, #0c47b4, #67caf1);
+    /* color: #fff; */
+}
+
+
+/* .bg-linear a{
+    color: #fff;
+  
+}  */
+
+.bg-img {
+    /* background-image: url(..images/wp8107903-office-work-wallpapers.jpg);
+     */
+    background-position: center;
+}
+
+
